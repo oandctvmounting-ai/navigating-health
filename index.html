@@ -1218,16 +1218,7 @@ nav.solid .hamburger span {
 #mobile-menu {
   /* Already set in HTML via class, but we can reinforce */
 
-#mobile-menu .space-y-6 {
-      width: 90%;
-      max-width: 450px;
-      max-height: 80vh;
-      overflow-y: auto;
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+
 #mobile-menu a {
   display: block;
   padding: 0.5rem 0;
@@ -1262,19 +1253,52 @@ nav.solid .hamburger span {
 #mobile-menu a.bg-primary:hover {
   background: var(--accent);
 }
+#mobile-menu .space-y-6 {
+      width: 90%;
+      max-width: 450px;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+#mobile-menu a {
+      display: block;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 1.1rem;
+      color: var(--fg);
+      transition: background 0.2s ease;
+    }
+    #mobile-menu a:last-child {
+      border-bottom: none;
+    }
+    #mobile-menu a.bg-primary {
+      margin-top: 1rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    #mobile-menu a.bg-primary:hover {
+      background: var(--accent);
+    }
 </style>
-</head><nav id="main-nav">
-          <div class="container nav-container">
-        <div class="nav-logo">
-          <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
-          <span>Navigating Health</span>
-        </div>
-        <div class="hamburger md:hidden" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="nav-links">
+</head>
+  <nav id="main-nav">
+    <div class="container nav-container">
+      <div class="nav-logo">
+        <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
+        <span>Navigating Health</span>
+      </div>
+      <div class="hamburger md:hidden" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="podcast.html" class="nav-link">Podcast</a>
         <a href="real-people.html" class="nav-link">Real People</a>
@@ -1283,46 +1307,13 @@ nav.solid .hamburger span {
         <a href="shop.html" class="nav-link">Shop</a>
         <a href="about.html" class="nav-link">About</a>
       </div>
-        <div class="nav-cta">Listen Now</div>
+      <div class="nav-cta">
+        <a href="podcast.html" class="btn btn-primary">Listen Now</a>
       </div>
-    </div>
-            <div class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="podcast.html" class="nav-link">Podcast</a>
-        <a href="real-people.html" class="nav-link">Real People</a>
-        <a href="resources.html" class="nav-link">Resources</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="shop.html" class="nav-link">Shop</a>
-        <a href="about.html" class="nav-link">About</a>
-      </div>
-      <div class="nav-cta">Listen Now</div>
     </div>
   </nav>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 hidden">
-      <div class="space-y-6 text-center">
-        <a href="index.html" class="text-3xl font-serif text-white block">Home</a>
-        <a href="podcast.html" class="text-3xl font-serif text-white block">Podcast</a>
-        <a href="real-people.html" class="text-3xl font-serif text-white block">Real People</a>
-        <a href="resources.html" class="text-3xl font-serif text-white block">Resources</a>
-        <a href="blog.html" class="text-3xl font-serif text-white block">Blog</a>
-        <a href="shop.html" class="text-3xl font-serif text-white block">Shop</a>
-        <a href="about.html" class="text-3xl font-serif text-white block">About</a>
-        <a href="podcast.html" class="bg-primary text-white px-6 py-3 rounded">Listen Now</a>
-      </div>
+    
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 hidden">
-      <div class="space-y-6 text-center">
-        <a href="index.html" class="text-3xl font-serif text-white block">Home</a>
-        <a href="podcast.html" class="text-3xl font-serif text-white block">Podcast</a>
-        <a href="real-people.html" class="text-3xl font-serif text-white block">Real People</a>
-        <a href="resources.html" class="text-3xl font-serif text-white block">Resources</a>
-        <a href="blog.html" class="text-3xl font-serif text-white block">Blog</a>
-        <a href="shop.html" class="text-3xl font-serif text-white block">Shop</a>
-        <a href="about.html" class="text-3xl font-serif text-white block">About</a>
-        <a href="podcast.html" class="bg-primary text-white px-6 py-3 rounded">Listen Now</a>
-      </div>
     </div><section class="hero">
       <div class="hero-background">
         <img src="hero-featured.jpg" alt="Cinematic mountain landscape with warm sunlight">
@@ -1500,5 +1491,27 @@ nav.solid .hamburger span {
       lastScroll = currentScroll;
     });
 </script>
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 hidden">
+      <div class="space-y-6 text-center">
+        <a href="index.html" class="text-3xl font-serif text-white block">Home</a>
+        <a href="podcast.html" class="text-3xl font-serif text-white block">Podcast</a>
+        <a href="real-people.html" class="text-3xl font-serif text-white block">Real People</a>
+        <a href="resources.html" class="text-3xl font-serif text-white block">Resources</a>
+        <a href="blog.html" class="text-3xl font-serif text-white block">Blog</a>
+        <a href="shop.html" class="text-3xl font-serif text-white block">Shop</a>
+        <a href="about.html" class="text-3xl font-serif text-white block">About</a>
+        <a href="podcast.html" class="bg-primary text-white px-6 py-3 rounded">Listen Now</a>
+      </div>
+    </div>
 </body>
 </html>
