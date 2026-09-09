@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navigating Health - Shop</title>
+  <title>Navigating Health - Cindy's Podcast</title>
   <meta name="description" content="Cindy's Navigating Health Podcast - exploring health journeys through real stories, expert conversations, and wellness insights" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
@@ -1428,7 +1428,8 @@ nav.solid .hamburger span {
     }
 }
     }
-</style></head>
+</style>
+</head>
     
     /* ===== BOTTOM NAVIGATION (MOBILE) ===== */
     .bottom-nav {
@@ -1666,7 +1667,20 @@ nav.solid .hamburger span {
 
 
 
-<script>    // Mobile menu toggle
+
+    <!-- Bottom Navigation Bar (Mobile) -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="podcast.html" class="nav-item">Podcast</a>
+        <a href="real-people.html" class="nav-item">Real People</a>
+        <a href="resources.html" class="nav-item">Resources</a>
+        <a href="blog.html" class="nav-item">Blog</a>
+        <a href="shop.html" class="nav-item">Shop</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="podcast.html" class="nav-item active">Listen Now</a>
+    </div>
+<script>
+// Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-close');
@@ -1679,70 +1693,6 @@ nav.solid .hamburger span {
       document.body.style.overflow = mobileMenu.classList.contains('flex') ? 'hidden' : '';
       // Animate hamburger icon
       hamburger.classList.toggle('active');
-    });
-
-    // Mobile close button click
-    mobileClose.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-      document.body.style.overflow = '';
-      hamburger.classList.remove('active');
-    });
-
-    // Mobile nav links click
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
-        document.body.style.overflow = '';
-        hamburger.classList.remove('active');
-      });
-    });
-
-    // Scroll-based animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
-    // Navbar scroll effect
-    const nav = document.getElementById('main-nav');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll > lastScroll && currentScroll > 100) {
-        // Scrolling down
-        nav.classList.add('solid');
-      } else {
-        // Scrolling up
-        nav.classList.remove('solid');
-      }
-      lastScroll = currentScroll;
-    });
 </script>
-    <!-- Bottom Navigation Bar (Mobile) -->
-    <div class="bottom-nav">
-        <a href="index.html" class="nav-item">Home</a>
-        <a href="podcast.html" class="nav-item">Podcast</a>
-        <a href="real-people.html" class="nav-item">Real People</a>
-        <a href="resources.html" class="nav-item">Resources</a>
-        <a href="blog.html" class="nav-item">Blog</a>
-        <a href="shop.html" class="nav-item">Shop</a>
-        <a href="about.html" class="nav-item">About</a>
-        <a href="podcast.html" class="nav-item active">Listen Now</a>
-    </div>
 </body>
 </html>
