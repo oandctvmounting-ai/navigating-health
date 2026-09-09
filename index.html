@@ -295,30 +295,34 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      padding: 2rem;
+      padding: 0;
       max-width: 800px;
     }
     
     .hero-text {
-      color: var(--hero-text);
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      color: var(--fg);
       max-width: 80%;
       margin-bottom: 2rem;
     }
     
     .hero-text h1 {
-      color: var(--hero-text);
+      color: inherit;
       font-size: clamp(2.5rem, 8vw, 4rem);
       line-height: 1.2;
       margin-bottom: 1.5rem;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-weight: 800;
     }
     
     .hero-text p {
       font-size: clamp(1.125rem, 3vw, 1.5rem);
       font-weight: 600;
-      color: var(--hero-text);
+      color: inherit;
       line-height: 1.6;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     
     .hero-buttons {
@@ -882,15 +886,26 @@
       }
       
       .hero-content {
-        padding: 1.5rem;
-        text-align: center;
-        align-items: center;
-      }
+      position: relative;
+      z-index: 10;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+      max-width: 800px;
+    }
       
       .hero-text {
-        text-align: center;
-        margin-bottom: 1.5rem;
-      }
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      color: var(--fg);
+      max-width: 80%;
+      margin-bottom: 2rem;
+    }
       
       .hero-buttons {
         justify-content: center;
@@ -923,19 +938,31 @@
       h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
       
       .hero-content {
-        padding: 1rem;
-      }
+      position: relative;
+      z-index: 10;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+      max-width: 800px;
+    }
       
       .hero-text h1 {
-        font-size: clamp(1.75rem, 6vw, 2.5rem);
-      }
+      color: inherit;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+    }
       
       .hero-text p {
       font-size: clamp(1.125rem, 3vw, 1.5rem);
       font-weight: 600;
-      color: var(--hero-text);
+      color: inherit;
       line-height: 1.6;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
       
       .hero-buttons {
