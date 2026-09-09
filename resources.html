@@ -978,16 +978,8 @@ nav.solid .hamburger span {
     }
     
     /* ===== MOBILE RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .nav-links {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      background: white;
-      padding: 0.25rem 0.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+
+}
       
       .hamburger {
         display: flex;
@@ -1208,10 +1200,8 @@ nav.solid .hamburger span {
       transform: translateY(-8px) rotate(-45deg);
     }
     /* Show hamburger on mobile */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
+
+}
     }
 
 /* Mobile Menu Styles */
@@ -1285,7 +1275,43 @@ nav.solid .hamburger span {
     #mobile-menu a.bg-primary:hover {
       background: var(--accent);
     }
+
+
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
 </style>
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
 </head>
     </style>
 </head>
@@ -1455,6 +1481,11 @@ nav.solid .hamburger span {
     
     
     </script>
+
+
+
+
+
 
 
 
