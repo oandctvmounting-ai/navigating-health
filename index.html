@@ -137,7 +137,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(245, 240, 232, 0.9);
+      background: rgba(245, 240, 232, 0.95);
       backdrop-filter: blur(10px);
       transition: background 0.3s ease;
       border-bottom: 1px solid rgba(216, 207, 198, 0.3);
@@ -175,7 +175,10 @@
     
     .nav-link {
       color: var(--hero-text);
-      font-weight: 500;
+      text-shadow: 0 0 2px rgba(0,0,0,0.5);
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
       transition: color 0.3s ease;
       position: relative;
       padding: 0.5rem 0;
@@ -205,13 +208,16 @@
       color: var(--cream);
       padding: 0.75rem 1.5rem;
       border-radius: 4px;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.1rem;
       transition: background 0.3s ease, transform 0.2s ease;
+      border: 2px solid transparent;
     }
     
     .nav-cta:hover {
       background: #001e4d;
       transform: translateY(-2px);
+      border-color: var(--accent);
     }
     
     .hamburger {
