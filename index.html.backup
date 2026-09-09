@@ -137,7 +137,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: transparent;;;
+      background: rgba(245, 240, 232, 0.9);
       backdrop-filter: blur(10px);
       transition: background 0.3s ease;
       border-bottom: 1px solid rgba(216, 207, 198, 0.3);
@@ -171,31 +171,15 @@
       display: flex;
       gap: 2rem;
       align-items: center;
-      background: white;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
     .nav-link {
       color: var(--fg);
-      font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
+      font-weight: 500;
       transition: color 0.3s ease;
       position: relative;
       padding: 0.5rem 0;
     }
-
-/* Nav link color when nav is transparent (on hero) */
-nav:not(.solid) .nav-link {
-  color: var(--hero-text);
-}
-
-/* Hover for nav links when nav is transparent */
-nav:not(.solid) .nav-link:hover {
-  color: var(--accent);
-}
     
     .nav-link:hover {
       color: var(--accent);
@@ -221,16 +205,13 @@ nav:not(.solid) .nav-link:hover {
       color: var(--cream);
       padding: 0.75rem 1.5rem;
       border-radius: 4px;
-      font-weight: 600;
-      font-size: 1.1rem;
+      font-weight: 500;
       transition: background 0.3s ease, transform 0.2s ease;
-      border: 2px solid transparent;
     }
     
     .nav-cta:hover {
       background: #001e4d;
       transform: translateY(-2px);
-      border-color: var(--accent);
     }
     
     .hamburger {
@@ -241,17 +222,11 @@ nav:not(.solid) .nav-link:hover {
     }
     
     .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: var(--hero-text);
+      width: 24px;
+      height: 2px;
+      background: var(--fg);
       transition: all 0.3s ease;
     }
-
-/* Hamburger icon color when nav is solid */
-nav.solid .hamburger span {
-  background: var(--fg);
-}
-
     
     /* ===== HERO SECTION ===== */
     .hero {
@@ -319,26 +294,25 @@ nav.solid .hamburger span {
     }
     
     .hero-text {
-      color: var(--fg);
+      color: var(--hero-text);
       max-width: 80%;
       margin-bottom: 2rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
     
     .hero-text h1 {
-      color: inherit;
+      color: var(--hero-text);
       font-size: clamp(2.5rem, 8vw, 4rem);
       line-height: 1.2;
       margin-bottom: 1.5rem;
-      font-weight: 800;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
     
     .hero-text p {
       font-size: clamp(1.125rem, 3vw, 1.5rem);
-      font-weight: 600;
-      color: inherit;
+      opacity: 0.9;
       line-height: 1.6;
-      margin-bottom: 1.5rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      margin-bottom: 2rem;
     }
     
     .hero-buttons {
@@ -890,14 +864,8 @@ nav.solid .hamburger span {
     /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
       .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      background: white;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+        display: none;
+      }
       
       .hamburger {
         display: flex;
@@ -908,23 +876,15 @@ nav.solid .hamburger span {
       }
       
       .hero-content {
-      position: relative;
-      z-index: 10;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 2rem;
-      max-width: 800px;
-    }
+        padding: 1.5rem;
+        text-align: center;
+        align-items: center;
+      }
       
       .hero-text {
-      color: var(--fg);
-      max-width: 80%;
-      margin-bottom: 2rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
       
       .hero-buttons {
         justify-content: center;
@@ -957,32 +917,16 @@ nav.solid .hamburger span {
       h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
       
       .hero-content {
-      position: relative;
-      z-index: 10;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 2rem;
-      max-width: 800px;
-    }
+        padding: 1rem;
+      }
       
       .hero-text h1 {
-      color: inherit;
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      font-weight: 800;
-    }
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+      }
       
       .hero-text p {
-      font-size: clamp(1.125rem, 3vw, 1.5rem);
-      font-weight: 600;
-      color: inherit;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
+        font-size: clamp(1rem, 3vw, 1.25rem);
+      }
       
       .hero-buttons {
         flex-direction: column;
@@ -1031,80 +975,53 @@ nav.solid .hamburger span {
     }
 }
 
-
-    /* Section Navigation */
-    .section-nav {
-      background: var(--bg);
-      padding: 3rem 0;
-    }
-    .section-nav .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .section-nav .section-title h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--fg);
-      margin-bottom: 1rem;
-    }
-    .section-nav .section-title p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .section-nav .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .nav-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    .nav-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
-    .nav-card .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .nav-card h3 {
-      color: var(--fg);
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    .nav-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
 </style>
-</head><nav id="main-nav">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="main-nav">
     <div class="container nav-container">
       <div class="nav-logo">
         <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
         <span>Navigating Health</span>
       </div>
-            <div class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="podcast.html" class="nav-link">Podcast</a>
-        <a href="real-people.html" class="nav-link">Real People</a>
-        <a href="resources.html" class="nav-link">Resources</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="shop.html" class="nav-link">Shop</a>
-        <a href="about.html" class="nav-link">About</a>
+      <div class="nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#podcast" class="nav-link">Podcast</a>
+        <a href="#real-people" class="nav-link">Real People</a>
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#about" class="nav-link">About</a>
       </div>
       <div class="nav-cta">Listen Now</div>
     </div>
-  </nav><section class="hero">
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
+    <div class="space-y-6 text-center">
+      <a href="#home" class="text-3xl font-serif text-white block">Home</a>
+      <a href="#podcast" class="text-3xl font-serif text-white block">Podcast</a>
+      <a href="#real-people" class="text-3xl font-serif text-white block">Real People</a>
+      <a href="#resources" class="text-3xl font-serif text-white block">Resources</a>
+      <a href="#blog" class="text-3xl font-serif text-white block">Blog</a>
+      <a href="#shop" class="text-3xl font-serif text-white block">Shop</a>
+      <a href="#about" class="text-3xl font-serif text-white block">About</a>
+      <a href="#podcast" class="bg-primary text-white px-6 py-3 rounded">Listen Now</a>
+    </div>
+  </div>
+  
+  <!-- Hamburger -->
+  <div class="hamburger md:hidden" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+  <main>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
       <div class="hero-background">
         <img src="hero-featured.jpg" alt="Cinematic mountain landscape with warm sunlight">
       </div>
@@ -1120,47 +1037,444 @@ nav.solid .hamburger span {
           </div>
         </div>
       </div>
-    </section>    <!-- Section Navigation -->
-    <section class="section-nav">
+    </section>
+    
+    <!-- ===== PODCAST SECTION ===== -->
+    <section class="content-section section-light" id="podcast">
       <div class="container">
         <div class="section-title">
-          <h2>Explore the Podcast</h2>
-          <p>Choose your journey:</p>
+          <h2>More Than a Podcast.</h2>
+          <p>Navigating Health is about conversations, stories, experiences, and information that help people make more informed decisions about their health.</p>
         </div>
-        <div class="grid grid-4">
-          <a href="podcast.html" class="nav-card">
-            <div class="card-icon">🎧</div>
-            <h3>Podcast</h3>
-            <p>Listen to the latest episodes</p>
-          </a>
-          <a href="real-people.html" class="nav-card">
-            <div class="card-icon">👥</div>
-            <h3>Real People</h3>
-            <p>Inspiring health journeys</p>
-          </a>
-          <a href="resources.html" class="nav-card">
-            <div class="card-icon">🛠️</div>
-            <h3>Resources</h3>
-            <p>Tools & guides</p>
-          </a>
-          <a href="blog.html" class="nav-card">
-            <div class="card-icon">📝</div>
-            <h3>Blog</h3>
-            <p>Wellness insights</p>
-          </a>
-          <a href="shop.html" class="nav-card">
-            <div class="card-icon">🛍️</div>
-            <h3>Shop</h3>
-            <p>Merchandise</p>
-          </a>
-          <a href="about.html" class="nav-card">
-            <div class="card-icon">ℹ️</div>
-            <h3>About</h3>
-            <p>Meet Cindy</p>
-          </a>
+        
+        <div class="grid grid-2">
+          <!-- Featured Episode Card -->
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1503342133008-c916a46f6d5f?w=800&h=400&fit=crop" alt="Podcast episode artwork showing warm mountain landscape">
+              <div class="play-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="10 8 14 12 10 16"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>The Science of Letting Go</h3>
+              <p>Exploring how releasing control can actually improve your health outcomes and reduce stress in daily life.</p>
+              <a href="#" class="card-read-more">Listen Now →</a>
+            </div>
+          </div>
+          
+          <!-- Latest Episodes -->
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e0b6c614958f?w=800&h=400&fit=crop" alt="Two people having a wellness conversation in nature">
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="10 8 14 12 10 16"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3>Mindful Eating for Better Health</h3>
+                <p>How slowing down and paying attention to your food can transform your relationship with eating.</p>
+                <a href="#" class="card-read-more">Listen Now →</a>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=400&fit=crop" alt="Person practicing forest bathing in a lush green forest">
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="10 8 14 12 10 16"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3>Forest Bathing: Nature's Medicine</h3>
+                <p>The scientific benefits of spending time in forests and how it affects your wellbeing.</p>
+                <a href="#" class="card-read-more">Listen Now →</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section><footer>
+    </section>
+    
+    <!-- ===== REAL PEOPLE SECTION ===== -->
+    <section class="content-section section-white" id="real-people">
+      <div class="container">
+        <div class="section-title">
+          <h2>Real People. Real Journeys.</h2>
+          <p>Because every health journey is different.</p>
+        </div>
+        
+        <div class="grid grid-3">
+          <!-- Maria's Story -->
+          <div class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=400&fit=crop" alt="Maria walking confidently along forest trail, managing her diabetes journey">
+            </div>
+            <div class="story-content">
+              <h3>Maria's Diabetes Journey</h3>
+              <p>After her diagnosis, Maria discovered that small, consistent changes in diet and movement transformed her health more than any medication could.</p>
+              <div class="story-quote">
+                "I didn't need to be perfect. I just needed to start."
+              </div>
+            </div>
+          </div>
+          
+          <!-- James's Story -->
+          <div class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop" alt="James meditating peacefully by tranquil lake at sunrise">
+            </div>
+            <div class="story-content">
+              <h3>James' Anxiety Recovery</h3>
+              <p>Through mindfulness practices and understanding his triggers, James learned to navigate anxiety without letting it control his life.</p>
+              <div class="story-quote">
+                "My mind is not my enemy—it's trying to protect me."
+              </div>
+            </div>
+          </div>
+          
+          <!-- Aisha's Story -->
+          <div class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=400&fit=crop" alt="Aisha preparing colorful nutritious meal in her kitchen">
+            </div>
+            <div class="story-content">
+              <h3>Aisha's Heart Health Transformation</h3>
+              <p>After a scare at 42, Aisha rebuilt her relationship with food and movement, finding joy in nourishing her body.</p>
+              <div class="story-quote">
+                "Health isn't a destination—it's how you choose to live each day."
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== EXPLORE LATEST ===== -->
+    <section class="content-section section-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>Explore the Latest</h2>
+          <p>Recent conversations, stories, and insights from the Navigating Health community.</p>
+        </div>
+        
+        <div class="grid grid-3">
+          <!-- Expert Interview -->
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3056?w=800&h=400&fit=crop" alt="Doctor consulting with patient in modern medical office">
+              <div class="play-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="10 8 14 12 10 16"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Dr. Sarah Chen on Gut Health</h3>
+              <p>New research shows how your microbiome affects everything from mood to immunity.</p>
+              <a href="#" class="card-read-more">Watch Interview →</a>
+            </div>
+          </div>
+          
+          <!-- Personal Story -->
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=400&fit=crop" alt="Person journaling outdoors with notebook and pen">
+              <div class="play-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="10 8 14 12 10 16"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>My 6-Month Wellness Experiment</h3>
+              <p>What happened when I tracked every aspect of my health for 180 days.</p>
+              <a href="#" class="card-read-more">Read Story →</a>
+            </div>
+          </div>
+          
+          <!-- Wellness Tip -->
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=400&fit=crop" alt="Variety of herbal teas in ceramic cups on wooden table">
+              <div class="play-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="10 8 14 12 10 16"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>5 Herbs for Natural Stress Relief</h3>
+              <p>Science-backed botanicals that help your body adapt to daily pressures.</p>
+              <a href="#" class="card-read-more">Learn More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== TOOLS & RESOURCES ===== -->
+    <section class="content-section section-white" id="resources">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tools for Your Journey</h2>
+          <p>Resources, guides, and recommendations to support your health exploration.</p>
+        </div>
+        
+        <div class="resources-grid">
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v4l4 2"/>
+              </svg>
+            </div>
+            <h3>Health Trackers</h3>
+            <p>Recommended apps and journals for monitoring your progress mindfully.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Wellness Guides</h3>
+            <p>Free downloadable resources on nutrition, movement, and mental health.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16l-4-4 7-4 1 8"/>
+              </svg>
+            </div>
+            <h3>Community Forums</h3>
+            <p>Safe spaces to share experiences and learn from others on similar journeys.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 17V5l7-3 7 3v12"/>
+              </svg>
+            </div>
+            <h3>Expert Directories</h3>
+            <p>Trusted practitioners who align with our holistic approach to health.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3l18 18"/>
+              </svg>
+            </div>
+            <h3>Reading Lists</h3>
+            <p>Curated books and articles that have transformed our understanding of health.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3>Local Resources</h3>
+            <p>Find practitioners, classes, and wellness centers in your area.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="content-section section-light" id="blog">
+      <div class="container">
+        <div class="section-title">
+          <h2>Keep Exploring</h2>
+          <p>Articles, insights, and stories to deepen your understanding of health and wellness.</p>
+        </div>
+        
+        <div class="grid grid-3">
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop" alt="Peaceful morning routine with yoga, journaling, and healthy breakfast">
+            </div>
+            <div class="blog-content">
+              <h3>Building a Morning Routine That Actually Works</h3>
+              <div class="blog-meta">
+                <span>Wellness</span>
+                <span>•</span>
+                <span>5 min read</span>
+              </div>
+              <p>Small, consistent actions create the foundation for lasting change in your health journey.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+          
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=400&fit=crop" alt="Sun-dappled forest path inviting mindful walking and reflection">
+            </div>
+            <div class="blog-content">
+              <h3>Why Nature Is Essential for Mental Health</h3>
+              <div class="blog-meta">
+                <span>Mental Health</span>
+                <span>•</span>
+                <span>7 min read</span>
+              </div>
+              <p>The science behind how spending time in natural environments reduces stress and improves mood.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+          
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1551434678-e0b6c614958f?w=800&h=400&fit=crop" alt="Colorful assortment of prepared healthy meals in glass containers for weekly meal prep">
+            </div>
+            <div class="blog-content">
+              <h3>Meal Prep Made Simple: Healthy Eating Without the Stress</h3>
+              <div class="blog-meta">
+                <span>Nutrition</span>
+                <span>•</span>
+                <span>6 min read</span>
+              </div>
+              <p>Practical strategies for nourishing your body even when life gets busy.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== SHOP SECTION ===== -->
+    <section class="content-section section-white" id="shop">
+      <div class="container">
+        <div class="section-title">
+          <h2>Take the Journey With You</h2>
+          <p>Thoughtfully designed items to accompany you on your health exploration.</p>
+        </div>
+        
+        <div class="shop-grid">
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop" alt="T-shirt">
+            </div>
+            <h3>Journey T-Shirt</h3>
+            <p>Soft, organic cotton shirt with minimalist mountain design.</p>
+            <div class="shop-price">$32</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop" alt="Mug">
+            </div>
+            <h3>Wellness Mug</h3>
+            <p>Ceramic mug for your morning tea or coffee ritual.</p>
+            <div class="shop-price">$18</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1594736797933-d0398ba3410e?w=100&h=100&fit=crop" alt="Journal">
+            </div>
+            <h3>Health Journal</h3>
+            <p>Guided pages for tracking symptoms, moods, and insights.</p>
+            <div class="shop-price">$24</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&h=100&fit=crop" alt="Hat">
+            </div>
+            <h3>Adventure Hat</h3>
+            <p>Sun protection for your outdoor explorations.</p>
+            <div class="shop-price">$28</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=100&h=100&fit=crop" alt="Water bottle">
+            </div>
+            <h3>Insulated Bottle</h3>
+            <p>Keeps your drinks at the perfect temperature all day.</p>
+            <div class="shop-price">$22</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1580913326951-ea15bb6b3e2d?w=100&h=100&fit=crop" alt="Yoga mat">
+            </div>
+            <h3>Travel Yoga Mat</h3>
+            <p>Eco-friendly mat for your practice wherever you go.</p>
+            <div class="shop-price">$45</div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="#shop" class="btn btn-secondary">Shop the Collection →</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== NEWSLETTER SECTION ===== -->
+    <section class="content-section">
+      <div class="container">
+        <div class="newsletter">
+          <h2>Stay Curious. Stay Informed.</h2>
+          <p>Get new episodes, stories, resources, and updates delivered to your inbox.</p>
+          <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address" aria-label="Email address for newsletter subscription" required>
+            <button type="submit" class="newsletter-button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== FINAL SECTION ===== -->
+    <section class="hero">
+      <div class="hero-background">
+        <img src="hero-featured.jpg" alt="Cinematic mountain landscape at golden hour">
+      </div>
+      <div class="hero-overlay"></div>
+      
+      <div class="hero-content">
+        <div class="hero-text" style="text-align: center;">
+          <h2>Let's Navigate This Together.</h2>
+          <p class="lead">Listen. Learn. Explore. Live well.</p>
+          <a href="#podcast" class="btn btn-secondary">Start Exploring</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
@@ -1214,45 +1528,44 @@ nav.solid .hamburger span {
     </div>
   </footer>
   
-  <script>    // Mobile menu toggle
+  <script>
+    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-close');
-
-    // Hamburger click - toggles menu and animates icon
+    
     hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
-      // Toggle body overflow when menu is open/closed
-      document.body.style.overflow = mobileMenu.classList.contains('flex') ? 'hidden' : '';
-      // Animate hamburger icon
-      hamburger.classList.toggle('active');
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      document.body.style.overflow = 'hidden';
     });
-
-    // Mobile close button click
+    
     mobileClose.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
       mobileMenu.classList.remove('flex');
       document.body.style.overflow = '';
-      hamburger.classList.remove('active');
     });
-
-    // Mobile nav links click
+    
+    // Mobile nav links
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
         mobileMenu.classList.remove('flex');
         document.body.style.overflow = '';
-        hamburger.classList.remove('active');
       });
     });
-
+    
+    // Hamburger animation
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+    
     // Scroll-based animations
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1260,10 +1573,11 @@ nav.solid .hamburger span {
         }
       });
     }, observerOptions);
-
+    
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
       observer.observe(el);
     });
+    
     // Navbar scroll effect
     const nav = document.getElementById('main-nav');
     let lastScroll = 0;
@@ -1271,15 +1585,21 @@ nav.solid .hamburger span {
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
       
-      if (currentScroll > lastScroll && currentScroll > 100) {
+      if (currentScroll <= 0) {
+        nav.classList.remove('solid');
+        return;
+      }
+      
+      if (currentScroll > lastScroll && !nav.classList.contains('solid')) {
         // Scrolling down
         nav.classList.add('solid');
-      } else {
+      } else if (currentScroll < lastScroll && nav.classList.contains('solid')) {
         // Scrolling up
         nav.classList.remove('solid');
       }
+      
       lastScroll = currentScroll;
     });
-</script>
+  </script>
 </body>
 </html>

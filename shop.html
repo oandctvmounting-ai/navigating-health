@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigating Health - Shop</title>
+    <meta name="description" content="Cindy's Navigating Health Podcast - exploring health journeys through real stories, expert conversations, and wellness insights" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f5f0e8;
+            --fg: #2a1f1a;
+            --muted: #6a5d54;
+            --primary: #002366;
+            --accent: #D4AF37;
+            --accent-warm: #f5c35e;
+            --green: #2d6a4f;
+            --navy: #1e3a5f;
+            --cream: #faf6f0;
+            --hero-text: #ffffff;
+        }
+        /* We'll include the rest of the CSS from the original index.html */
+        <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Navigating Health - Cindy's Podcast</title>
@@ -1031,136 +1053,110 @@ nav.solid .hamburger span {
     }
 }
 
-
-    /* Section Navigation */
-    .section-nav {
-      background: var(--bg);
-      padding: 3rem 0;
-    }
-    .section-nav .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .section-nav .section-title h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--fg);
-      margin-bottom: 1rem;
-    }
-    .section-nav .section-title p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .section-nav .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .nav-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    .nav-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
-    .nav-card .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .nav-card h3 {
-      color: var(--fg);
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    .nav-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
 </style>
-</head><nav id="main-nav">
+</head>
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="main-nav">
     <div class="container nav-container">
       <div class="nav-logo">
         <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
         <span>Navigating Health</span>
       </div>
-            <div class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="podcast.html" class="nav-link">Podcast</a>
-        <a href="real-people.html" class="nav-link">Real People</a>
-        <a href="resources.html" class="nav-link">Resources</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="shop.html" class="nav-link">Shop</a>
-        <a href="about.html" class="nav-link">About</a>
+      <div class="nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#podcast" class="nav-link">Podcast</a>
+        <a href="#real-people" class="nav-link">Real People</a>
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#about" class="nav-link">About</a>
       </div>
       <div class="nav-cta">Listen Now</div>
     </div>
-  </nav><section class="hero">
-      <div class="hero-background">
-        <img src="hero-featured.jpg" alt="Cinematic mountain landscape with warm sunlight">
-      </div>
-      <div class="hero-overlay"></div>
-      
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>Your Health Journey Matters.</h1>
-          <p class="lead">Real conversations. Informed insights. Inspiring stories. A different way to navigate your health.</p>
-          <div class="hero-buttons">
-            <button class="btn btn-primary">Listen to the Podcast</button>
-            <button class="btn btn-secondary">Explore the Journey</button>
-          </div>
+  </nav>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Shop</h1>
         </div>
-      </div>
-    </section>    <!-- Section Navigation -->
-    <section class="section-nav">
+    </section>
+    
+    <!-- Section Content -->
+    <section class="content-section section-white" id="shop">
       <div class="container">
         <div class="section-title">
-          <h2>Explore the Podcast</h2>
-          <p>Choose your journey:</p>
+          <h2>Take the Journey With You</h2>
+          <p>Thoughtfully designed items to accompany you on your health exploration.</p>
         </div>
-        <div class="grid grid-4">
-          <a href="podcast.html" class="nav-card">
-            <div class="card-icon">🎧</div>
-            <h3>Podcast</h3>
-            <p>Listen to the latest episodes</p>
-          </a>
-          <a href="real-people.html" class="nav-card">
-            <div class="card-icon">👥</div>
-            <h3>Real People</h3>
-            <p>Inspiring health journeys</p>
-          </a>
-          <a href="resources.html" class="nav-card">
-            <div class="card-icon">🛠️</div>
-            <h3>Resources</h3>
-            <p>Tools & guides</p>
-          </a>
-          <a href="blog.html" class="nav-card">
-            <div class="card-icon">📝</div>
-            <h3>Blog</h3>
-            <p>Wellness insights</p>
-          </a>
-          <a href="shop.html" class="nav-card">
-            <div class="card-icon">🛍️</div>
-            <h3>Shop</h3>
-            <p>Merchandise</p>
-          </a>
-          <a href="about.html" class="nav-card">
-            <div class="card-icon">ℹ️</div>
-            <h3>About</h3>
-            <p>Meet Cindy</p>
-          </a>
+        
+        <div class="shop-grid">
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop" alt="T-shirt">
+            </div>
+            <h3>Journey T-Shirt</h3>
+            <p>Soft, organic cotton shirt with minimalist mountain design.</p>
+            <div class="shop-price">$32</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop" alt="Mug">
+            </div>
+            <h3>Wellness Mug</h3>
+            <p>Ceramic mug for your morning tea or coffee ritual.</p>
+            <div class="shop-price">$18</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1594736797933-d0398ba3410e?w=100&h=100&fit=crop" alt="Journal">
+            </div>
+            <h3>Health Journal</h3>
+            <p>Guided pages for tracking symptoms, moods, and insights.</p>
+            <div class="shop-price">$24</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&h=100&fit=crop" alt="Hat">
+            </div>
+            <h3>Adventure Hat</h3>
+            <p>Sun protection for your outdoor explorations.</p>
+            <div class="shop-price">$28</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=100&h=100&fit=crop" alt="Water bottle">
+            </div>
+            <h3>Insulated Bottle</h3>
+            <p>Keeps your drinks at the perfect temperature all day.</p>
+            <div class="shop-price">$22</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1580913326951-ea15bb6b3e2d?w=100&h=100&fit=crop" alt="Yoga mat">
+            </div>
+            <h3>Travel Yoga Mat</h3>
+            <p>Eco-friendly mat for your practice wherever you go.</p>
+            <div class="shop-price">$45</div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="#shop" class="btn btn-secondary">Shop the Collection →</a>
         </div>
       </div>
-    </section><footer>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
@@ -1213,8 +1209,10 @@ nav.solid .hamburger span {
       </div>
     </div>
   </footer>
-  
-  <script>    // Mobile menu toggle
+    
+    <script>
+        // Same JS as original
+        <script>    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-close');
@@ -1281,5 +1279,6 @@ nav.solid .hamburger span {
       lastScroll = currentScroll;
     });
 </script>
+    </script>
 </body>
 </html>
