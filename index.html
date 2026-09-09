@@ -171,11 +171,14 @@
       display: flex;
       gap: 2rem;
       align-items: center;
+      background: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
     .nav-link {
-      color: var(--hero-text);
-      text-shadow: 0 0 2px rgba(0,0,0,0.5);
+      color: var(--fg);
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 0.5px;
@@ -874,8 +877,14 @@
     /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
       .nav-links {
-        display: none;
-      }
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      background: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
       
       .hamburger {
         display: flex;
