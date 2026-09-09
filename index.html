@@ -443,13 +443,13 @@
 
   <main>
     <!-- ===== HOME ===== -->
-    <section className="hero">
+    <section className="hero" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; overflow: hidden; z-index: 0;">
       <!-- Photo hero with tint -->
-      <div className="hero-photo tint-warm" style="background-image: url('/hero-featured.jpg'); background-size: cover; background-position: center;">
+      <div className="hero-photo tint-warm" style="background-image: url('/hero-featured.jpg'); background-size: cover; background-position: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%;">
         <!-- Actual unsplash image would be set via inline style or CSS -->
       </div>
       
-      <div className="hero-content">
+      <div className="hero-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 40px; box-sizing: border-box;">
         <div className="hero-text">
           <h1>Your Health Journey Matters.</h1>
           <p className="lead">Real conversations. Informed insights. Inspiring stories. A different way to navigate your health.</p>
