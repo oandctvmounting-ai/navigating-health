@@ -1680,6 +1680,7 @@ nav.solid .hamburger span {
         <a href="about.html" class="nav-item">About</a>
         <a href="podcast.html" class="nav-item active">Listen Now</a>
     </div>
+
 <script>
 // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
@@ -1694,6 +1695,59 @@ nav.solid .hamburger span {
       document.body.style.overflow = mobileMenu.classList.contains('flex') ? 'hidden' : '';
       // Animate hamburger icon
       hamburger.classList.toggle('active');
+    });
+
+    // Mobile close button click
+    mobileClose.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      document.body.style.overflow = '';
+      hamburger.classList.remove('active');
+    });
+
+    // Mobile nav links click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        document.body.style.overflow = '';
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Scroll-based animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+    // Navbar scroll effect
+    const nav = document.getElementById('main-nav');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scrolling down
+        nav.classList.add('solid');
+      } else {
+        // Scrolling up
+        nav.classList.remove('solid');
+      }
+      lastScroll = currentScroll;
+    });
 </script>
 </body>
 </html>
