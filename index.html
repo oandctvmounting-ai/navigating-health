@@ -19,204 +19,883 @@
       --green: #2d6a4f;
       --navy: #1e3a5f;
       --cream: #faf6f0;
-      --card: #faf6f0;
-      --border: #d8cfc6;
-      --section-light: #ebe4d9;
       --hero-text: #ffffff;
     }
-
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
+    
     html {
       scroll-behavior: smooth;
     }
-
+    
     body {
       font-family: 'Inter', sans-serif;
-      background: transparent;
-      color: #2a1f1a;
+      background: var(--bg);
+      color: var(--fg);
       line-height: 1.6;
+      overflow-x: hidden;
     }
-
+    
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Playfair Display', serif;
+      color: var(--fg);
     }
-
+    
     a {
       text-decoration: none;
-      color: inherit;
     }
-
+    
     button {
       cursor: pointer;
+      border: none;
+      background: transparent;
     }
-
+    
     img {
       max-width: 100%;
       height: auto;
+      display: block;
     }
-
+    
     /* ===== BASE TYPOGRAPHY ===== */
     .serif { font-family: 'Playfair Display', serif; }
     .sans { font-family: 'Inter', sans-serif; }
-
-    h1 { font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1rem; }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 0.8rem; }
-    h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.6rem; }
-    .lead { font-size: clamp(1.2rem, 3vw, 1.5rem); color: #6a5d54; margin-bottom: 2rem; }
+    
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 1.5rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.3; margin-bottom: 1rem; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.8rem; }
+    .lead { font-size: clamp(1.125rem, 2.5vw, 1.5rem); color: var(--muted); margin-bottom: 2rem; }
     .small { font-size: 0.875rem; }
-
-    /* Playfair Display weights */
+    
     .display-4 { font-weight: 700; }
     .display-5 { font-weight: 400; }
     .body-text { font-weight: 400; line-height: 1.7; }
     .semibold { font-weight: 500; }
     .medium { font-weight: 500; }
-
-    /* ===== IMAGES & HEROES ===== */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      z-index: 1;
-    }
-
-    /* Photo hero with tint overlay */
-    .hero-photo {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-      z-index: -1 !important;
-      filter: saturate(1.1) brightness(1.05);
-    }
-
-    .hero-photo.tint-green { background-image: linear-gradient(180deg, rgba(245,195,94,0.2) 0%, transparent 100%), url("/hero-featured.jpg"); background-size: cover, cover; background-position: center, center; }
-    .hero-photo.tint-warm { background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 100%), url("/hero-featured.jpg"); background-size: cover, cover; background-position: center, center; }
-    .hero-photo.tint-green { background-image: linear-gradient(180deg, rgba(245,195,94,0.2) 0%, transparent 100%), url("/hero-featured.jpg"); background-size: cover, cover; background-position: center, center; }
-    .hero-photo.tint-navy { background: linear-gradient(180deg, rgba(30,58,95,0.3) 0%, transparent 100%); }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 1440px;
+    
+    /* ===== LAYOUT ===== */
+    .container {
+      width: 90%;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 80px 20px 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      min-height: 100vh;
-      box-sizing: border-box;
+      padding: 0 1rem;
     }
-
-    .hero-text {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-      color: #ffffff;
-    }
-
-    .hero-text.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ===== SECTIONS ===== */
+    
     .section {
-      padding: 80px 0;
-    }
-
-    .section-white {
-      background: #faf6f0;
-      border-top: 1px solid #d8cfc6;
-      border-bottom: 1px solid #d8cfc6;
-    }
-
-    .section-light {
-      background: #ebe4d9;
-    }
-
-    .section-img {
+      padding: 6rem 0;
       position: relative;
-      overflow: hidden;
     }
-
-    .section-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Card */
-    .card {
-      background: #ffffff;
-      border: 1px solid #d8cfc6;
-      border-radius: 8px;
-      padding: 32px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-    }
-
+    
+    .section-light { background: #ebe4d9; }
+    .section-white { background: var(--cream); }
+    
     /* ===== NAVIGATION ===== */
     nav {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      z-index: 200;
-      background: rgba(22, 21, 18, 0.9);
+      width: 100%;
+      z-index: 1000;
+      background: rgba(245, 240, 232, 0.9);
       backdrop-filter: blur(10px);
       transition: background 0.3s ease;
+      border-bottom: 1px solid rgba(216, 207, 198, 0.3);
     }
-
+    
     nav.solid {
-      background: rgba(10, 10, 10, 0.95);
+      background: rgba(245, 240, 232, 0.95);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
-
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 4.5rem;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    
+    .nav-logo .brand-letter {
+      font-size: 2rem;
+      color: var(--accent);
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: var(--fg);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-cta {
+      background: var(--primary);
+      color: var(--cream);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    
+    .nav-cta:hover {
+      background: #001e4d;
+      transform: translateY(-2px);
+    }
+    
     .hamburger {
       display: none;
+      flex-direction: column;
+      gap: 4px;
       cursor: pointer;
     }
-
+    
     .hamburger span {
-      display: block;
-      width: 25px;
-      height: 3px;
+      width: 24px;
+      height: 2px;
       background: var(--fg);
-      margin: 5px 0;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
-
-    .active .hamburger span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
+    
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 100vh;
+      overflow: hidden;
     }
-
-    .active .hamburger span:nth-child(2) {
+    
+    .hero-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      overflow: hidden;
+    }
+    
+    .hero-background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .hero-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 70%);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 2rem;
+      max-width: 800px;
+    }
+    
+    .hero-text {
+      color: var(--hero-text);
+      max-width: 80%;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-text h1 {
+      color: var(--hero-text);
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-text p {
+      font-size: clamp(1.125rem, 3vw, 1.5rem);
+      opacity: 0.9;
+      line-height: 1.6;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      margin-bottom: 2rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: var(--cream);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 35, 102, 0.3);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--hero-text);
+      border: 2px solid var(--hero-text);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    /* ===== CONTENT SECTIONS ===== */
+    .content-section {
+      padding: 6rem 0;
+      position: relative;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-title h2 {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    
+    /* ===== GRID LAYOUTS ===== */
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--cream);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(216, 207, 198, 0.3);
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-image {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+    
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .card:hover .card-image img {
+      transform: scale(1.05);
+    }
+    
+    .card-content {
+      padding: 1.5rem;
+    }
+    
+    .card-content h3 {
+      margin-bottom: 0.75rem;
+      color: var(--fg);
+    }
+    
+    .card-content p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .card-read-more {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    
+    .card-read-more:hover {
+      color: var(--accent);
+    }
+    
+    /* ===== PLAY OVERLAY ===== */
+    .play-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
       opacity: 0;
+      transition: opacity 0.3s ease;
     }
-
-    .active .hamburger span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
+    
+    .card:hover .play-overlay {
+      opacity: 1;
     }
-
+    
+    .play-button {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .play-button svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--cream);
+    }
+    
+    /* ===== STORY CARDS ===== */
+    .story-card {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(216, 207, 198, 0.3);
+      position: relative;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+    }
+    
+    .story-image {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+    }
+    
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .story-card:hover .story-image img {
+      transform: scale(1.05);
+    }
+    
+    .story-content {
+      padding: 2rem;
+    }
+    
+    .story-content h3 {
+      margin-bottom: 1rem;
+      color: var(--fg);
+      font-size: 1.25rem;
+    }
+    
+    .story-content p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .story-quote {
+      font-style: italic;
+      color: var(--fg);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    /* ===== RESOURCES & TOOLS ===== */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    
+    .resource-item {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(216, 207, 198, 0.2);
+    }
+    
+    .resource-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .resource-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .resource-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--cream);
+    }
+    
+    .resource-item h3 {
+      margin-bottom: 1rem;
+      color: var(--fg);
+    }
+    
+    .resource-item p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    
+    /* ===== BLOG & NEWS ===== */
+    .blog-post {
+      background: var(--cream);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .blog-post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .blog-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    
+    .blog-post:hover .blog-image img {
+      transform: scale(1.03);
+    }
+    
+    .blog-content {
+      padding: 1.5rem;
+    }
+    
+    .blog-content h3 {
+      margin-bottom: 0.75rem;
+      color: var(--fg);
+    }
+    
+    .blog-meta {
+      display: flex;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .blog-excerpt {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .blog-read-more {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    
+    .blog-read-more:hover {
+      color: var(--accent);
+    }
+    
+    /* ===== SHOP SECTION ===== */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    
+    .shop-item {
+      background: var(--cream);
+      border-radius: 12px;
+      text-align: center;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(216, 207, 198, 0.2);
+    }
+    
+    .shop-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .shop-image {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1.5rem;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .shop-image img {
+      max-width: 70%;
+      max-height: 70%;
+    }
+    
+    .shop-item h3 {
+      margin-bottom: 1rem;
+      color: var(--fg);
+    }
+    
+    .shop-item p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    
+    .shop-price {
+      display: block;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 1.5rem 0;
+      font-size: 1.1rem;
+    }
+    
+    /* ===== NEWSLETTER ===== */
+    .newsletter {
+      background: var(--primary);
+      color: var(--cream);
+      text-align: center;
+      padding: 4rem 2rem;
+      border-radius: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .newsletter h2 {
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+    
+    .newsletter p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .newsletter-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .newsletter-button {
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      padding: 0 1.5rem;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .newsletter-button:hover {
+      background: #f5c35e;
+    }
+    
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section h3 {
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+    }
+    
+    .footer-section li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+    
+    .footer-section a:hover {
+      color: var(--cream);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+    
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .animate-on-scroll.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .nav-container {
+        justify-content: space-between;
+      }
+      
+      .hero-content {
+        padding: 1.5rem;
+        text-align: center;
+        align-items: center;
+      }
+      
+      .hero-text {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+      
+      .section {
+        padding: 4rem 0;
+      }
+      
+      .content-section {
+        padding: 4rem 0;
+      }
+      
+      .section-title {
+        margin-bottom: 3rem;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-input {
+        margin-bottom: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
+      h2 { font-size: clamp(1.75rem, 5vw, 2.25rem); }
+      h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
+      
+      .hero-content {
+        padding: 1rem;
+      }
+      
+      .hero-text h1 {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+      }
+      
+      .hero-text p {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.75rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.75rem;
+      }
+      
+      .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* ===== REDUCED MOTION ===== */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0ms !important;
@@ -224,662 +903,638 @@
         transition-duration: 0ms !important;
       }
     }
-
-    a:focus-visible, button:focus-visible {
+    
+    /* ===== FOCUS VISIBLE ===== */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
-    }
-
-    /* ===== REVEAL ANIMATIONS ===== */
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      animation: fadeSlideUp 0.8s ease forwards;
-    }
-
-    .reveal-delay-1 { animation-delay: 0.1s; }
-    .reveal-delay-2 { animation-delay: 0.2s; }
-    .reveal-delay-3 { animation-delay: 0.3s; }
-    .reveal-delay-4 { animation-delay: 0.4s; }
-    .reveal-delay-5 { animation-delay: 0.5s; }
-
-    /* ===== BUTTONS ===== */
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      border-radius: 4px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: var(--cream);
-      border: 1px solid var(--primary);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 35, 102, 0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #2a1f1a;
-      border: 1px solid #2a1f1a;
-      margin-left: 16px;
-    }
-
-    .btn-secondary:hover {
-      border-color: #D4AF37;
-      color: #D4AF37;
-    }
-
-    /* ===== CARDS ===== */
-    .episode-card {
-      background: #ffffff;
-      border: 1px solid #d8cfc6;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .episode-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
-    }
-
-    .episode-card img {
-      transition: transform 0.5s ease;
-    }
-
-    .episode-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .play-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 35, 102, 0.7);
-      color: white;
-      padding: 12px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .episode-card:hover .play-overlay {
-      opacity: 1;
-    }
-
-    .story-card {
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .story-card:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .pill {
-      padding: 8px 16px;
-      border-radius: 20px;
-      border: 1px solid var(--muted);
-      font-size: 0.875rem;
-      transition: all 0.3s ease;
-    }
-
-    .pill:hover, .pill.active {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .product-card {
-      background: #ffffff;
-      border: 1px solid #d8cfc6;
-      border-radius: 8px;
-      padding: 24px;
-      transition: transform 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .blog-card {
-      background: #ffffff;
-      border: 1px solid #d8cfc6;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .blog-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .newsletter-input {
-      width: 100%;
-      padding: 14px 16px;
-      background: #ffffff;
-      border: 1px solid #d8cfc6;
-      border-radius: 4px;
-      color: #2a1f1a;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-    }
-
-    .newsletter-input:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    footer {
-      background: #1a1510;
-      color: #f5f0e8;
-      padding: 40px 0 20px;
-    }
-
-    .footer-link {
-      color: #6a5d54;
-      transition: color 0.3s ease;
-    }
-
-    .footer-link:hover {
-      color: var(--accent);
-    }
-
-    /* Mobile nav link colors */
-    .nav-link {
-      color: #2a1f1a;
-      transition: color 0.3s ease;
-      font-weight: 500;
-    }
-
-    .nav-link:hover {
-      color: var(--accent);
     }
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav id="main-nav">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="flex items-center justify-between h-20">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl font-serif text-[var(--accent)]">N</span>
-          <span className="text-xl font-serif text-[#2a1f1a] tracking-tight">Navigating Health</span>
-        </div>
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#home" className="nav-link">Home</a>
-          <a href="#podcast" className="nav-link">Podcast</a>
-          <a href="#real-people" className="nav-link">Real People</a>
-          <a href="#about" className="nav-link">About</a>
-        </div>
-        <div className="flex items-center gap-3">
-          <a href="#podcast" className="btn btn-primary px-6">Listen Now</a>
-        </div>
+    <div class="container nav-container">
+      <div class="nav-logo">
+        <span class="brand-letter">N</span>
+        <span>Navigating Health</span>
       </div>
+      <div class="nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#podcast" class="nav-link">Podcast</a>
+        <a href="#real-people" class="nav-link">Real People</a>
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+      <div class="nav-cta">Listen Now</div>
     </div>
   </nav>
-
+  
   <!-- Mobile Menu -->
-  <div id="mobile-menu" className="fixed inset-0 top-0 right-0 left-0 bg-black/90 hidden z-30">
-    <div className="flex flex-col h-full p-8 gap-6">
-      <a href="#home" className="text-2xl font-serif text-[#2a1f1a]">Home</a>
-      <a href="#podcast" className="text-2xl font-serif text-[#2a1f1a]">Podcast</a>
-      <a href="#real-people" className="text-2xl font-serif text-[#2a1f1a]">Real People</a>
-      <a href="#about" className="text-2xl font-serif text-[#2a1f1a]">About</a>
-      <div className="mt-auto">
-        <a href="#podcast" className="btn btn-primary px-6">Listen Now</a>
-      </div>
+  <div id="mobile-menu" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
+    <div class="space-y-6 text-center">
+      <a href="#home" class="text-3xl font-serif text-white block">Home</a>
+      <a href="#podcast" class="text-3xl font-serif text-white block">Podcast</a>
+      <a href="#real-people" class="text-3xl font-serif text-white block">Real People</a>
+      <a href="#resources" class="text-3xl font-serif text-white block">Resources</a>
+      <a href="#blog" class="text-3xl font-serif text-white block">Blog</a>
+      <a href="#shop" class="text-3xl font-serif text-white block">Shop</a>
+      <a href="#about" class="text-3xl font-serif text-white block">About</a>
+      <a href="#podcast" class="bg-primary text-white px-6 py-3 rounded">Listen Now</a>
     </div>
-    <button id="mobile-close" className="absolute top-6 right-6 text-[#2a1f1a] text-2xl">&times;</button>
   </div>
-
+  
   <!-- Hamburger -->
-  <div className="hamburger md:hidden" id="hamburger">
+  <div class="hamburger md:hidden" id="hamburger">
     <span></span>
     <span></span>
     <span></span>
   </div>
-
+  
   <main>
-    <!-- ===== HOME ===== -->
-    <section className="hero">
-      <!-- Photo hero with tint -->
-      <div className="hero-photo tint-warm"></div>
-        <!-- Actual unsplash image would be set via inline style or CSS -->
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+      <div class="hero-background">
+        <img src="hero-featured.jpg" alt="Cinematic mountain landscape with warm sunlight">
       </div>
+      <div class="hero-overlay"></div>
       
-      <div className="hero-content">
-        <div className="hero-text">
+      <div class="hero-content">
+        <div class="hero-text animate-on-scroll">
           <h1>Your Health Journey Matters.</h1>
-          <p className="lead">Real conversations. Informed insights. Inspiring stories. A different way to navigate your health.</p>
-          <div className="flex gap-3 mt-6">
-            <button className="btn btn-primary px-8 py-3 rounded">Listen to the Podcast</button>
-            <button className="btn btn-secondary px-8 py-3 rounded">Explore the Journey</button>
+          <p class="lead">Real conversations. Informed insights. Inspiring stories. A different way to navigate your health.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary">Listen to the Podcast</button>
+            <button class="btn btn-secondary">Explore the Journey</button>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- ===== PODCAST ===== -->
-    <section className="section section-light" id="podcast">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="serif display-4 mb-4">More Than a Podcast.</h2>
-          <p className="lead">Navigating Health is about conversations, stories, experiences, and information that help people make more informed decisions about their health.</p>
+    
+    <!-- ===== PODCAST SECTION ===== -->
+    <section class="content-section section-light" id="podcast">
+      <div class="container">
+        <div class="section-title">
+          <h2>More Than a Podcast.</h2>
+          <p>Navigating Health is about conversations, stories, experiences, and information that help people make more informed decisions about their health.</p>
         </div>
-
-        <div className="card reveal reveal-delay-1 max-w-2xl mx-auto">
-          <div className="relative h-64 overflow-hidden rounded-t-lg">
-            <img 
-              src="https://images.unsplash.com/photo-1503342133008-c916a46f6d5f?w=800&h=400&fit=crop" 
-              alt="Episode artwork" 
-              className="w-full h-full object-cover"
-              style={{ transform: 'scale(1)' }}
-            />
-            <div className="play-overlay">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-                <circle cx="12" cy="12" r="6"/>
-                <path d="M8 12h5a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-3m-5-2a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h3"/>
-              </svg>
-            </div>
-          </div>
-          <div className="p-6">
-            <h3 className="serif display-5 mb-2">The Science of Letting Go</h3>
-            <p className="text-[#6a5d54] text-sm mb-4">How mindful practices transform chronic pain</p>
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-[#6a5d54]">42:31</span>
-              <a href="#" className="text-[var(--accent)] hover:underline">Listen Now</a>
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center mt-12">
-          <a href="#" className="btn btn-primary px-8 py-3 rounded mt-6">View All Episodes</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== REAL PEOPLE ===== -->
-    <section className="section section-white" id="real-people">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="serif display-4 mb-4">Real People. Real Journeys.</h2>
-          <p className="lead">Because every health journey is different.</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal reveal-delay-1">
-          <div className="story-card p-6 md:p-8">
-            <div className="h-16 w-16 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(0, 35, 102, 0.1)' }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M17 21v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 21h10c.548-3.191-1.04-5.603-3-7.917A9.063 9.063 0 0 0 2 7c0 5.591 3.867 9.4 9 10.117z"/>
-                <circle cx="12" cy="7" r="4"/>
-              </svg>
-            </div>
-            <h3 className="serif display-5 mb-3" style={{ color: 'var(--primary)' }}>Maria's Story</h3>
-            <p className="text-[#6a5d54] text-base leading-relaxed">"After years of chronic fatigue, I discovered the power of gentle movement and community support. Now I hike weekly."</p>
-          </div>
-
-          <div className="story-card p-6 md:p-8 story-card hover:bg-[var(--primary)] hover:text-white transition-all duration-500">
-            <div className="h-16 w-16 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(0, 35, 102, 0.1)' }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M17 21v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 21h10c.548-3.191-1.04-5.603-3-7.917A9.063 9.063 0 0 0 2 7c0 5.591 3.867 9.4 9 10.117z"/>
-                <circle cx="12" cy="7" r="4"/>
-              </svg>
-            </div>
-            <h3 className="serif display-5 mb-3" style={{ color: 'var(--primary)' }}>James's Journey</h3>
-            <p className="text-[#6a5d54] text-base leading-relaxed">"The kitchen table became my classroom. Learning about nutrition from my grandmother changed everything for my family."</p>
-          </div>
-
-          <div className="story-card p-6 md:p-8 story-card hover:bg-[var(--primary)] hover:text-white transition-all duration-500">
-            <div className="h-16 w-16 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(0, 35, 102, 0.1)' }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M17 21v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 21h10c.548-3.191-1.04-5.603-3-7.917A9.063 9.063 0 0 0 2 7c0 5.591 3.867 9.4 9 10.117z"/>
-                <circle cx="12" cy="7" r="4"/>
-              </svg>
-            </div>
-            <h3 className="serif display-5 mb-3" style={{ color: 'var(--primary)' }}>Aisha's Path</h3>
-            <p className="text-[#6a5d54] text-base leading-relaxed">"Stress was my constant companion until I found breathwork and the support of strangers who became friends."</p>
-          </div>
-        </div>
-
-        <div className="text-center mt-12">
-          <a href="#" className="btn btn-primary px-8 py-3 rounded mt-6">View All Real Stories</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== EXPLORE ===== -->
-    <section className="section section-light" id="explore">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="serif display-4 mb-4">Explore the Podcast</h2>
-          <p className="lead">A growing library of conversations, interviews, and stories about health and wellness.</p>
-        </div>
-
-        <div className="flex justify-center gap-3 mb-16 reveal reveal-delay-1">
-          <button className="pill active">Latest Conversations</button>
-          <button className="pill">Expert Interviews</button>
-          <button className="pill">Real Stories</button>
-          <button className="pill">Beyond Healthcare</button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal reveal-delay-2">
-          <div className="episode-card group">
-            <div className="relative h-56 overflow-hidden rounded-lg">
-              <img 
-                src="https://images.unsplash.com/photo-1581091012184-7e0c9a8a1827?w=600&h=400&fit=crop" 
-                alt="Expert interview episode" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                style={{ transform: 'scale(1)' }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                <span className="text-xs text-[var(--accent)] uppercase tracking-wider">Expert Interview</span>
+        
+        <div class="grid grid-2">
+          <!-- Featured Episode Card -->
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1503342133008-c916a46f6d5f?w=800&h=400&fit=crop" alt="Episode artwork">
+              <div class="play-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="10 8 14 12 10 16"/>
+                  </svg>
+                </div>
               </div>
             </div>
-            <div className="p-4">
-              <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>Navigating Chronic Pain</h3>
-              <p className="text-[#6a5d54] text-xs">Dr. Sarah Chen on evidence-based approaches</p>
-            </div>
-            <div className="p-4 border-t border-[#d8cfc6]">
-              <a href="#" className="w-full text-[var(--accent)] text-sm font-medium hover:underline">Listen Now →</a>
+            <div class="card-content">
+              <h3>The Science of Letting Go</h3>
+              <p>Exploring how releasing control can actually improve your health outcomes and reduce stress in daily life.</p>
+              <a href="#" class="card-read-more">Listen Now →</a>
             </div>
           </div>
-
-          <div className="episode-card group">
-            <div className="relative h-56 overflow-hidden rounded-lg">
-              <img 
-                src="https://images.unsplash.com/photo-1576043413575-6d7a00c498c4?w=600&h=400&fit=crop" 
-                alt="Real story episode" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                style={{ transform: 'scale(1)' }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                <span className="text-xs text-[var(--accent)] uppercase tracking-wider">Real Story</span>
+          
+          <!-- Latest Episodes -->
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e0b6c614958f?w=800&h=400&fit=crop" alt="Wellness conversation">
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="10 8 14 12 10 16"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3>Mindful Eating for Better Health</h3>
+                <p>How slowing down and paying attention to your food can transform your relationship with eating.</p>
+                <a href="#" class="card-read-more">Listen Now →</a>
               </div>
             </div>
-            <div className="p-4">
-              <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>The Gut-Brain Connection</h3>
-              <p className="text-[#6a5d54] text-xs">Personal experience with IBS</p>
-            </div>
-            <div className="p-4 border-t border-[#d8cfc6]">
-              <a href="#" className="w-full text-[var(--accent)] text-sm font-medium hover:underline">Listen Now →</a>
-            </div>
-          </div>
-
-          <div className="episode-card group">
-            <div className="relative h-56 overflow-hidden rounded-lg">
-              <img 
-                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop" 
-                alt="Alternative approaches episode" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                style={{ transform: 'scale(1)' }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                <span className="text-xs text-[var(--accent)] uppercase tracking-wider">Beyond Healthcare</span>
+            
+            <div class="card">
+              <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=400&fit=crop" alt="Nature therapy">
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="10 8 14 12 10 16"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3>Forest Bathing: Nature's Medicine</h3>
+                <p>The scientific benefits of spending time in forests and how it affects your wellbeing.</p>
+                <a href="#" class="card-read-more">Listen Now →</a>
               </div>
             </div>
-            <div className="p-4">
-              <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>Ancestral Wisdom</h3>
-              <p className="text-[#6a5d54] text-xs">Traditional healing practices</p>
-            </div>
-            <div className="p-4 border-t border-[#d8cfc6]">
-              <a href="#" className="w-full text-[var(--accent)] text-sm font-medium hover:underline">Listen Now →</a>
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center mt-12">
-          <a href="#" className="btn btn-primary px-8 py-3 rounded mt-6">Browse All Episodes</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== ABOUT ===== -->
-    <section className="section section-light" id="about">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="serif display-4 mb-4">About Navigating Health</h2>
-          <p className="lead">Cindy's journey into health podcasting began with a simple belief: everyone has a story worth sharing, and every health journey deserves to be heard.</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16 md:gap-20 reveal reveal-delay-1">
-          <div>
-            <h3 className="serif text-2xl mb-4" style={{ color: 'var(--primary)' }}>Our Mission</h3>
-            <ul className="text-[#6a5d54] space-y-3">
-              <li>To provide a platform for real, unfiltered health conversations</li>
-              <li>To bridge the gap between expert knowledge and everyday experience</li>
-              <li>To empower listeners with information to make informed decisions</li>
-              <li>To foster a community of curiosity and continuous learning</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="serif text-2xl mb-4" style={{ color: 'var(--primary)' }}>Cindy</h3>
-            <p className="text-[#6a5d54] text-lg">After years of navigating our complex healthcare system personally and professionally, Cindy launched Navigating Health to create space for the stories that don't make the headlines. A former healthcare administrator turned podcast host, she believes the most powerful insights often come from those who've walked the path themselves.</p>
-            <div className="mt-6 pt-6 border-t" style={{ borderColor: 'var(--border)' }}>
-              <p className="text-[#6a5d54] text-sm">Subscribe. Listen. Share. Together we navigate.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-20 pt-16 border-t" style={{ borderColor: 'var(--border)' }}>
-          <h3 className="serif text-xl mb-4" style={{ color: 'var(--primary)' }}>Quick Links</h3>
-          <div className="grid grid-cols-2 gap-4 text-[#6a5d54]">
-            <a href="#" className="footer-link hover:text-[var(--accent)] transition-colors">Episodes</a>
-            <a href="#" className="footer-link hover:text-[var(--accent)] transition-colors">Real Stories</a>
-            <a href="#" className="footer-link hover:text-[var(--accent)] transition-colors">Resources</a>
-            <a href="#" className="footer-link hover:text-[var(--accent)] transition-colors">Shop</a>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- ===== SHOP ===== -->
-    <section className="section section-light" id="shop">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="serif display-4 mb-4">Take the Journey With You.</h2>
-          <p className="lead">Podcast merchandise and wellness-related products to support your journey.</p>
+    
+    <!-- ===== REAL PEOPLE SECTION ===== -->
+    <section class="content-section section-white" id="real-people">
+      <div class="container">
+        <div class="section-title">
+          <h2>Real People. Real Journeys.</h2>
+          <p>Because every health journey is different.</p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal reveal-delay-1">
-          <div className="product-card">
-            <div className="h-24 w-24 rounded-xl flex items-center justify-center mb-4" style={{ background: 'var(--card)' }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <circle cx="15.5" cy="15.5" r="1.5"/>
-              </svg>
+        
+        <div class="grid grid-3">
+          <!-- Maria's Story -->
+          <div class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=400&fit=crop" alt="Maria walking in forest">
             </div>
-            <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>T-Shirt</h3>
-            <p className="text-[#6a5d54] text-sm">Premium organic cotton</p>
-          </div>
-
-          <div className="product-card">
-            <div className="h-24 w-24 rounded-xl flex items-center justify-center mb-4" style={{ background: 'var(--card)' }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                <circle cx="12" cy="12" r="1"/>
-              </svg>
+            <div class="story-content">
+              <h3>Maria's Diabetes Journey</h3>
+              <p>After her diagnosis, Maria discovered that small, consistent changes in diet and movement transformed her health more than any medication could.</p>
+              <div class="story-quote">
+                "I didn't need to be perfect. I just needed to start."
+              </div>
             </div>
-            <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>Hat</h3>
-            <p className="text-[#6a5d54] text-sm">Embroidered logo</p>
           </div>
-
-          <div className="product-card">
-            <div className="h-24 w-24 rounded-xl flex items-center justify-center mb-4" style={{ background: 'var(--card)' }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                <circle cx="12" cy="12" r="1"/>
-                <line x1="9" y1="9" x2="15" y2="15"/>
-              </svg>
+          
+          <!-- James's Story -->
+          <div class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop" alt="James meditating by lake">
             </div>
-            <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>Mug</h3>
-            <p className="text-[#6a5d54] text-sm">Ceramic, 15oz</p>
+            <div class="story-content">
+              <h3>James' Anxiety Recovery</h3>
+              <p>Through mindfulness practices and understanding his triggers, James learned to navigate anxiety without letting it control his life.</p>
+              <div class="story-quote">
+                "My mind is not my enemy—it's trying to protect me."
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className="text-center mt-12">
-          <a href="#" className="btn btn-primary px-8 py-3 rounded mt-6">Shop the Collection</a>
+          
+          <!-- Aisha's Story -->
+          <div class="story-card">
+            <div class="story-image">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=400&fit=crop" alt="Aisha cooking healthy meal">
+            </div>
+            <div class="story-content">
+              <h3>Aisha's Heart Health Transformation</h3>
+              <p>After a scare at 42, Aisha rebuilt her relationship with food and movement, finding joy in nourishing her body.</p>
+              <div class="story-quote">
+                "Health isn't a destination—it's how you choose to live each day."
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- ===== BLOG ===== -->
-    <section className="section section-light" id="blog">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="serif display-4 mb-4">Keep Exploring.</h2>
-          <p className="lead">Fresh articles about health, wellness, lifestyle, and inspired living.</p>
+    
+    <!-- ===== EXPLORE LATEST ===== -->
+    <section class="content-section section-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>Explore the Latest</h2>
+          <p>Recent conversations, stories, and insights from the Navigating Health community.</p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal reveal-delay-1">
-          <div className="blog-card">
-            <img 
-              src="https://images.unsplash.com/photo-1469476154296-6d01d2e5d033?w=600&h=400&fit=crop" 
-              alt="Health article" 
-              className="w-full h-48 object-cover rounded-t-lg"
-              style={{ height: '250px', borderRadius: '6px 6px 0 0' }}
-            />
-            <div className="p-4">
-              <span className="text-xs text-[var(--accent)] uppercase tracking-wider mb-2">Wellness</span>
-              <h3 className="serif text-base mb-2" style={{ color: 'var(--fg)' }}>10 Morning Habits</h3>
-              <p className="text-[#6a5d54] text-sm">Simple practices to start your day with intention.</p>
+        
+        <div class="grid grid-3">
+          <!-- Expert Interview -->
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3056?w=800&h=400&fit=crop" alt="Doctor in consultation">
+              <div class="play-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="10 8 14 12 10 16"/>
+                  </svg>
+                </div>
+              </div>
             </div>
-            <div className="p-4 border-t border-[#d8cfc6]">
-              <a href="#" className="text-[var(--accent)] text-sm hover:underline">Read More →</a>
-            </div>
-          </div>
-
-          <div className="blog-card">
-            <img 
-              src="https://images.unsplash.com/photo-1495474377282-856068ea6b10?w=600&h=400&fit=crop" 
-              alt="Wellness article" 
-              className="w-full h-48 object-cover rounded-t-lg"
-              style={{ height: '250px', borderRadius: '6px 6px 0 0' }}
-            />
-            <div className="p-4">
-              <span className="text-xs text-[var(--accent)] uppercase tracking-wider mb-2">Lifestyle</span>
-              <h3 className="serif text-base mb-2" style={{ color: 'var(--fg)' }}>Digital Detox</h3>
-              <p className="text-[#6a5d54] text-sm">Finding balance in a connected world.</p>
-            </div>
-            <div className="p-4 border-t border-[#d8cfc6]">
-              <a href="#" className="text-[var(--accent)] text-sm hover:underline">Read More →</a>
+            <div class="card-content">
+              <h3>Dr. Sarah Chen on Gut Health</h3>
+              <p>New research shows how your microbiome affects everything from mood to immunity.</p>
+              <a href="#" class="card-read-more">Watch Interview →</a>
             </div>
           </div>
-
-          <div className="blog-card">
-            <img 
-              src="https://images.unsplash.com/photo-14638238983276cd84dfd250?w=600&h=400&fit=crop" 
-              alt="Lifestyle article" 
-              className="w-full h-48 object-cover rounded-t-lg"
-              style={{ height: '250px', borderRadius: '6px 6px 0 0' }}
-            />
-            <div className="p-4">
-              <span className="text-xs text-[var(--accent)] uppercase tracking-wider mb-2">Stories</span>
-              <h3 className="serif text-base mb-2" style={{ color: 'var(--fg)' }}>The Healing Power</h3>
-              <p className="text-[#6a5d54] text-sm">How nature restoration changed one family's health.</p>
+          
+          <!-- Personal Story -->
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=400&fit=crop" alt="Person journaling">
+              <div class="play-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="10 8 14 12 10 16"/>
+                  </svg>
+                </div>
+              </div>
             </div>
-            <div className="p-4 border-t border-[#d8cfc6]">
-              <a href="#" className="text-[var(--accent)] text-sm hover:underline">Read More →</a>
+            <div class="card-content">
+              <h3>My 6-Month Wellness Experiment</h3>
+              <p>What happened when I tracked every aspect of my health for 180 days.</p>
+              <a href="#" class="card-read-more">Read Story →</a>
             </div>
           </div>
+          
+          <!-- Wellness Tip -->
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=400&fit=crop" alt="Herbal tea">
+              <div class="play-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="10 8 14 12 10 16"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>5 Herbs for Natural Stress Relief</h3>
+              <p>Science-backed botanicals that help your body adapt to daily pressures.</p>
+              <a href="#" class="card-read-more">Learn More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== TOOLS & RESOURCES ===== -->
+    <section class="content-section section-white" id="resources">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tools for Your Journey</h2>
+          <p>Resources, guides, and recommendations to support your health exploration.</p>
+        </div>
+        
+        <div class="resources-grid">
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v4l4 2"/>
+              </svg>
+            </div>
+            <h3>Health Trackers</h3>
+            <p>Recommended apps and journals for monitoring your progress mindfully.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Wellness Guides</h3>
+            <p>Free downloadable resources on nutrition, movement, and mental health.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16l-4-4 7-4 1 8"/>
+              </svg>
+            </div>
+            <h3>Community Forums</h3>
+            <p>Safe spaces to share experiences and learn from others on similar journeys.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 17V5l7-3 7 3v12"/>
+              </svg>
+            </div>
+            <h3>Expert Directories</h3>
+            <p>Trusted practitioners who align with our holistic approach to health.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3l18 18"/>
+              </svg>
+            </div>
+            <h3>Reading Lists</h3>
+            <p>Curated books and articles that have transformed our understanding of health.</p>
+          </div>
+          
+          <div class="resource-item">
+            <div class="resource-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3>Local Resources</h3>
+            <p>Find practitioners, classes, and wellness centers in your area.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="content-section section-light" id="blog">
+      <div class="container">
+        <div class="section-title">
+          <h2>Keep Exploring</h2>
+          <p>Articles, insights, and stories to deepen your understanding of health and wellness.</p>
+        </div>
+        
+        <div class="grid grid-3">
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop" alt="Morning routine">
+            </div>
+            <div class="blog-content">
+              <h3>Building a Morning Routine That Actually Works</h3>
+              <div class="blog-meta">
+                <span>Wellness</span>
+                <span>•</span>
+                <span>5 min read</span>
+              </div>
+              <p>Small, consistent actions create the foundation for lasting change in your health journey.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+          
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=400&fit=crop" alt="Forest path">
+            </div>
+            <div class="blog-content">
+              <h3>Why Nature Is Essential for Mental Health</h3>
+              <div class="blog-meta">
+                <span>Mental Health</span>
+                <span>•</span>
+                <span>7 min read</span>
+              </div>
+              <p>The science behind how spending time in natural environments reduces stress and improves mood.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+          
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1551434678-e0b6c614958f?w=800&h=400&fit=crop" alt="Healthy meal prep">
+            </div>
+            <div class="blog-content">
+              <h3>Meal Prep Made Simple: Healthy Eating Without the Stress</h3>
+              <div class="blog-meta">
+                <span>Nutrition</span>
+                <span>•</span>
+                <span>6 min read</span>
+              </div>
+              <p>Practical strategies for nourishing your body even when life gets busy.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== SHOP SECTION ===== -->
+    <section class="content-section section-white" id="shop">
+      <div class="container">
+        <div class="section-title">
+          <h2>Take the Journey With You</h2>
+          <p>Thoughtfully designed items to accompany you on your health exploration.</p>
+        </div>
+        
+        <div class="shop-grid">
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop" alt="T-shirt">
+            </div>
+            <h3>Journey T-Shirt</h3>
+            <p>Soft, organic cotton shirt with minimalist mountain design.</p>
+            <div class="shop-price">$32</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop" alt="Mug">
+            </div>
+            <h3>Wellness Mug</h3>
+            <p>Ceramic mug for your morning tea or coffee ritual.</p>
+            <div class="shop-price">$18</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1594736797933-d0398ba3410e?w=100&h=100&fit=crop" alt="Journal">
+            </div>
+            <h3>Health Journal</h3>
+            <p>Guided pages for tracking symptoms, moods, and insights.</p>
+            <div class="shop-price">$24</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&h=100&fit=crop" alt="Hat">
+            </div>
+            <h3>Adventure Hat</h3>
+            <p>Sun protection for your outdoor explorations.</p>
+            <div class="shop-price">$28</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=100&h=100&fit=crop" alt="Water bottle">
+            </div>
+            <h3>Insulated Bottle</h3>
+            <p>Keeps your drinks at the perfect temperature all day.</p>
+            <div class="shop-price">$22</div>
+          </div>
+          
+          <div class="shop-item">
+            <div class="shop-image">
+              <img src="https://images.unsplash.com/photo-1580913326951-ea15bb6b3e2d?w=100&h=100&fit=crop" alt="Yoga mat">
+            </div>
+            <h3>Travel Yoga Mat</h3>
+            <p>Eco-friendly mat for your practice wherever you go.</p>
+            <div class="shop-price">$45</div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="#shop" class="btn btn-secondary">Shop the Collection →</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== NEWSLETTER SECTION ===== -->
+    <section class="content-section">
+      <div class="container">
+        <div class="newsletter">
+          <h2>Stay Curious. Stay Informed.</h2>
+          <p>Get new episodes, stories, resources, and updates delivered to your inbox.</p>
+          <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== FINAL SECTION ===== -->
+    <section class="hero">
+      <div class="hero-background">
+        <img src="hero-featured.jpg" alt="Cinematic mountain landscape at golden hour">
+      </div>
+      <div class="hero-overlay"></div>
+      
+      <div class="hero-content">
+        <div class="hero-text animate-on-scroll" style="text-align: center;">
+          <h2>Let's Navigate This Together.</h2>
+          <p class="lead">Listen. Learn. Explore. Live well.</p>
+          <a href="#podcast" class="btn btn-secondary">Start Exploring</a>
         </div>
       </div>
     </section>
   </main>
-
+  
+  <!-- Footer -->
   <footer>
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid grid-cols-2 gap-8 mb-8">
-        <div>
-          <span className="text-2xl font-serif text-[var(--accent)]">N</span>
-          <span className="text-xl font-serif text-[#2a1f1a] tracking-tight">Navigating Health</span>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Navigating Health</h3>
+          <p>A podcast about exploring health through real stories, expert conversations, and discovering different ways to live well.</p>
+          <div class="social-links" style="margin-top: 1.5rem;">
+            <a href="#" style="margin-right: 1rem; opacity: 0.7;">Instagram</a>
+            <a href="#" style="margin-right: 1rem; opacity: 0.7;">Spotify</a>
+            <a href="#" style="opacity: 0.7;">Apple Podcasts</a>
+          </div>
         </div>
-        <div>
-          <h4 className="serif text-lg mb-3" style={{ color: 'var(--fg)' }}>Navigate</h4>
-          <nav>
-            <a href="#home" className="footer-link">Home</a>
-            <a href="#podcast" className="footer-link">Podcast</a>
-            <a href="#real-people" className="footer-link">Real People</a>
-            <a href="#about" className="footer-link">About</a>
-          </nav>
+        
+        <div class="footer-section">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#podcast">Podcast</a></li>
+            <li><a href="#real-people">Real People</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Submit a Story</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
         </div>
       </div>
-      <div className="border-t" style={{ borderColor: 'var(--border)' }} padding-top="20px">
-        <p className="text-[#6a5d54] text-center text-sm">© 2026 Navigating Health. All rights reserved.</p>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Navigating Health. All rights reserved.</p>
+        <p>Disclaimer: This podcast is for informational purposes only and does not constitute medical advice.</p>
       </div>
     </div>
   </footer>
-
+  
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const reveals = document.querySelectorAll('.reveal');
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-          }
-        });
-      }, { threshold: 0.1 });
-      reveals.forEach(el => {
-        el.style.animationPlayState = 'paused';
-        revealObserver.observe(el);
-      });
-    });
-
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('main-nav');
-      if (window.scrollY > 100) {
-        nav.classList.add('solid');
-      } else {
-        nav.classList.remove('solid');
-      }
-    });
-
+    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-close');
     
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', () => {
-        mobileMenu.classList.remove('hidden');
-        mobileMenu.classList.add('block');
-        hamburger.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    }
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
     
-    if (mobileClose) {
-      mobileClose.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('block');
-        hamburger.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    }
-
+    mobileClose.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      document.body.style.overflow = '';
+    });
+    
+    // Mobile nav links
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
-        if (mobileMenu) {
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.remove('block');
-          hamburger.classList.remove('active');
-          document.body.style.overflow = '';
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // Hamburger animation
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+    
+    // Scroll-based animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
         }
       });
+    }, observerOptions);
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Navbar scroll effect
+    const nav = document.getElementById('main-nav');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll <= 0) {
+        nav.classList.remove('solid');
+        return;
+      }
+      
+      if (currentScroll > lastScroll && !nav.classList.contains('solid')) {
+        // Scrolling down
+        nav.classList.add('solid');
+      } else if (currentScroll < lastScroll && nav.classList.contains('solid')) {
+        // Scrolling up
+        nav.classList.remove('solid');
+      }
+      
+      lastScroll = currentScroll;
     });
   </script>
 </body>
