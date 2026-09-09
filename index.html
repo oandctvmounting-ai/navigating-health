@@ -137,7 +137,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: transparent;;;
+      background: transparent;
       backdrop-filter: blur(10px);
       transition: background 0.3s ease;
       border-bottom: 1px solid rgba(216, 207, 198, 0.3);
@@ -160,6 +160,12 @@
       font-weight: 700;
       font-size: 1.5rem;
     }
+
+.nav-logo span {
+  color: var(--hero-text);
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+}
     
     .nav-logo .brand-letter {
       font-size: 2rem;
@@ -178,7 +184,7 @@
     }
     
     .nav-link {
-      color: var(--fg);
+      color: var(--hero-text);
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 0.5px;
@@ -187,9 +193,23 @@
       padding: 0.5rem 0;
     }
 
+nav.solid .nav-link {
+  color: var(--fg);
+}
+
 /* Nav link color when nav is transparent (on hero) */
 nav:not(.solid) .nav-link {
-  color: var(--hero-text);
+      color: var(--hero-text);
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+nav.solid .nav-link {
+  color: var(--fg);
 }
 
 /* Hover for nav links when nav is transparent */
@@ -309,7 +329,9 @@ nav.solid .hamburger span {
     .hero-content {
       position: relative;
       z-index: 10;
-      height: 100vh;
+      margin-top: 3.5rem;
+      height: calc(100vh - 3.5rem);
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -910,7 +932,9 @@ nav.solid .hamburger span {
       .hero-content {
       position: relative;
       z-index: 10;
-      height: 100vh;
+      margin-top: 3.5rem;
+      height: calc(100vh - 3.5rem);
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -959,7 +983,9 @@ nav.solid .hamburger span {
       .hero-content {
       position: relative;
       z-index: 10;
-      height: 100vh;
+      margin-top: 3.5rem;
+      height: calc(100vh - 3.5rem);
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
