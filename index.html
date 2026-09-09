@@ -187,13 +187,18 @@
     }
     
     .nav-link {
-      color: var(--hero-text);
+      color: var(--fg);
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 0.5px;
       transition: color 0.3s ease;
       position: relative;
       padding: 0.5rem 0;
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
       color: var(--accent);
@@ -211,6 +216,13 @@ nav.solid .nav-link {
     }
     .nav-link:hover {
       color: var(--accent);
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
+    }
+    nav.solid .nav-link:hover {
+      color: var(--accent);
+    }
+    .nav-link:hover {
+      color: var(--accent);
     }
 
 .nav-link:hover {
@@ -219,13 +231,18 @@ nav.solid .nav-link {
 
 /* Nav link color when nav is transparent (on hero) */
 nav:not(.solid) .nav-link {
-      color: var(--hero-text);
+      color: var(--fg);
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 0.5px;
       transition: color 0.3s ease;
       position: relative;
       padding: 0.5rem 0;
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
       color: var(--accent);
@@ -237,6 +254,13 @@ nav:not(.solid) .nav-link {
 
 nav.solid .nav-link {
       color: var(--fg);
+    }
+    nav.solid .nav-link:hover {
+      color: var(--accent);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     nav.solid .nav-link:hover {
       color: var(--accent);
