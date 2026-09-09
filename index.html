@@ -1268,25 +1268,103 @@ nav.solid .hamburger span {
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .nav-links,
-  .nav-cta {
-    display: none;
-  }
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+    .hamburger {
+      display: none;
+    }
+    .bottom-nav {
+      display: flex;
+    }
+}
   .hamburger { display: none; }
 }
 
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .nav-links,
-  .nav-cta {
-    display: none;
-  }
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+    .hamburger {
+      display: none;
+    }
+    .bottom-nav {
+      display: flex;
+    }
+}
   .hamburger { display: none; }
 }
 @media (min-width: 769px) {
-  .hamburger { display: none; }
+    .bottom-nav {
+      display: none;
+    }
+    .nav-links,
+    .nav-cta {
+      display: flex;
+    }
+    .hamburger {
+      display: none;
+    }
 }
+}
+
+    /* ===== BOTTOM NAVIGATION (MOBILE) ===== */
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--cream);
+        border-top: 1px solid rgba(216, 207, 198, 0.3);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 4rem;
+        z-index: 1000;
+        font-size: 0.875rem;
+    }
+    .bottom-nav .nav-item {
+        color: var(--fg);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        transition: color 0.2s ease;
+    }
+    .bottom-nav .nav-item.active,
+    .bottom-nav .nav-item:hover {
+        color: var(--accent);
+    }
+    .bottom-nav .nav-item::before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    /* Add padding-bottom to body on mobile to prevent content being hidden */
+    @media (max-width: 768px) {
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+    .hamburger {
+      display: none;
+    }
+    .bottom-nav {
+      display: flex;
+    }
+}
+    }
 </style>
     /* ===== BOTTOM NAVIGATION (MOBILE) ===== */
     .bottom-nav {
@@ -1331,15 +1409,31 @@ nav.solid .hamburger span {
     /* In a real implementation, we'd use proper icons, but for now we'll rely on text */
     /* Add padding-bottom to body on mobile to prevent content being hidden */
     @media (max-width: 768px) {
-        body {
-            padding-bottom: 4rem;
-        }
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+    .hamburger {
+      display: none;
+    }
+    .bottom-nav {
+      display: flex;
+    }
+}
     }
 
 @media (min-width: 769px) {
-  .hamburger {
-    display: none;
-  }
+    .bottom-nav {
+      display: none;
+    }
+    .nav-links,
+    .nav-cta {
+      display: flex;
+    }
+    .hamburger {
+      display: none;
+    }
+}
 }
 </head>
     <nav id="main-nav">
