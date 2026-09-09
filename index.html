@@ -1034,79 +1034,52 @@ nav.solid .hamburger span {
     
     /* ===== MEDIA QUERIES ===== */
         @media (max-width: 768px) {
-        .nav-links,
-        .nav-cta {
-          display: none;
-        }
-        .hamburger {
-          display: none;
-        }
-        .bottom-nav {
-          display: flex;
-        }
-        body {
-          padding-bottom: 4rem;
-        }
-        /* Fix: keep brand logo/text inside the nav bar on mobile (single line, fits 3.5rem) */
-        .nav-logo {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          white-space: nowrap;
-          line-height: 1;
-          max-height: 3.5rem;
-        }
-        .nav-logo span {
-          font-size: 1.1rem;
-          line-height: 1;
-          white-space: nowrap;
-        }
-        .logo-img {
-          max-height: 2.2rem;
-        }
-        .hamburger {
-          display: none;
-        }
-        .bottom-nav {
-          display: flex;
-        }
-        body {
-          padding-bottom: 4rem;
-        }
-    }
-        .hamburger {
+          .nav-links,
+          .nav-cta {
             display: none;
-        }
-        .bottom-nav {
+          }
+          .hamburger {
+            display: none;
+          }
+          .bottom-nav {
             display: flex;
-        }
-        body {
+          }
+          body {
             padding-bottom: 4rem;
-        }
-    }
-    
-    @media (min-width: 769px) {
-    .bottom-nav {
-      display: none;
-    }
-    .nav-links,
-    .nav-cta {
-      display: flex;
-    }
-    .hamburger {
-      display: none;
-    }
-}
-        .nav-links,
-        .nav-cta {
+          }
+          /* Fix: keep brand logo/text inside the nav bar on mobile (single line, fits 3.5rem) */
+          .nav-logo {
             display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            line-height: 1;
+            max-height: 3.5rem;
+          }
+          .nav-logo span {
+            font-size: 1.1rem;
+            line-height: 1;
+            white-space: nowrap;
+          }
+          .logo-img {
+            max-height: 2.2rem;
+          }
         }
-        .hamburger {
-            display: none;
-        }
-    }
     
-    @media (max-width: 480px) {
+        @media (min-width: 769px) {
+                .bottom-nav {
+                  display: none;
+                }
+                .nav-links,
+                .nav-cta {
+                  display: flex;
+                }
+                .hamburger {
+                  display: none;
+                }
+            }
+    
+            @media (max-width: 480px) {
         h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
         h2 { font-size: clamp(1.75rem, 5vw, 2.25rem); }
         h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
@@ -1494,10 +1467,32 @@ nav.solid .hamburger span {
       display: none;
     }
     .bottom-nav {
-      display: flex;
+          display: flex;
+        }
     }
-}
-    }</style>
+
+    /* ===== FINAL MOBILE LOGO FIX (highest priority) ===== */
+    @media (max-width: 768px) {
+      .nav-logo {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+        max-height: 3.5rem !important;
+        height: auto !important;
+      }
+      .nav-logo span {
+        font-size: 1.1rem !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+      }
+      .logo-img {
+        max-height: 2.2rem !important;
+        height: auto !important;
+      }
+    }
+    </style>
 </head>
 <body>
     <nav id="main-nav">
