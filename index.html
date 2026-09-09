@@ -228,9 +228,9 @@
     }
     
     .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: var(--fg);
+      width: 28px;
+      height: 3px;
+      background: var(--hero-text);
       transition: all 0.3s ease;
     }
     
@@ -1587,6 +1587,23 @@
 
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
       observer.observe(el);
-    });</script>
+    });
+    // Navbar scroll effect
+    const nav = document.getElementById('main-nav');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scrolling down
+        nav.classList.add('solid');
+      } else {
+        // Scrolling up
+        nav.classList.remove('solid');
+      }
+      lastScroll = currentScroll;
+    });
+</script>
 </body>
 </html>
