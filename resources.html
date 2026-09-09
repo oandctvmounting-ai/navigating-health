@@ -1185,6 +1185,57 @@ nav.solid .hamburger span {
       font-size: 0.95rem;
       line-height: 1.5;
     }
+.hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--hero-text);
+      transition: all 0.3s ease;
+    }
+    /* Hamburger active state (animated) */
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    /* Show hamburger on mobile */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+    }
+
+/* Mobile Menu Styles */
+#mobile-menu {
+  /* Already set in HTML via class, but we can reinforce */
+
+#mobile-menu .space-y-6 {
+  width: 90%;
+  max-width: 500px;
+
+  max-height: 90vh;
+  overflow-y: auto;
+}
+#mobile-menu a {
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+#mobile-menu a:last-child {
+  border-bottom: none;
+}
+#mobile-menu a.bg-primary {
+  margin-top: 1.5rem;
+}
 </style>
 </head>
     </style>
@@ -1196,7 +1247,13 @@ nav.solid .hamburger span {
       <div class="nav-logo">
         <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
         <span>Navigating Health</span>
+            <!-- Hamburger -->
+      <div class="hamburger md:hidden" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+    </div>
             <div class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="podcast.html" class="nav-link">Podcast</a>
@@ -1346,7 +1403,14 @@ nav.solid .hamburger span {
     </div>
   </footer>
     
-    <script>    // Mobile menu toggle
+    
+    </script>
+
+
+
+
+
+<script>    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-close');
@@ -1413,6 +1477,5 @@ nav.solid .hamburger span {
       lastScroll = currentScroll;
     });
 </script>
-    </script>
 </body>
 </html>
