@@ -237,20 +237,21 @@ nav:not(.solid) .nav-link:hover {
     }
     
     .nav-cta {
-      background: rgba(255,255,255,0.2);
+      background: transparent;
       color: var(--hero-text);
       padding: 0.5rem 1rem;
       border-radius: 4px;
       font-weight: 600;
       font-size: 1rem;
-      transition: background 0.3s ease, transform 0.2s ease;
-      border: 1px solid rgba(255,255,255,0.3);
+      transition: color 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
     
     .nav-cta:hover {
-      background: rgba(255,255,255,0.3);
-      transform: translateY(-2px);
-      border-color: var(--accent);
+      color: var(--accent);
+      /* Optional: add underline */
+      text-decoration: underline;
     }
     
     .hamburger {
