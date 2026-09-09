@@ -103,9 +103,9 @@
       filter: saturate(1.1) brightness(1.05);
     }
 
-    .hero-photo.tint-green { background: linear-gradient(180deg, rgba(245,195,94,0.2) 0%, transparent 100%); }
-    .hero-photo.tint-warm { background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%); }
-    .hero-photo.tint-green { background: linear-gradient(180deg, rgba(245,195,94,0.2) 0%, transparent 100%); }
+    .hero-photo.tint-green { background-image: linear-gradient(180deg, rgba(245,195,94,0.2) 0%, transparent 100%), url("/hero-featured.jpg"); background-size: cover, cover; background-position: center, center; }
+    .hero-photo.tint-warm { background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 100%), url("/hero-featured.jpg"); background-size: cover, cover; background-position: center, center; }
+    .hero-photo.tint-green { background-image: linear-gradient(180deg, rgba(245,195,94,0.2) 0%, transparent 100%), url("/hero-featured.jpg"); background-size: cover, cover; background-position: center, center; }
     .hero-photo.tint-navy { background: linear-gradient(180deg, rgba(30,58,95,0.3) 0%, transparent 100%); }
 
     .hero-content {
@@ -457,7 +457,7 @@
     <!-- ===== HOME ===== -->
     <section className="hero">
       <!-- Photo hero with tint -->
-      <div className="hero-photo tint-warm" style="background-image: url('/hero-featured.jpg');">
+      <div className="hero-photo tint-warm"></div>
         <!-- Actual unsplash image would be set via inline style or CSS -->
       </div>
       
