@@ -86,6 +86,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      z-index: 1;
     }
 
     /* Photo hero with tint overlay */
@@ -100,10 +101,11 @@
       background-position: center !important;
       background-repeat: no-repeat !important;
       z-index: 0 !important;
+      filter: saturate(1.1) brightness(1.05);
     }
 
     .hero-photo.tint-green { background: linear-gradient(180deg, rgba(245,195,94,0.2) 0%, transparent 100%); }
-    .hero-photo.tint-warm { background: linear-gradient(180deg, rgba(245,195,94,0.3) 0%, transparent 100%); }
+    .hero-photo.tint-warm { background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%); }
     .hero-photo.tint-green { background: linear-gradient(180deg, rgba(245,195,94,0.2) 0%, transparent 100%); }
     .hero-photo.tint-navy { background: linear-gradient(180deg, rgba(30,58,95,0.3) 0%, transparent 100%); }
 
