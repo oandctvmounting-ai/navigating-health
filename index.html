@@ -149,9 +149,12 @@
     }
     
     .nav-container {
-    height: 3.5rem;;
-;
-}}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 3.5rem;
+      /* No background - let it be transparent */
+    }}
     
     .nav-logo {
       display: flex;
@@ -250,7 +253,6 @@ nav:not(.solid) .nav-link:hover {
     
     .nav-cta:hover {
       color: var(--accent);
-      /* Optional: add underline */
       text-decoration: underline;
     }
     
@@ -927,8 +929,12 @@ nav.solid .hamburger span {
       }
       
       .nav-container {
-        justify-content: space-between;
-      }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 3.5rem;
+      /* No background - let it be transparent */
+    }
       
       .hero-content {
       position: relative;
