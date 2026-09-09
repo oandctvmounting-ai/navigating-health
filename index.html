@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigating Health - Cindy's Podcast</title>
+  <meta name="description" content="Cindy's Navigating Health Podcast - exploring health journeys through real stories, expert conversations, and wellness insights" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --fg: #f5f0e8;
+      --muted: #a8a096;
+      --primary: #002366;
+      --accent: #D4AF37;
+      --accent-warm: #f5c35e;
+      --green: #2d6a4f;
+      --navy: #1e3a5f;
+      --cream: #faf6f0;
+      --card: #161210;
+      --border: #2a2520;
+      --section-light: #1a1410;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ===== BASE TYPOGRAPHY ===== */
+    .serif { font-family: 'Playfair Display', serif; }
+    .sans { font-family: 'Inter', sans-serif; }
+
+    h1 { font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 0.8rem; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.6rem; }
+    .lead { font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--muted); margin-bottom: 2rem; }
+    .small { font-size: 0.875rem; }
+
+    /* Playfair Display weights */
+    .display-4 { font-weight: 700; }
+    .display-5 { font-weight: 400; }
+    .body-text { font-weight: 400; line-height: 1.7; }
+    .semibold { font-weight: 500; }
+    .medium { font-weight: 500; }
+
+    /* ===== IMAGES & HEROES ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Photo hero with tint overlay */
+    .hero-photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    .hero-photo.tint-green { background: linear-gradient(180deg, rgba(45,106,79,0.3) 0%, transparent 100%); }
+    .hero-photo.tint-warm { background: linear-gradient(180deg, rgba(245,195,94,0.3) 0%, transparent 100%); }
+    .hero-photo.tint-green { background: linear-gradient(180deg, rgba(45,106,79,0.3) 0%, transparent 100%); }
+    .hero-photo.tint-navy { background: linear-gradient(180deg, rgba(30,58,95,0.3) 0%, transparent 100%); }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 80px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-text {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .hero-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-white {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-light {
+      background: var(--section-light);
+    }
+
+    .section-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 32px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s ease;
+    }
+
+    nav.solid {
+      background: rgba(10, 10, 10, 0.95);
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--fg);
+      margin: 5px 0;
+      transition: transform 0.3s ease;
+    }
+
+    .active .hamburger span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .active .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .active .hamburger span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0ms !important;
+      }
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    .reveal-delay-1 { animation-delay: 0.1s; }
+    .reveal-delay-2 { animation-delay: 0.2s; }
+    .reveal-delay-3 { animation-delay: 0.3s; }
+    .reveal-delay-4 { animation-delay: 0.4s; }
+    .reveal-delay-5 { animation-delay: 0.5s; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--cream);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 35, 102, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--fg);
+      border: 1px solid var(--muted);
+      margin-left: 16px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ===== CARDS ===== */
+    .episode-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .episode-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+
+    .episode-card img {
+      transition: transform 0.5s ease;
+    }
+
+    .episode-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .play-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 35, 102, 0.7);
+      color: white;
+      padding: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .episode-card:hover .play-overlay {
+      opacity: 1;
+    }
+
+    .story-card {
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .story-card:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .pill {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--muted);
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+    }
+
+    .pill:hover, .pill.active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .blog-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .newsletter-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    footer {
+      background: var(--section-light);
+      padding: 40px 0 20px;
+    }
+
+    .footer-link {
+      color: var(--muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    /* Mobile nav link colors */
+    .nav-link {
+      color: var(--muted);
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div className="max-w-7xl mx-auto px-4">
+      <div className="flex items-center justify-between h-20">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl font-serif text-[var(--accent)]">N</span>
+          <span className="text-xl font-serif text-[var(--fg)] tracking-tight">Navigating Health</span>
+        </div>
+        <div className="hidden md:flex items-center gap-8">
+          <a href="#home" className="nav-link">Home</a>
+          <a href="#podcast" className="nav-link">Podcast</a>
+          <a href="#real-people" className="nav-link">Real People</a>
+          <a href="#about" className="nav-link">About</a>
+        </div>
+        <div className="flex items-center gap-3">
+          <a href="#podcast" className="btn btn-primary px-6">Listen Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" className="fixed inset-0 top-0 right-0 left-0 bg-black/90 hidden z-30">
+    <div className="flex flex-col h-full p-8 gap-6">
+      <a href="#home" className="text-2xl font-serif text-[var(--fg)]">Home</a>
+      <a href="#podcast" className="text-2xl font-serif text-[var(--fg)]">Podcast</a>
+      <a href="#real-people" className="text-2xl font-serif text-[var(--fg)]">Real People</a>
+      <a href="#about" className="text-2xl font-serif text-[var(--fg)]">About</a>
+      <div className="mt-auto">
+        <a href="#podcast" className="btn btn-primary px-6">Listen Now</a>
+      </div>
+    </div>
+    <button id="mobile-close" className="absolute top-6 right-6 text-[var(--fg)] text-2xl">&times;</button>
+  </div>
+
+  <!-- Hamburger -->
+  <div className="hamburger md:hidden" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <main>
+    <!-- ===== HOME ===== -->
+    <section className="hero">
+      <!-- Photo hero with tint -->
+      <div className="hero-photo tint-green" style="background-image: url('./hero-featured.jpg'); background-size: cover; background-position: center;">
+        <!-- Actual unsplash image would be set via inline style or CSS -->
+      </div>
+      
+      <div className="hero-content">
+        <div className="hero-text">
+          <h1>Your Health Journey Matters.</h1>
+          <p className="lead">Real conversations. Informed insights. Inspiring stories. A different way to navigate your health.</p>
+          <div className="flex gap-3 mt-6">
+            <button className="btn btn-primary px-8 py-3 rounded">Listen to the Podcast</button>
+            <button className="btn btn-secondary px-8 py-3 rounded">Explore the Journey</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PODCAST ===== -->
+    <section className="section section-light" id="podcast">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="serif display-4 mb-4">More Than a Podcast.</h2>
+          <p className="lead">Navigating Health is about conversations, stories, experiences, and information that help people make more informed decisions about their health.</p>
+        </div>
+
+        <div className="card reveal reveal-delay-1 max-w-2xl mx-auto">
+          <div className="relative h-64 overflow-hidden rounded-t-lg">
+            <img 
+              src="https://images.unsplash.com/photo-1503342133008-c916a46f6d5f?w=800&h=400&fit=crop" 
+              alt="Episode artwork" 
+              className="w-full h-full object-cover"
+              style={{ transform: 'scale(1)' }}
+            />
+            <div className="play-overlay">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                <circle cx="12" cy="12" r="6"/>
+                <path d="M8 12h5a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-3m-5-2a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h3"/>
+              </svg>
+            </div>
+          </div>
+          <div className="p-6">
+            <h3 className="serif display-5 mb-2">The Science of Letting Go</h3>
+            <p className="text-[var(--muted)] text-sm mb-4">How mindful practices transform chronic pain</p>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-[var(--muted)]">42:31</span>
+              <a href="#" className="text-[var(--accent)] hover:underline">Listen Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="#" className="btn btn-primary px-8 py-3 rounded mt-6">View All Episodes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REAL PEOPLE ===== -->
+    <section className="section section-white" id="real-people">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="serif display-4 mb-4">Real People. Real Journeys.</h2>
+          <p className="lead">Because every health journey is different.</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal reveal-delay-1">
+          <div className="story-card p-6 md:p-8">
+            <div className="h-16 w-16 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(0, 35, 102, 0.1)' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 21h10c.548-3.191-1.04-5.603-3-7.917A9.063 9.063 0 0 0 2 7c0 5.591 3.867 9.4 9 10.117z"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 className="serif display-5 mb-3" style={{ color: 'var(--primary)' }}>Maria's Story</h3>
+            <p className="text-[var(--muted)] text-base leading-relaxed">"After years of chronic fatigue, I discovered the power of gentle movement and community support. Now I hike weekly."</p>
+          </div>
+
+          <div className="story-card p-6 md:p-8 story-card hover:bg-[var(--primary)] hover:text-white transition-all duration-500">
+            <div className="h-16 w-16 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(0, 35, 102, 0.1)' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 21h10c.548-3.191-1.04-5.603-3-7.917A9.063 9.063 0 0 0 2 7c0 5.591 3.867 9.4 9 10.117z"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 className="serif display-5 mb-3" style={{ color: 'var(--primary)' }}>James's Journey</h3>
+            <p className="text-[var(--muted)] text-base leading-relaxed">"The kitchen table became my classroom. Learning about nutrition from my grandmother changed everything for my family."</p>
+          </div>
+
+          <div className="story-card p-6 md:p-8 story-card hover:bg-[var(--primary)] hover:text-white transition-all duration-500">
+            <div className="h-16 w-16 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(0, 35, 102, 0.1)' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 21h10c.548-3.191-1.04-5.603-3-7.917A9.063 9.063 0 0 0 2 7c0 5.591 3.867 9.4 9 10.117z"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 className="serif display-5 mb-3" style={{ color: 'var(--primary)' }}>Aisha's Path</h3>
+            <p className="text-[var(--muted)] text-base leading-relaxed">"Stress was my constant companion until I found breathwork and the support of strangers who became friends."</p>
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="#" className="btn btn-primary px-8 py-3 rounded mt-6">View All Real Stories</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPLORE ===== -->
+    <section className="section section-light" id="explore">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="serif display-4 mb-4">Explore the Podcast</h2>
+          <p className="lead">A growing library of conversations, interviews, and stories about health and wellness.</p>
+        </div>
+
+        <div className="flex justify-center gap-3 mb-16 reveal reveal-delay-1">
+          <button className="pill active">Latest Conversations</button>
+          <button className="pill">Expert Interviews</button>
+          <button className="pill">Real Stories</button>
+          <button className="pill">Beyond Healthcare</button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal reveal-delay-2">
+          <div className="episode-card group">
+            <div className="relative h-56 overflow-hidden rounded-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1581091012184-7e0c9a8a1827?w=600&h=400&fit=crop" 
+                alt="Expert interview episode" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ transform: 'scale(1)' }}
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                <span className="text-xs text-[var(--accent)] uppercase tracking-wider">Expert Interview</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>Navigating Chronic Pain</h3>
+              <p className="text-[var(--muted)] text-xs">Dr. Sarah Chen on evidence-based approaches</p>
+            </div>
+            <div className="p-4 border-t border-[var(--border)]">
+              <a href="#" className="w-full text-[var(--accent)] text-sm font-medium hover:underline">Listen Now →</a>
+            </div>
+          </div>
+
+          <div className="episode-card group">
+            <div className="relative h-56 overflow-hidden rounded-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1576043413575-6d7a00c498c4?w=600&h=400&fit=crop" 
+                alt="Real story episode" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ transform: 'scale(1)' }}
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                <span className="text-xs text-[var(--accent)] uppercase tracking-wider">Real Story</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>The Gut-Brain Connection</h3>
+              <p className="text-[var(--muted)] text-xs">Personal experience with IBS</p>
+            </div>
+            <div className="p-4 border-t border-[var(--border)]">
+              <a href="#" className="w-full text-[var(--accent)] text-sm font-medium hover:underline">Listen Now →</a>
+            </div>
+          </div>
+
+          <div className="episode-card group">
+            <div className="relative h-56 overflow-hidden rounded-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop" 
+                alt="Alternative approaches episode" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ transform: 'scale(1)' }}
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                <span className="text-xs text-[var(--accent)] uppercase tracking-wider">Beyond Healthcare</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>Ancestral Wisdom</h3>
+              <p className="text-[var(--muted)] text-xs">Traditional healing practices</p>
+            </div>
+            <div className="p-4 border-t border-[var(--border)]">
+              <a href="#" className="w-full text-[var(--accent)] text-sm font-medium hover:underline">Listen Now →</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="#" className="btn btn-primary px-8 py-3 rounded mt-6">Browse All Episodes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section className="section section-light" id="about">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="serif display-4 mb-4">About Navigating Health</h2>
+          <p className="lead">Cindy's journey into health podcasting began with a simple belief: everyone has a story worth sharing, and every health journey deserves to be heard.</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-16 md:gap-20 reveal reveal-delay-1">
+          <div>
+            <h3 className="serif text-2xl mb-4" style={{ color: 'var(--primary)' }}>Our Mission</h3>
+            <ul className="text-[var(--muted)] space-y-3">
+              <li>To provide a platform for real, unfiltered health conversations</li>
+              <li>To bridge the gap between expert knowledge and everyday experience</li>
+              <li>To empower listeners with information to make informed decisions</li>
+              <li>To foster a community of curiosity and continuous learning</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="serif text-2xl mb-4" style={{ color: 'var(--primary)' }}>Cindy</h3>
+            <p className="text-[var(--muted)] text-lg">After years of navigating our complex healthcare system personally and professionally, Cindy launched Navigating Health to create space for the stories that don't make the headlines. A former healthcare administrator turned podcast host, she believes the most powerful insights often come from those who've walked the path themselves.</p>
+            <div className="mt-6 pt-6 border-t" style={{ borderColor: 'var(--border)' }}>
+              <p className="text-[var(--muted)] text-sm">Subscribe. Listen. Share. Together we navigate.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-20 pt-16 border-t" style={{ borderColor: 'var(--border)' }}>
+          <h3 className="serif text-xl mb-4" style={{ color: 'var(--primary)' }}>Quick Links</h3>
+          <div className="grid grid-cols-2 gap-4 text-[var(--muted)]">
+            <a href="#" className="footer-link hover:text-[var(--accent)] transition-colors">Episodes</a>
+            <a href="#" className="footer-link hover:text-[var(--accent)] transition-colors">Real Stories</a>
+            <a href="#" className="footer-link hover:text-[var(--accent)] transition-colors">Resources</a>
+            <a href="#" className="footer-link hover:text-[var(--accent)] transition-colors">Shop</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SHOP ===== -->
+    <section className="section section-light" id="shop">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="serif display-4 mb-4">Take the Journey With You.</h2>
+          <p className="lead">Podcast merchandise and wellness-related products to support your journey.</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal reveal-delay-1">
+          <div className="product-card">
+            <div className="h-24 w-24 rounded-xl flex items-center justify-center mb-4" style={{ background: 'var(--card)' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <circle cx="15.5" cy="15.5" r="1.5"/>
+              </svg>
+            </div>
+            <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>T-Shirt</h3>
+            <p className="text-[var(--muted)] text-sm">Premium organic cotton</p>
+          </div>
+
+          <div className="product-card">
+            <div className="h-24 w-24 rounded-xl flex items-center justify-center mb-4" style={{ background: 'var(--card)' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                <circle cx="12" cy="12" r="1"/>
+              </svg>
+            </div>
+            <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>Hat</h3>
+            <p className="text-[var(--muted)] text-sm">Embroidered logo</p>
+          </div>
+
+          <div className="product-card">
+            <div className="h-24 w-24 rounded-xl flex items-center justify-center mb-4" style={{ background: 'var(--card)' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                <circle cx="12" cy="12" r="1"/>
+                <line x1="9" y1="9" x2="15" y2="15"/>
+              </svg>
+            </div>
+            <h3 className="serif text-base mb-1" style={{ color: 'var(--fg)' }}>Mug</h3>
+            <p className="text-[var(--muted)] text-sm">Ceramic, 15oz</p>
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="#" className="btn btn-primary px-8 py-3 rounded mt-6">Shop the Collection</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLOG ===== -->
+    <section className="section section-light" id="blog">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="serif display-4 mb-4">Keep Exploring.</h2>
+          <p className="lead">Fresh articles about health, wellness, lifestyle, and inspired living.</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal reveal-delay-1">
+          <div className="blog-card">
+            <img 
+              src="https://images.unsplash.com/photo-1469476154296-6d01d2e5d033?w=600&h=400&fit=crop" 
+              alt="Health article" 
+              className="w-full h-48 object-cover rounded-t-lg"
+              style={{ height: '250px', borderRadius: '6px 6px 0 0' }}
+            />
+            <div className="p-4">
+              <span className="text-xs text-[var(--accent)] uppercase tracking-wider mb-2">Wellness</span>
+              <h3 className="serif text-base mb-2" style={{ color: 'var(--fg)' }}>10 Morning Habits</h3>
+              <p className="text-[var(--muted)] text-sm">Simple practices to start your day with intention.</p>
+            </div>
+            <div className="p-4 border-t border-[var(--border)]">
+              <a href="#" className="text-[var(--accent)] text-sm hover:underline">Read More →</a>
+            </div>
+          </div>
+
+          <div className="blog-card">
+            <img 
+              src="https://images.unsplash.com/photo-1495474377282-856068ea6b10?w=600&h=400&fit=crop" 
+              alt="Wellness article" 
+              className="w-full h-48 object-cover rounded-t-lg"
+              style={{ height: '250px', borderRadius: '6px 6px 0 0' }}
+            />
+            <div className="p-4">
+              <span className="text-xs text-[var(--accent)] uppercase tracking-wider mb-2">Lifestyle</span>
+              <h3 className="serif text-base mb-2" style={{ color: 'var(--fg)' }}>Digital Detox</h3>
+              <p className="text-[var(--muted)] text-sm">Finding balance in a connected world.</p>
+            </div>
+            <div className="p-4 border-t border-[var(--border)]">
+              <a href="#" className="text-[var(--accent)] text-sm hover:underline">Read More →</a>
+            </div>
+          </div>
+
+          <div className="blog-card">
+            <img 
+              src="https://images.unsplash.com/photo-14638238983276cd84dfd250?w=600&h=400&fit=crop" 
+              alt="Lifestyle article" 
+              className="w-full h-48 object-cover rounded-t-lg"
+              style={{ height: '250px', borderRadius: '6px 6px 0 0' }}
+            />
+            <div className="p-4">
+              <span className="text-xs text-[var(--accent)] uppercase tracking-wider mb-2">Stories</span>
+              <h3 className="serif text-base mb-2" style={{ color: 'var(--fg)' }}>The Healing Power</h3>
+              <p className="text-[var(--muted)] text-sm">How nature restoration changed one family's health.</p>
+            </div>
+            <div className="p-4 border-t border-[var(--border)]">
+              <a href="#" className="text-[var(--accent)] text-sm hover:underline">Read More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div className="max-w-7xl mx-auto px-4">
+      <div className="grid grid-cols-2 gap-8 mb-8">
+        <div>
+          <span className="text-2xl font-serif text-[var(--accent)]">N</span>
+          <span className="text-xl font-serif text-[var(--fg)] tracking-tight">Navigating Health</span>
+        </div>
+        <div>
+          <h4 className="serif text-lg mb-3" style={{ color: 'var(--fg)' }}>Navigate</h4>
+          <nav>
+            <a href="#home" className="footer-link">Home</a>
+            <a href="#podcast" className="footer-link">Podcast</a>
+            <a href="#real-people" className="footer-link">Real People</a>
+            <a href="#about" className="footer-link">About</a>
+          </nav>
+        </div>
+      </div>
+      <div className="border-t" style={{ borderColor: 'var(--border)' }} padding-top="20px">
+        <p className="text-[var(--muted)] text-center text-sm">© 2026 Navigating Health. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => {
+        el.style.animationPlayState = 'paused';
+        revealObserver.observe(el);
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('main-nav');
+      if (window.scrollY > 100) {
+        nav.classList.add('solid');
+      } else {
+        nav.classList.remove('solid');
+      }
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileClose = document.getElementById('mobile-close');
+    
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('block');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    
+    if (mobileClose) {
+      mobileClose.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('block');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu) {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('block');
+          hamburger.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

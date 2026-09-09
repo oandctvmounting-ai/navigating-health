@@ -1,0 +1,245 @@
+/* Base styles */
+:root {
+  --bg: #0a0a0a;
+  --bg-warm: #1a1410;
+  --fg: #f5f0e8;
+  --muted: #a8a096;
+  --primary: #002366;
+  --accent: #D4AF37;
+  --accent-warm: #f5c35e;
+  --green: #2d6a4f;
+  --navy: #1e3a5f;
+  --cream: #faf6f0;
+  --card: #161210;
+  --border: #2a2520;
+}
+
+/* Serif font - Playfair Display equivalent */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+/* Serif for display */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Parallax layers */
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Foreground trees - fastest */
+.foreground-trees {
+  z-index: 10;
+  /* Will animate via transform */
+}
+
+/* Medium forest */
+.forest {
+  z-index: 8;
+}
+
+/* Distant mountains */
+.mountains {
+  z-index: 6;
+  /* Slowest movement */
+}
+
+/* Sky */
+.sky {
+  z-index: 4;
+  /* Very slow */
+}
+
+/* Clouds */
+.clouds {
+  z-index: 2;
+  animation: cloudDrift 20s linear infinite;
+}
+
+@keyframes cloudDrift {
+  from { transform: translateX(-20%); }
+  to { transform: translateX(100%); }
+}
+
+/* Trail/road */
+.trail {
+  z-index: 7;
+  /* Medium-fast */
+}
+
+/* Horizon highlight */
+.horizon {
+  z-index: 5;
+}
+
+/* Text reveal */
+.hero-text {
+  position: relative;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CTA buttons */
+.cta-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-btn-primary {
+  background: var(--primary);
+  color: var(--cream);
+  border: 1px solid var(--primary);
+}
+
+.cta-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 35, 102, 0.4);
+}
+
+.cta-btn-secondary {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--muted);
+  margin-left: 16px;
+}
+
+.cta-btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Section */
+.section {
+  padding: 80px 0;
+}
+
+.section-white {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-light {
+  background: var(--bg-warm);
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+}
+
+nav.solid {
+  background: rgba(10, 10, 10, 0.95);
+}
+
+/* Mobile nav */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--fg);
+  margin: 5px 0;
+  transition: transform 0.3s ease;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+  }
+}
+
+/* Focus states */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }
+.reveal-delay-4 { animation-delay: 0.4s; }
+.reveal-delay-5 { animation-delay: 0.5s; }
