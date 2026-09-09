@@ -999,7 +999,7 @@
   </nav>
   
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
+  <div id="mobile-menu" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 hidden">
     <div class="space-y-6 text-center">
       <a href="#home" class="text-3xl font-serif text-white block">Home</a>
       <a href="#podcast" class="text-3xl font-serif text-white block">Podcast</a>
@@ -1528,44 +1528,45 @@
     </div>
   </footer>
   
-  <script>
-    // Mobile menu toggle
+  <script>    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-close');
-    
+
+    // Hamburger click - toggles menu and animates icon
     hamburger.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+      // Toggle body overflow when menu is open/closed
+      document.body.style.overflow = mobileMenu.classList.contains('flex') ? 'hidden' : '';
+      // Animate hamburger icon
+      hamburger.classList.toggle('active');
     });
-    
+
+    // Mobile close button click
     mobileClose.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
       mobileMenu.classList.remove('flex');
       document.body.style.overflow = '';
+      hamburger.classList.remove('active');
     });
-    
-    // Mobile nav links
+
+    // Mobile nav links click
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
         mobileMenu.classList.remove('flex');
         document.body.style.overflow = '';
+        hamburger.classList.remove('active');
       });
     });
-    
-    // Hamburger animation
-    hamburger.addEventListener('click', function() {
-      this.classList.toggle('active');
-    });
-    
+
     // Scroll-based animations
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1573,33 +1574,9 @@
         }
       });
     }, observerOptions);
-    
+
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
       observer.observe(el);
-    });
-    
-    // Navbar scroll effect
-    const nav = document.getElementById('main-nav');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll <= 0) {
-        nav.classList.remove('solid');
-        return;
-      }
-      
-      if (currentScroll > lastScroll && !nav.classList.contains('solid')) {
-        // Scrolling down
-        nav.classList.add('solid');
-      } else if (currentScroll < lastScroll && nav.classList.contains('solid')) {
-        // Scrolling up
-        nav.classList.remove('solid');
-      }
-      
-      lastScroll = currentScroll;
-    });
-  </script>
+    });</script>
 </body>
 </html>
