@@ -1048,6 +1048,16 @@ nav.solid .hamburger span {
       padding-bottom: 4rem;
     }
 }
+    .hamburger {
+      display: none;
+    }
+    .bottom-nav {
+      display: flex;
+    }
+    body {
+      padding-bottom: 4rem;
+    }
+}
         .hamburger {
             display: none;
         }
@@ -1060,9 +1070,17 @@ nav.solid .hamburger span {
     }
     
     @media (min-width: 769px) {
-        .bottom-nav {
-            display: none;
-        }
+    .bottom-nav {
+      display: none;
+    }
+    .nav-links,
+    .nav-cta {
+      display: flex;
+    }
+    .hamburger {
+      display: none;
+    }
+}
         .nav-links,
         .nav-cta {
             display: flex;
@@ -1319,6 +1337,16 @@ nav.solid .hamburger span {
     .bottom-nav {
       display: flex;
     }
+    body {
+      padding-bottom: 4rem;
+    }
+}
+    .hamburger {
+      display: none;
+    }
+    .bottom-nav {
+      display: flex;
+    }
 }
   .hamburger { display: none; }
 }
@@ -1346,6 +1374,16 @@ nav.solid .hamburger span {
     .bottom-nav {
       display: flex;
     }
+    body {
+      padding-bottom: 4rem;
+    }
+}
+    .hamburger {
+      display: none;
+    }
+    .bottom-nav {
+      display: flex;
+    }
 }
   .hamburger { display: none; }
 }
@@ -1353,6 +1391,14 @@ nav.solid .hamburger span {
     .bottom-nav {
       display: none;
     }
+    .nav-links,
+    .nav-cta {
+      display: flex;
+    }
+    .hamburger {
+      display: none;
+    }
+}
     .nav-links,
     .nav-cta {
       display: flex;
@@ -1408,6 +1454,16 @@ nav.solid .hamburger span {
     .nav-cta {
       display: none;
     }
+    .hamburger {
+      display: none;
+    }
+    .bottom-nav {
+      display: flex;
+    }
+    body {
+      padding-bottom: 4rem;
+    }
+}
     .hamburger {
       display: none;
     }
@@ -1567,6 +1623,7 @@ nav.solid .hamburger span {
         <a href="podcast.html" class="nav-item active">Listen Now</a>
     </div>
 
+
 <script>
 // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
@@ -1635,5 +1692,6 @@ nav.solid .hamburger span {
       lastScroll = currentScroll;
     });
 </script>
+<div id="mobile-menu"></div>
 </body>
 </html>
