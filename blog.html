@@ -320,12 +320,7 @@ nav:not(.solid) .nav-link:hover {
       text-decoration: underline;
     }
     
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
+    .hamburger { display: none; }
     
     .hamburger span {
       width: 28px;
@@ -981,9 +976,7 @@ nav.solid .hamburger span {
 
 }
       
-      .hamburger {
-        display: flex;
-      }
+      .hamburger { display: none; }
       
       .nav-container {
       display: flex;
@@ -1177,12 +1170,7 @@ nav.solid .hamburger span {
       font-size: 0.95rem;
       line-height: 1.5;
     }
-.hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
+.hamburger { display: none; }
     .hamburger span {
       width: 28px;
       height: 3px;
@@ -1284,9 +1272,7 @@ nav.solid .hamburger span {
   .nav-cta {
     display: none;
   }
-  .hamburger {
-    display: flex;
-  }
+  .hamburger { display: none; }
 }
 
 
@@ -1296,16 +1282,57 @@ nav.solid .hamburger span {
   .nav-cta {
     display: none;
   }
-  .hamburger {
-    display: flex;
-  }
+  .hamburger { display: none; }
 }
 @media (min-width: 769px) {
-  .hamburger {
-    display: none;
-  }
+  .hamburger { display: none; }
 }
 </style>
+    /* ===== BOTTOM NAVIGATION (MOBILE) ===== */
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--cream);
+        border-top: 1px solid rgba(216, 207, 198, 0.3);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 4rem;
+        z-index: 1000;
+        font-size: 0.875rem;
+    }
+    .bottom-nav .nav-item {
+        color: var(--fg);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        transition: color 0.2s ease;
+    }
+    .bottom-nav .nav-item.active,
+    .bottom-nav .nav-item:hover {
+        color: var(--accent);
+    }
+    .bottom-nav .nav-item::before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    /* Add padding-bottom to body on mobile to prevent content being hidden */
+    @media (max-width: 768px) {
+        body {
+            padding-bottom: 4rem;
+        }
+    }
 
 @media (min-width: 769px) {
   .hamburger {
@@ -1553,5 +1580,16 @@ nav.solid .hamburger span {
       lastScroll = currentScroll;
     });
 </script>
+    <!-- Bottom Navigation Bar (Mobile) -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="podcast.html" class="nav-item">Podcast</a>
+        <a href="real-people.html" class="nav-item">Real People</a>
+        <a href="resources.html" class="nav-item">Resources</a>
+        <a href="blog.html" class="nav-item">Blog</a>
+        <a href="shop.html" class="nav-item">Shop</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="podcast.html" class="nav-item active">Listen Now</a>
+    </div>
 </body>
 </html>
