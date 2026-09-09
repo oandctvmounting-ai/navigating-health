@@ -187,7 +187,7 @@
     }
     
     .nav-link {
-      color: var(--hero-text);
+      color: var(--fg);
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 0.5px;
@@ -196,13 +196,21 @@
       padding: 0.5rem 0;
     }
 
+.nav-link:hover {
+  color: var(--accent);
+}
+
 nav.solid .nav-link {
-  color: var(--fg);
+      color: var(--fg);
+    }
+
+.nav-link:hover {
+  color: var(--accent);
 }
 
 /* Nav link color when nav is transparent (on hero) */
 nav:not(.solid) .nav-link {
-      color: var(--hero-text);
+      color: var(--fg);
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 0.5px;
@@ -211,8 +219,16 @@ nav:not(.solid) .nav-link {
       padding: 0.5rem 0;
     }
 
+.nav-link:hover {
+  color: var(--accent);
+}
+
 nav.solid .nav-link {
-  color: var(--fg);
+      color: var(--fg);
+    }
+
+.nav-link:hover {
+  color: var(--accent);
 }
 
 /* Hover for nav links when nav is transparent */
