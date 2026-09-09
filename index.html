@@ -1220,13 +1220,13 @@ nav.solid .hamburger span {
 
 #mobile-menu .space-y-6 {
       width: 90%;
-      max-width: 500px;
-      max-height: 90vh;
+      max-width: 450px;
+      max-height: 80vh;
       overflow-y: auto;
       background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 #mobile-menu a {
   display: block;
@@ -1238,6 +1238,29 @@ nav.solid .hamburger span {
 }
 #mobile-menu a.bg-primary {
   margin-top: 1.5rem;
+}
+
+#mobile-menu a {
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 1.1rem;
+  color: var(--fg);
+  transition: background 0.2s ease;
+}
+#mobile-menu a:last-child {
+  border-bottom: none;
+}
+#mobile-menu a.bg-primary {
+  margin-top: 1rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+#mobile-menu a.bg-primary:hover {
+  background: var(--accent);
 }
 </style>
 </head><nav id="main-nav">
