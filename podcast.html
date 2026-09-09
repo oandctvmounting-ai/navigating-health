@@ -1031,73 +1031,102 @@ nav.solid .hamburger span {
       }
     }
     
+    
+    /* ===== MEDIA QUERIES ===== */
+    @media (max-width: 768px) {
+        .nav-links,
+        .nav-cta {
+            display: none;
+        }
+        .hamburger {
+            display: none;
+        }
+        .bottom-nav {
+            display: flex;
+        }
+        body {
+            padding-bottom: 4rem;
+        }
+    }
+    
+    @media (min-width: 769px) {
+        .bottom-nav {
+            display: none;
+        }
+        .nav-links,
+        .nav-cta {
+            display: flex;
+        }
+        .hamburger {
+            display: none;
+        }
+    }
+    
     @media (max-width: 480px) {
-      h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
-      h2 { font-size: clamp(1.75rem, 5vw, 2.25rem); }
-      h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
-      
-      .hero-content {
-      position: relative;
-      z-index: 10;
-      margin-top: 3.5rem;
-      height: calc(100vh - 3.5rem);
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 2rem;
-      max-width: 800px;
-    }
-      
-      .hero-text h1 {
-      color: inherit;
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      font-weight: 800;
-      text-shadow: none;
-    }
-      
-      .hero-text p {
-      font-size: clamp(1.125rem, 3vw, 1.5rem);
-      font-weight: 600;
-      color: inherit;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      text-shadow: none;
-    }
-      
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      
-      .btn {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 0.75rem;
-      }
-      
-      .section-title h2 {
-        font-size: 1.75rem;
-      }
-      
-      .grid-2, .grid-3, .grid-4 {
-        grid-template-columns: 1fr;
-      }
+        h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
+        h2 { font-size: clamp(1.75rem, 5vw, 2.25rem); }
+        h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            margin-top: 3.5rem;
+            height: calc(100vh - 3.5rem);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+            max-width: 800px;
+        }
+        
+        .hero-text h1 {
+            color: inherit;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: none;
+        }
+        
+        .hero-text p {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            font-weight: 600;
+            color: inherit;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-shadow: none;
+        }
+        
+        .hero-buttons {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
+        .btn {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .section-title h2 {
+            font-size: 1.75rem;
+        }
+        
+        .grid-2, .grid-3, .grid-4 {
+            grid-template-columns: 1fr;
+        }
     }
     
-    /* ===== REDUCED MOTION ===== */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0ms !important;
-      }
+        *, *::before, *::after {
+            animation-duration: 0ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0ms !important;
+        }
     }
-    
-    /* ===== FOCUS VISIBLE ===== */
+/* ===== FOCUS VISIBLE ===== */
     a:focus-visible,
     button:focus-visible,
     input:focus-visible {
