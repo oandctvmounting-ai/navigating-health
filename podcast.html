@@ -1,31 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigating Health - Podcast</title>
-    <meta name="description" content="Cindy's Navigating Health Podcast - exploring health journeys through real stories, expert conversations, and wellness insights" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <style>
-        :root {
-            --bg: #f5f0e8;
-            --fg: #2a1f1a;
-            --muted: #6a5d54;
-            --primary: #002366;
-            --accent: #D4AF37;
-            --accent-warm: #f5c35e;
-            --green: #2d6a4f;
-            --navy: #1e3a5f;
-            --cream: #faf6f0;
-            --hero-text: #ffffff;
-        }
-        /* We'll include the rest of the CSS from the original index.html */
-        <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navigating Health - Cindy's Podcast</title>
+  <title>Navigating Health - Podcast</title>
   <meta name="description" content="Cindy's Navigating Health Podcast - exploring health journeys through real stories, expert conversations, and wellness insights" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
@@ -159,7 +137,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: transparent;;;
+      background: transparent;
       backdrop-filter: blur(10px);
       transition: background 0.3s ease;
       border-bottom: 1px solid rgba(216, 207, 198, 0.3);
@@ -171,16 +149,31 @@
     }
     
     .nav-container {
-    height: 3.5rem;;
-;
-}}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 3.5rem;
+      /* No background - let it be transparent */
+    }}
     
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
       font-weight: 700;
       font-size: 1.5rem;
+    }
+
+.nav-logo span {
+      color: var(--hero-text);
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      text-shadow: 0 0 3px rgba(0,0,0,0.5);
+    }
+
+nav.solid .nav-logo span {
+      color: var(--fg);
+      text-shadow: none;
     }
     
     .nav-logo .brand-letter {
@@ -207,11 +200,83 @@
       transition: color 0.3s ease;
       position: relative;
       padding: 0.5rem 0;
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
+    .nav-link:hover {
+      color: var(--accent);
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+nav.solid .nav-link {
+      color: var(--fg);
+    }
+    nav.solid .nav-link:hover {
+      color: var(--accent);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
+    }
+    nav.solid .nav-link:hover {
+      color: var(--accent);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+.nav-link:hover {
+  color: var(--accent);
+}
 
 /* Nav link color when nav is transparent (on hero) */
 nav:not(.solid) .nav-link {
-  color: var(--hero-text);
+      color: var(--fg);
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+nav.solid .nav-link {
+      color: var(--fg);
+    }
+    nav.solid .nav-link:hover {
+      color: var(--accent);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+      text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
+    }
+    nav.solid .nav-link:hover {
+      color: var(--accent);
+    }
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+.nav-link:hover {
+  color: var(--accent);
 }
 
 /* Hover for nav links when nav is transparent */
@@ -239,20 +304,20 @@ nav:not(.solid) .nav-link:hover {
     }
     
     .nav-cta {
-      background: var(--primary);
-      color: var(--cream);
-      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: var(--hero-text);
+      padding: 0.5rem 1rem;
       border-radius: 4px;
       font-weight: 600;
-      font-size: 1.1rem;
-      transition: background 0.3s ease, transform 0.2s ease;
-      border: 2px solid transparent;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
     
     .nav-cta:hover {
-      background: #001e4d;
-      transform: translateY(-2px);
-      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: underline;
     }
     
     .hamburger {
@@ -331,7 +396,9 @@ nav.solid .hamburger span {
     .hero-content {
       position: relative;
       z-index: 10;
-      height: 100vh;
+      margin-top: 3.5rem;
+      height: calc(100vh - 3.5rem);
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -341,10 +408,9 @@ nav.solid .hamburger span {
     }
     
     .hero-text {
-      color: var(--fg);
+      color: var(--hero-text);
       max-width: 80%;
       margin-bottom: 2rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
     
     .hero-text h1 {
@@ -353,6 +419,7 @@ nav.solid .hamburger span {
       line-height: 1.2;
       margin-bottom: 1.5rem;
       font-weight: 800;
+      text-shadow: none;
     }
     
     .hero-text p {
@@ -361,6 +428,7 @@ nav.solid .hamburger span {
       color: inherit;
       line-height: 1.6;
       margin-bottom: 1.5rem;
+      text-shadow: none;
     }
     
     .hero-buttons {
@@ -926,13 +994,19 @@ nav.solid .hamburger span {
       }
       
       .nav-container {
-        justify-content: space-between;
-      }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 3.5rem;
+      /* No background - let it be transparent */
+    }
       
       .hero-content {
       position: relative;
       z-index: 10;
-      height: 100vh;
+      margin-top: 3.5rem;
+      height: calc(100vh - 3.5rem);
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -942,10 +1016,9 @@ nav.solid .hamburger span {
     }
       
       .hero-text {
-      color: var(--fg);
+      color: var(--hero-text);
       max-width: 80%;
       margin-bottom: 2rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
       
       .hero-buttons {
@@ -981,7 +1054,9 @@ nav.solid .hamburger span {
       .hero-content {
       position: relative;
       z-index: 10;
-      height: 100vh;
+      margin-top: 3.5rem;
+      height: calc(100vh - 3.5rem);
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -996,6 +1071,7 @@ nav.solid .hamburger span {
       line-height: 1.2;
       margin-bottom: 1.5rem;
       font-weight: 800;
+      text-shadow: none;
     }
       
       .hero-text p {
@@ -1004,6 +1080,7 @@ nav.solid .hamburger span {
       color: inherit;
       line-height: 1.6;
       margin-bottom: 1.5rem;
+      text-shadow: none;
     }
       
       .hero-buttons {
@@ -1053,6 +1130,61 @@ nav.solid .hamburger span {
     }
 }
 
+
+    /* Section Navigation */
+    .section-nav {
+      background: var(--bg);
+      padding: 3rem 0;
+    }
+    .section-nav .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section-nav .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--fg);
+      margin-bottom: 1rem;
+    }
+    .section-nav .section-title p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .section-nav .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .nav-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .nav-card .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .nav-card h3 {
+      color: var(--fg);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .nav-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
 </style>
 </head>
     </style>
@@ -1065,14 +1197,14 @@ nav.solid .hamburger span {
         <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
         <span>Navigating Health</span>
       </div>
-      <div class="nav-links">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#podcast" class="nav-link">Podcast</a>
-        <a href="#real-people" class="nav-link">Real People</a>
-        <a href="#resources" class="nav-link">Resources</a>
-        <a href="#blog" class="nav-link">Blog</a>
-        <a href="#shop" class="nav-link">Shop</a>
-        <a href="#about" class="nav-link">About</a>
+            <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="podcast.html" class="nav-link">Podcast</a>
+        <a href="real-people.html" class="nav-link">Real People</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
       </div>
       <div class="nav-cta">Listen Now</div>
     </div>
@@ -1213,9 +1345,7 @@ nav.solid .hamburger span {
     </div>
   </footer>
     
-    <script>
-        // Same JS as original
-        <script>    // Mobile menu toggle
+    <script>    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-close');
