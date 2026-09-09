@@ -1033,31 +1033,47 @@ nav.solid .hamburger span {
     
     
     /* ===== MEDIA QUERIES ===== */
-    @media (max-width: 768px) {
-    .nav-links,
-    .nav-cta {
-      display: none;
+        @media (max-width: 768px) {
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .hamburger {
+          display: none;
+        }
+        .bottom-nav {
+          display: flex;
+        }
+        body {
+          padding-bottom: 4rem;
+        }
+        /* Fix: keep brand logo/text inside the nav bar on mobile (single line, fits 3.5rem) */
+        .nav-logo {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          white-space: nowrap;
+          line-height: 1;
+          max-height: 3.5rem;
+        }
+        .nav-logo span {
+          font-size: 1.1rem;
+          line-height: 1;
+          white-space: nowrap;
+        }
+        .logo-img {
+          max-height: 2.2rem;
+        }
+        .hamburger {
+          display: none;
+        }
+        .bottom-nav {
+          display: flex;
+        }
+        body {
+          padding-bottom: 4rem;
+        }
     }
-    .hamburger {
-      display: none;
-    }
-    .bottom-nav {
-      display: flex;
-    }
-    body {
-      padding-bottom: 4rem;
-    }
-}
-    .hamburger {
-      display: none;
-    }
-    .bottom-nav {
-      display: flex;
-    }
-    body {
-      padding-bottom: 4rem;
-    }
-}
         .hamburger {
             display: none;
         }
