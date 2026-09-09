@@ -184,10 +184,10 @@ nav.solid .nav-logo span {
     
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1rem; /* Reduced from 2rem */
       align-items: center;
       background: white;
-      padding: 0.5rem 1rem;
+      padding: 0.25rem 0.5rem; /* Reduced from 0.5rem 1rem */
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
@@ -981,10 +981,10 @@ nav.solid .hamburger span {
     @media (max-width: 768px) {
       .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1rem; /* Reduced from 2rem */
       align-items: center;
       background: white;
-      padding: 0.5rem 1rem;
+      padding: 0.25rem 0.5rem; /* Reduced from 0.5rem 1rem */
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
@@ -1243,15 +1243,26 @@ nav.solid .hamburger span {
 <body>
     <!-- Navigation -->
     <nav id="main-nav">
-    <div class="container nav-container">
-      <div class="nav-logo">
-        <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
-        <span>Navigating Health</span>
-            <!-- Hamburger -->
-      <div class="hamburger md:hidden" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+          <div class="container nav-container">
+        <div class="nav-logo">
+          <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
+          <span>Navigating Health</span>
+        </div>
+        <div class="hamburger md:hidden" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="podcast.html" class="nav-link">Podcast</a>
+        <a href="real-people.html" class="nav-link">Real People</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+      </div>
+        <div class="nav-cta">Listen Now</div>
       </div>
     </div>
             <div class="nav-links">
@@ -1405,6 +1416,7 @@ nav.solid .hamburger span {
     
     
     </script>
+
 
 
 
