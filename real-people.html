@@ -478,10 +478,7 @@ nav.solid .hamburger span {
       margin-bottom: 4rem;
     }
     
-    .section-title h2 {
-      position: relative;
-      display: inline-block;
-    }
+    
     
     .section-title h2::after {
       content: '';
@@ -1110,9 +1107,7 @@ nav.solid .hamburger span {
             margin-bottom: 0.75rem;
         }
         
-        .section-title h2 {
-            font-size: 1.75rem;
-        }
+        
         
         .grid-2, .grid-3, .grid-4 {
             grid-template-columns: 1fr;
@@ -1146,11 +1141,7 @@ nav.solid .hamburger span {
       text-align: center;
       margin-bottom: 2rem;
     }
-    .section-nav .section-title h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--fg);
-      margin-bottom: 1rem;
-    }
+    .section-nav 
     .section-nav .section-title p {
       color: var(--muted);
       max-width: 600px;
@@ -1515,6 +1506,14 @@ nav.solid .hamburger span {
 .container {
   position: relative !important;
   z-index: 1 !important;
+}
+
+.section-title h2 {
+  color: #000000;
+  background-color: #145C73;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: inline-block;
 }
 </style>
 </head>
