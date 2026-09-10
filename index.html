@@ -10,17 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f5f0e8;
-      --fg: #2a1f1a;
-      --muted: #6a5d54;
-      --primary: #002366;
-      --accent: #D4AF37;
-      --accent-warm: #f5c35e;
-      --green: #2d6a4f;
-      --navy: #1e3a5f;
-      --cream: #faf6f0;
-      --hero-text: #ffffff;
-    }
+  --bg: #F5F0E3; /* Warm Cream as main light background */
+  --fg: #12345B; /* Deep Navy for main text */
+  --muted: #6a5d54; /* Muted tone for secondary text */
+  --primary: #0B5D50; /* Botanical Green as main brand/CTA */
+  --accent: #C9A85D; /* Natural Gold for premium details */
+  --accent-warm: #5D91A5; /* Soft Sky Blue as secondary accent */
+  --green: #123F36; /* Deep Forest Green for dark sections */
+  --navy: #12345B; /* Deep Navy for headings and dark text */
+  --cream: #FBF8EF; /* Soft Ivory as alternative light background */
+  --hero-text: #FFFFFF; /* White for text over dark/photographic backgrounds */
+  --teal: #145C73; /* Mountain Teal Blue */
+  --sky: #5D91A5; /* Soft Sky Blue */
+}
     
     
 
@@ -127,7 +129,7 @@
       position: relative;
     }
     
-    .section-light { background: #ebe4d9; }
+    .section-light { background: var(--bg); }
     .section-white { background: var(--cream); }
     
     /* ===== NAVIGATION ===== */
@@ -178,17 +180,13 @@
       text-shadow: none;
     }
     
-    .nav-logo .brand-letter {
-      font-size: 2rem;
-      color: var(--accent);
-      font-family: 'Playfair Display', serif;
-    }
+    .nav-logo .brand-letter { color: var(--primary); }
     
     .nav-links {
       display: flex;
       gap: 1rem;
       align-items: center;
-      background: white;
+      background: var(--bg);
       padding: 0.25rem 0.5rem;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -205,36 +203,36 @@
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
 .nav-link:hover {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 nav.solid .nav-link {
       color: var(--fg);
     }
     nav.solid .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     nav.solid .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
 .nav-link:hover {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 /* Nav link color when nav is transparent (on hero) */
@@ -249,45 +247,45 @@ nav:not(.solid) .nav-link {
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
 .nav-link:hover {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 nav.solid .nav-link {
       color: var(--fg);
     }
     nav.solid .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     nav.solid .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
 .nav-link:hover {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 /* Hover for nav links when nav is transparent */
 nav:not(.solid) .nav-link:hover {
-  color: var(--accent);
+  color: var(--primary);
 }
     
     .nav-link:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
     
     .nav-link::after {
@@ -297,7 +295,7 @@ nav:not(.solid) .nav-link:hover {
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--accent);
+      background: var(--primary);
       transition: width 0.3s ease;
     }
     
@@ -317,10 +315,7 @@ nav:not(.solid) .nav-link:hover {
       cursor: pointer;
     }
     
-    .nav-cta:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
+    .nav-cta:hover { color: var(--primary); text-decoration: underline; }
     
     .hamburger { display: none; }
     
@@ -365,17 +360,7 @@ nav.solid .hamburger span {
       animation: subtleScale 20s ease-in-out infinite;
 }
     
-    .hero-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 35, 102, 0.15) 50%, rgba(0, 0, 0, 0.05) 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-}
+    .hero-overlay { background: linear-gradient(180deg, rgba(11,93,80,0.25) 0%, rgba(18,63,54,0.15) 50%, rgba(11,93,80,0.05) 100%); }
 
 /* Very subtle gradient animation */
 @keyframes gradientShift {
@@ -451,12 +436,7 @@ nav.solid .hamburger span {
       border: 2px solid var(--primary);
     }
     
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 35, 102, 0.3);
-    }
+    .btn-primary:hover { box-shadow: 0 4px 12px rgba(11,93,80,0.2); }
     
     .btn-secondary {
       background: transparent;
@@ -934,10 +914,7 @@ nav.solid .hamburger span {
       margin-bottom: 0.75rem;
     }
     
-    .footer-section a {
-      color: rgba(255, 255, 255, 0.7);
-      transition: color 0.3s ease;
-    }
+    .footer-section a { color: var(--cream); }
     
     .footer-section a:hover {
       color: var(--cream);
@@ -1410,10 +1387,7 @@ nav.solid .hamburger span {
         gap: 0.25rem;
         transition: color 0.2s ease;
     }
-    .bottom-nav .nav-item.active,
-    .bottom-nav .nav-item:hover {
-        color: var(--accent);
-    }
+    .bottom-nav .nav-item.active, .bottom-nav .nav-item:hover { color: var(--primary); }
     .bottom-nav .nav-item::before {
         content: '';
         display: inline-block;
@@ -1472,7 +1446,7 @@ nav.solid .hamburger span {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255,255,255,0.3);
+  background: rgba(251,248,239,0.3);
   pointer-events: none;
 }.nav-card {
   display: flex;
@@ -1480,19 +1454,19 @@ nav.solid .hamburger span {
   align-items: center;
   text-align: center;
   padding: 1.5rem;
-  background: rgba(255,255,255,0.25);
+  background: rgba(251,248,239,0.25);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(251,248,239,0.18);
 }.nav-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  background: rgba(255,255,255,0.35);
-  border-color: rgba(255,255,255,0.25);
+  background: rgba(251,248,239,0.35);
+  border-color: rgba(251,248,239,0.25);
 }</style>
 </head>
 <body>
