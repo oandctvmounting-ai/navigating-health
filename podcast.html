@@ -1782,70 +1782,33 @@ h1 {
           });
       </script>
 
-      <!-- ===== Podcast episodes (editable via episodes.js) ===== -->
-            <script src="episodes.js"></script>
-            <style>
-              /* Inline video embed styling (matches site aesthetic) */
-              .episode-card {
-                background: #fff;
-                border: 1px solid #e6ddc8;
-                border-radius: 14px;
-                overflow: hidden;
-                box-shadow: 0 6px 24px rgba(18,63,54,0.07);
-                margin-bottom: 2rem;
-              }
-              .episode-video {
-                position: relative;
-                width: 100%;
-                padding-top: 56.25%; /* 16:9 */
-                background: #123F36;
-              }
-              .episode-video iframe {
-                position: absolute;
-                top: 0; left: 0;
-                width: 100%; height: 100%;
-                border: 0;
-              }
-              .episode-info {
-                padding: 1.4rem 1.6rem 1.6rem;
-              }
-              .episode-info h3 {
-                font-family: 'Playfair Display', serif;
-                font-size: 1.5rem;
-                color: #12345B;
-                margin: 0 0 0.5rem;
-              }
-              .episode-info p {
-                color: #6b6352;
-                line-height: 1.6;
-                margin: 0;
-                font-size: 0.98rem;
-              }
-              .episode-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 2rem;
-              }
-              @media (min-width: 768px) {
-                .episode-grid { grid-template-columns: 1fr 1fr; }
-                .episode-grid .episode-card.featured { grid-column: 1 / -1; }
-              }
-            </style>
+      <!-- ===== Podcast episodes =====
+             Primary: load from Supabase (Cindy's editor). 
+             Fallback: episodes.js demo data until keys are configured. -->
+            <link rel="stylesheet" href="podcast-admin/episode-styles.css">
+            <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+            <script src="podcast-admin/config.js"></script>
+            <script src="podcast-admin/api.js"></script>
+            <script src="podcast-admin/embed.js"></script>
             <script>
+              // If Supabase isn't configured yet (placeholder keys), fall back to
+              // episodes.js so the page still shows sample episodes.
               (function () {
-                function youtubeId(url) {
-                  var m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
-                  return m ? m[1] : null;
-                }
-                function render() {
+                function fb() {
                   var root = document.getElementById("podcast-episodes");
-                  if (!root || typeof EPISODES === "undefined") return;
-
-                  if (!EPISODES.length) {
-                    root.innerHTML = '<p style="text-align:center;color:var(--fg);">New episodes coming soon. 🎙️</p>';
-                    return;
+                  if (!root) return;
+                  var text = (root.textContent || "").trim();
+                  // If embed.js rendered real episodes, leave it alone.
+                  if (root.querySelector(".episode-card")) return;
+                  // If it showed a "coming soon/on their way" message due to config
+                  // error, swap in the demo fallback.
+                  if (/on their way|coming soon/i.test(text) && typeof EPISODES !== "undefined") {
+                    renderFallback();
                   }
+                }
 
+                function renderFallback() {
+                  var root = document.getElementById("podcast-episodes");
                   root.innerHTML = "";
                   var grid = document.createElement("div");
                   grid.className = "episode-grid";
@@ -1854,21 +1817,19 @@ h1 {
                     var card = document.createElement("div");
                     card.className = "episode-card" + (i === 0 ? " featured" : "");
 
-                    // Video player (inline embed)
-                    var videoWrap = document.createElement("div");
-                    videoWrap.className = "episode-video";
-                    var id = youtubeId(ep.video);
-                    if (id) {
-                      var iframe = document.createElement("iframe");
-                      iframe.src = "https://www.youtube.com/embed/" + id;
-                      iframe.title = ep.title || "Podcast episode";
-                      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-                      iframe.allowFullscreen = true;
-                      iframe.loading = "lazy";
-                      videoWrap.appendChild(iframe);
+                    var vw = document.createElement("div");
+                    vw.className = "episode-video";
+                    var m = ep.video.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
+                    if (m) {
+                      var ifr = document.createElement("iframe");
+                      ifr.src = "https://www.youtube.com/embed/" + m[1];
+                      ifr.title = ep.title || "";
+                      ifr.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                      ifr.allowFullscreen = true;
+                      ifr.loading = "lazy";
+                      vw.appendChild(ifr);
                     }
 
-                    // Info (title + caption)
                     var info = document.createElement("div");
                     info.className = "episode-info";
                     var h3 = document.createElement("h3");
@@ -1878,7 +1839,7 @@ h1 {
                     info.appendChild(h3);
                     info.appendChild(p);
 
-                    card.appendChild(videoWrap);
+                    card.appendChild(vw);
                     card.appendChild(info);
                     grid.appendChild(card);
                   });
@@ -1886,11 +1847,9 @@ h1 {
                   root.appendChild(grid);
                 }
 
-                if (document.readyState === "loading") {
-                  document.addEventListener("DOMContentLoaded", render);
-                } else {
-                  render();
-                }
+                window.addEventListener("load", function () {
+                  setTimeout(fb, 1200);
+                });
               })();
             </script>
             <div id="mobile-menu"></div>

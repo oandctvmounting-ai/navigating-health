@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcast Admin — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body class="login-body">
+  <div class="login-card">
+    <div class="mark">Navigating Health</div>
+    <div class="sub">Podcast editor — please sign in</div>
+    <form id="login-form">
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password" placeholder="Enter your password" autofocus>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Sign In</button>
+      <div class="error-msg" id="error"></div>
+    </form>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    if (isLoggedIn()) {
+      window.location.replace("editor.html");
+    }
+
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const pw = document.getElementById("password").value;
+      if (login(pw)) {
+        window.location.replace("editor.html");
+      } else {
+        const el = document.getElementById("error");
+        el.textContent = "Incorrect password. Please try again.";
+        document.getElementById("password").select();
+      }
+    });
+  </script>
+</body>
+</html>
