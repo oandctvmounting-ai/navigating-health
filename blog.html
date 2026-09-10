@@ -1460,7 +1460,27 @@ nav.solid .hamburger span {
       position: relative;
       z-index: 1;
     }</style>
-</head>
+
+<style>
+    .page-background {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: -2 !important;
+      overflow: hidden !important;
+      background-image: url('src/assets/background.jpg') !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+    /* Ensure container is above background */
+    .container {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+</style></head>
 
 <body>
     <div class="page-background"></div>
