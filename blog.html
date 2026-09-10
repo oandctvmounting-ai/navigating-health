@@ -1,18 +1,49 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigating Health - Cindy's Podcast</title>
+  <meta name="description" content="Cindy's Navigating Health Podcast - exploring health journeys through real stories, expert conversations, and wellness insights" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
     :root {
-  --bg: #F5F0E3; /* Warm Cream as main light background */
-  --fg: #12345B; /* Deep Navy for main text */
-  --muted: #6a5d54; /* Muted tone for secondary text */
-  --primary: #0B5D50; /* Botanical Green as main brand/CTA */
-  --accent: #C9A85D; /* Natural Gold for premium details */
-  --accent-warm: #5D91A5; /* Soft Sky Blue as secondary accent */
-  --green: #123F36; /* Deep Forest Green for dark sections */
-  --navy: #12345B; /* Deep Navy for headings and dark text */
-  --cream: #FBF8EF; /* Soft Ivory as alternative light background */
-  --hero-text: #FFFFFF; /* White for text over dark/photographic backgrounds */
-  --teal: #145C73; /* Mountain Teal Blue */
-  --sky: #5D91A5; /* Soft Sky Blue */
-}
+      --bg: #f5f0e8;
+      --fg: #2a1f1a;
+      --muted: #6a5d54;
+      --primary: #002366;
+      --accent: #D4AF37;
+      --accent-warm: #f5c35e;
+      --green: #2d6a4f;
+      --navy: #1e3a5f;
+      --cream: #faf6f0;
+      --hero-text: #ffffff;
+    }
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .logo-img {
     max-height: 3rem;
@@ -38,7 +69,13 @@
       scroll-behavior: smooth;
     }
     
-    body { background: transparent; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
     
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Playfair Display', serif;
@@ -88,12 +125,10 @@
     .section {
       padding: 6rem 0;
       position: relative;
+    }
     
-  background: transparent;
-}
-    
-    .section-light { background: transparent; }
-    .section-white { background: transparent; }
+    .section-light { background: #ebe4d9; }
+    .section-white { background: var(--cream); }
     
     /* ===== NAVIGATION ===== */
     nav {
@@ -142,9 +177,21 @@ nav.solid .nav-logo span {
       text-shadow: none;
     }
     
-    .nav-logo .brand-letter { color: var(--primary); }
+    .nav-logo .brand-letter {
+      font-size: 2rem;
+      color: var(--accent);
+      font-family: 'Playfair Display', serif;
+    }
     
-    .nav-links { background: var(--bg); }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
     
     .nav-link {
       color: var(--fg);
@@ -157,36 +204,36 @@ nav.solid .nav-logo span {
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
 .nav-link:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 nav.solid .nav-link {
       color: var(--fg);
     }
     nav.solid .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     nav.solid .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
 .nav-link:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 /* Nav link color when nav is transparent (on hero) */
@@ -201,45 +248,45 @@ nav:not(.solid) .nav-link {
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
 .nav-link:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 nav.solid .nav-link {
       color: var(--fg);
     }
     nav.solid .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
       text-shadow: 0 0 2px rgba(255,255,255,0.7), 0 0 4px rgba(255,255,255,0.7);
     }
     nav.solid .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
 .nav-link:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 /* Hover for nav links when nav is transparent */
 nav:not(.solid) .nav-link:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
     
     .nav-link:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
     
     .nav-link::after {
@@ -269,7 +316,10 @@ nav:not(.solid) .nav-link:hover {
       cursor: pointer;
     }
     
-    .nav-cta:hover { color: var(--primary); text-decoration: underline; }
+    .nav-cta:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
     
     .hamburger { display: none; }
     
@@ -285,6 +335,7 @@ nav.solid .hamburger span {
   background: var(--fg);
 }
 
+    
     /* ===== HERO SECTION ===== */
     .hero {
       position: relative;
@@ -313,7 +364,17 @@ nav.solid .hamburger span {
       animation: subtleScale 20s ease-in-out infinite;
 }
     
-    .hero-overlay { background: linear-gradient(180deg, rgba(11,93,80,0.25) 0%, rgba(18,63,54,0.15) 50%, rgba(11,93,80,0.05) 100%); }
+    .hero-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 35, 102, 0.15) 50%, rgba(0, 0, 0, 0.05) 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
 
 /* Very subtle gradient animation */
 @keyframes gradientShift {
@@ -387,6 +448,7 @@ nav.solid .hamburger span {
       color: var(--fg);
     }
 
+    
     .btn {
       display: inline-block;
       padding: 0.75rem 2rem;
@@ -398,11 +460,24 @@ nav.solid .hamburger span {
       font-size: 1rem;
     }
     
+    .btn-primary {
+      background: var(--primary);
+      color: var(--cream);
+      border: 2px solid var(--primary);
+    }
     
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 35, 102, 0.3);
+    }
     
-    .btn-primary:hover { box-shadow: 0 4px 12px rgba(11,93,80,0.2); }
-    
-    
+    .btn-secondary {
+      background: transparent;
+      color: var(--hero-text);
+      border: 2px solid var(--hero-text);
+    }
     
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.1);
@@ -455,7 +530,14 @@ nav.solid .hamburger span {
     .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
     
     /* ===== CARDS ===== */
-    
+    .card {
+      background: var(--cream);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(216, 207, 198, 0.3);
+    }
     
     .card:hover {
       transform: translateY(-8px);
@@ -546,7 +628,15 @@ nav.solid .hamburger span {
     }
     
     /* ===== STORY CARDS ===== */
-    
+    .story-card {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(216, 207, 198, 0.3);
+      position: relative;
+    }
     
     .story-card:hover {
       transform: translateY(-8px);
@@ -601,7 +691,15 @@ nav.solid .hamburger span {
       gap: 2rem;
     }
     
-    
+    .resource-item {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(216, 207, 198, 0.2);
+    }
     
     .resource-item:hover {
       transform: translateY(-4px);
@@ -636,7 +734,13 @@ nav.solid .hamburger span {
     }
     
     /* ===== BLOG & NEWS ===== */
-    
+    .blog-post {
+      background: var(--cream);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
     
     .blog-post:hover {
       transform: translateY(-4px);
@@ -704,7 +808,15 @@ nav.solid .hamburger span {
       gap: 2rem;
     }
     
-    
+    .shop-item {
+      background: var(--cream);
+      border-radius: 12px;
+      text-align: center;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(216, 207, 198, 0.2);
+    }
     
     .shop-item:hover {
       transform: translateY(-4px);
@@ -837,7 +949,10 @@ nav.solid .hamburger span {
       margin-bottom: 0.75rem;
     }
     
-    .footer-section a { color: var(--cream); }
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
     
     .footer-section a:hover {
       color: var(--cream);
@@ -913,9 +1028,7 @@ nav.solid .hamburger span {
       
       .section {
         padding: 4rem 0;
-      
-  background: transparent;
-}
+      }
       
       .content-section {
         padding: 4rem 0;
@@ -933,7 +1046,10 @@ nav.solid .hamburger span {
         margin-bottom: 1rem;
       }
     }
-
+    
+    
+    
+    
     /* ===== MEDIA QUERIES ===== */
     @media (max-width: 768px) {
     .nav-links,
@@ -1066,6 +1182,7 @@ nav.solid .hamburger span {
     }
 }
 
+
     /* Section Navigation */
     .section-nav {
       background: var(--bg);
@@ -1090,7 +1207,18 @@ nav.solid .hamburger span {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
-    
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
     .nav-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
@@ -1134,6 +1262,7 @@ nav.solid .hamburger span {
 /* Mobile Menu Styles */
 #mobile-menu {
   /* Already set in HTML via class, but we can reinforce */
+
 
 #mobile-menu a {
   display: block;
@@ -1202,6 +1331,8 @@ nav.solid .hamburger span {
       background: var(--accent);
     }
 
+
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
     .nav-links,
@@ -1237,6 +1368,7 @@ nav.solid .hamburger span {
 }
   .hamburger { display: none; }
 }
+
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -1321,7 +1453,10 @@ nav.solid .hamburger span {
         gap: 0.25rem;
         transition: color 0.2s ease;
     }
-    .bottom-nav .nav-item.active, .bottom-nav .nav-item:hover { color: var(--primary); }
+    .bottom-nav .nav-item.active,
+    .bottom-nav .nav-item:hover {
+        color: var(--accent);
+    }
     .bottom-nav .nav-item::before {
         content: '';
         display: inline-block;
@@ -1364,67 +1499,262 @@ nav.solid .hamburger span {
       display: flex;
     }
 }
-    }
-    .page-background {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
-  overflow: hidden;
-  background-image: url('src/assets/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+    }</style>
+</head>
 
-    {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
-  overflow: hidden;
-}
-    .container {
-      position: relative;
-      z-index: 1;
-    }
-.card,
-.story-card,
-.resource-item,
-.blog-post,
-.shop-item,
-.nav-card {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: all 0.4s ease;
-}
-.btn-primary,
-.btn-secondary {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: var(--fg);
-  transition: all 0.3s ease;
-}
-.btn-primary:hover {
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-color: rgba(255,255,255,0.3);
-  color: var(--fg);
-}
-.btn-secondary:hover {
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-color: rgba(255,255,255,0.3);
-  color: var(--fg);
-}</style>
+<body>
+    <!-- Navigation -->
+    <nav id="main-nav">
+    <div class="container nav-container">
+      <div class="nav-logo">
+        <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
+        <span>Navigating Health</span>
+      </div>
+      <div class="hamburger md:hidden" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="podcast.html" class="nav-link">Podcast</a>
+        <a href="real-people.html" class="nav-link">Real People</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+      </div>
+      <div class="nav-cta">
+        <a href="podcast.html" class="btn btn-primary">Listen Now</a>
+      </div>
+    </div>
+  </nav>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Blog</h1>
+        </div>
+    </section>
+    
+    <!-- Section Content -->
+    <section class="content-section section-light" id="blog">
+      <div class="container">
+        <div class="section-title">
+          <h2>Keep Exploring</h2>
+          <p>Articles, insights, and stories to deepen your understanding of health and wellness.</p>
+        </div>
+        
+        <div class="grid grid-3">
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop" alt="Peaceful morning routine with yoga, journaling, and healthy breakfast">
+            </div>
+            <div class="blog-content">
+              <h3>Building a Morning Routine That Actually Works</h3>
+              <div class="blog-meta">
+                <span>Wellness</span>
+                <span>•</span>
+                <span>5 min read</span>
+              </div>
+              <p>Small, consistent actions create the foundation for lasting change in your health journey.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+          
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=400&fit=crop" alt="Sun-dappled forest path inviting mindful walking and reflection">
+            </div>
+            <div class="blog-content">
+              <h3>Why Nature Is Essential for Mental Health</h3>
+              <div class="blog-meta">
+                <span>Mental Health</span>
+                <span>•</span>
+                <span>7 min read</span>
+              </div>
+              <p>The science behind how spending time in natural environments reduces stress and improves mood.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+          
+          <div class="blog-post">
+            <div class="blog-image">
+              <img src="https://images.unsplash.com/photo-1551434678-e0b6c614958f?w=800&h=400&fit=crop" alt="Colorful assortment of prepared healthy meals in glass containers for weekly meal prep">
+            </div>
+            <div class="blog-content">
+              <h3>Meal Prep Made Simple: Healthy Eating Without the Stress</h3>
+              <div class="blog-meta">
+                <span>Nutrition</span>
+                <span>•</span>
+                <span>6 min read</span>
+              </div>
+              <p>Practical strategies for nourishing your body even when life gets busy.</p>
+              <a href="#" class="blog-read-more">Read Article →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Navigating Health</h3>
+          <p>A podcast about exploring health through real stories, expert conversations, and discovering different ways to live well.</p>
+          <div class="social-links" style="margin-top: 1.5rem;">
+            <a href="#" style="margin-right: 1rem; opacity: 0.7;">Instagram</a>
+            <a href="#" style="margin-right: 1rem; opacity: 0.7;">Spotify</a>
+            <a href="#" style="opacity: 0.7;">Apple Podcasts</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#podcast">Podcast</a></li>
+            <li><a href="#real-people">Real People</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Submit a Story</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Navigating Health. All rights reserved.</p>
+        <p>Disclaimer: This podcast is for informational purposes only and does not constitute medical advice.</p>
+      </div>
+    </div>
+  </footer>
+    
+    
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bottom Navigation Bar (Mobile) -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="podcast.html" class="nav-item">Podcast</a>
+        <a href="real-people.html" class="nav-item">Real People</a>
+        <a href="resources.html" class="nav-item">Resources</a>
+        <a href="blog.html" class="nav-item">Blog</a>
+        <a href="shop.html" class="nav-item">Shop</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="podcast.html" class="nav-item active">Listen Now</a>
+    </div>
+
+
+<script>
+// Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileClose = document.getElementById('mobile-close');
+
+    // Hamburger click - toggles menu and animates icon
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+      // Toggle body overflow when menu is open/closed
+      document.body.style.overflow = mobileMenu.classList.contains('flex') ? 'hidden' : '';
+      // Animate hamburger icon
+      hamburger.classList.toggle('active');
+    });
+
+    // Mobile close button click
+    mobileClose.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      document.body.style.overflow = '';
+      hamburger.classList.remove('active');
+    });
+
+    // Mobile nav links click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        document.body.style.overflow = '';
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Scroll-based animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+    // Navbar scroll effect
+    const nav = document.getElementById('main-nav');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scrolling down
+        nav.classList.add('solid');
+      } else {
+        // Scrolling up
+        nav.classList.remove('solid');
+      }
+      lastScroll = currentScroll;
+    });
+</script>
+<div id="mobile-menu"></div>
+</body>
+</html>
