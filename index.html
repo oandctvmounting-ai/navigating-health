@@ -1148,10 +1148,7 @@ nav.solid .hamburger span {
 
 
     /* Section Navigation */
-    .section-nav {
-      padding: 3rem 0;
     
-      background-color: red;}
     .section-nav .section-title {
       text-align: center;
       margin-bottom: 2rem;
@@ -1470,13 +1467,44 @@ nav.solid .hamburger span {
     }
     
     /* Section Navigation - Scenic Background */
-    .section-nav {
-      background: transparent;
+    
+    
+    .section-nav .section-title {
       position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section-nav .section-title h2 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--fg);
+      margin-bottom: 1rem;
+    }
+    .section-nav .section-title p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .section-nav .grid-4 {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+
+    /* Section Navigation */
+    .section-nav {
+      position: relative;
+      background: transparent;
       padding: 3rem 0;
       overflow: hidden;
-    
-      background-color: red;}
+    }
     .section-nav::before {
       content: '';
       position: absolute;
@@ -1490,7 +1518,7 @@ nav.solid .hamburger span {
       opacity: 0.15;
       pointer-events: none;
       z-index: -2;
-    
+    }
     .section-nav::after {
       content: '';
       position: absolute;
@@ -1498,6 +1526,7 @@ nav.solid .hamburger span {
       left: 0;
       width: 100%;
       height: 100%;
+      background: rgba(0, 0, 0, 0.2);
       pointer-events: none;
       z-index: -1;
     }
@@ -1528,5 +1557,4 @@ nav.solid .hamburger span {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
-
 </style>
