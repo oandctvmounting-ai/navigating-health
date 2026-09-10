@@ -1892,9 +1892,65 @@ nav.solid .hamburger span {
               });
             }, { threshold: 0 });
             heroObserver.observe(heroSection);
-          }
-        }
-    </script>
+                      }
+                    }
+
+                    // ===== Smooth inertial scroll (Lenis-style, no dependencies) =====
+                                        (function initSmoothScroll() {
+                                          if (prefersReducedMotion) return;
+
+                                          // Only engage on devices with fine pointers (desktop/laptop trackpad+mouse);
+                                          // leave touch devices on native scroll (feels natural there).
+                                          if (!window.matchMedia('(pointer: fine)').matches) return;
+
+                                          // Disable native CSS smooth so it can't fight the loop
+                                          document.documentElement.style.scrollBehavior = 'auto';
+
+                                          const max = () => document.documentElement.scrollHeight - window.innerHeight;
+                                          let target = window.pageYOffset;
+                                          let current = target;
+                                          let running = false;
+
+                                          const loop = () => {
+                                            current += (target - current) * 0.09;
+
+                                            const clamped = Math.max(0, Math.min(current, max()));
+                                            window.scrollTo(0, clamped);
+
+                                            if (Math.abs(target - clamped) > 0.5) {
+                                              requestAnimationFrame(loop);
+                                            } else {
+                                              current = target;
+                                              running = false;
+                                            }
+                                          };
+
+                                          const start = () => {
+                                            if (!running) {
+                                              running = true;
+                                              requestAnimationFrame(loop);
+                                            }
+                                          };
+
+                                          // Wheel: prevent native jump, feed delta into the lerp target
+                                          window.addEventListener('wheel', (e) => {
+                                            // Let the user reach the very top/bottom edge despite overscroll
+                                            const atEnd = (target <= 0 && e.deltaY < 0) || (target >= max() && e.deltaY > 0);
+                                            if (!atEnd) {
+                                              e.preventDefault();
+                                            }
+                                            target += e.deltaY;
+                                            if (e.deltaMode === 1) target += e.deltaY * 32; // lines -> px approx
+                                            start();
+                                          }, { passive: false });
+
+                                          // Also respond to keyboard/scrollbar drags so those stay smooth too
+                                          window.addEventListener('scroll', () => {
+                                            target = window.pageYOffset;
+                                            start();
+                                          }, { passive: true });
+                                        })();
+                                    </script>
 <div id="mobile-menu"></div>
 </body>
 </html>
