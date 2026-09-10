@@ -1492,14 +1492,7 @@ nav.solid .hamburger span {
 
 /* Glass effect for buttons */
 .btn-primary,
-.btn-secondary {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: var(--fg);
-  transition: all 0.3s ease;
-}
+
 .btn-primary:hover {
   background: rgba(255,255,255,0.25);
   backdrop-filter: blur(10px);
@@ -1571,7 +1564,38 @@ h1 {
   border: 1px solid rgba(255,255,255,0.18) !important;
   padding: 0.75rem 2rem !important;
   border-radius: 4px !important;
-}</style></style></style></style></style></style>
+}
+<style>
+.btn-primary {
+  background: var(--primary);
+  color: var(--cream);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--hero-text);
+  border: 2px solid var(--hero-text);
+}
+<style>
+/* Footer links as buttons */
+.footer-links a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  background: var(--hero-text);
+  color: var(--primary);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary);
+}
+.footer-links a:hover {
+  background: var(--primary);
+  color: var(--hero-text);
+}
+</style></style></style></style></style></style></style></style>
 </head>
 <body>
     <div class="page-background"></div>

@@ -1475,7 +1475,26 @@ nav.solid .hamburger span {
     .container {
       position: relative;
       z-index: 1;
-    }</style>
+    }
+<style>
+/* Footer links as buttons */
+.footer-links a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  background: var(--hero-text);
+  color: var(--primary);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary);
+}
+.footer-links a:hover {
+  background: var(--primary);
+  color: var(--hero-text);
+}
+</style></style>
 </head>
 <body>
     <nav id="main-nav">
