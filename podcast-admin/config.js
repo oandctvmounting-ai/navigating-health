@@ -13,7 +13,7 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const TABLE_NAME = "episodes";
 
 // Cindy's login password — CHANGE THIS and tell her what it is.
-const ADMIN_PASSWORD = "changeme123";
+const ADMIN_PASSWORD = "Navigatinghealth26";
 
 // Local storage key (leave as-is)
 const SESSION_KEY = "nh_podcast_admin_session";
