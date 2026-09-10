@@ -1152,25 +1152,26 @@ nav.solid .hamburger span {
 
 /* Mid layer: warm light drift (sits above the base image, below content) */
 .hero-parallax-layer.mid {
-  z-index: -1;
+  z-index: 0;
   background:
-    radial-gradient(120% 80% at 20% 10%, rgba(201,168,93,0.16) 0%, transparent 60%),
-    radial-gradient(100% 90% at 85% 85%, rgba(93,145,165,0.14) 0%, transparent 55%);
-  filter: blur(2px);
-  opacity: 0.85;
+    radial-gradient(120% 80% at 22% 12%, rgba(214,180,108,0.34) 0%, transparent 55%),
+    radial-gradient(100% 90% at 82% 82%, rgba(93,145,165,0.28) 0%, transparent 50%),
+    radial-gradient(80% 70% at 50% 50%, rgba(255,235,200,0.18) 0%, transparent 60%);
+  filter: blur(1px);
+  opacity: 0.9;
   mix-blend-mode: screen;
 }
 
 /* Foreground: floating dust motes */
 .hero-parallax-layer.fore {
   z-index: 1;
-  opacity: 0.5;
+  opacity: 1;
 }
 .hero-mot {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255,248,235,0.7);
-  box-shadow: 0 0 6px rgba(255,248,235,0.5);
+  background: rgba(255,246,224,0.9);
+  box-shadow: 0 0 14px 4px rgba(255,246,224,0.55);
   animation: floatMote 14s ease-in-out infinite;
 }
 @keyframes floatMote {
@@ -1618,11 +1619,13 @@ nav.solid .hamburger span {
       <div class="hero-overlay"></div>
             <div class="hero-parallax-layer mid"></div>
             <div class="hero-parallax-layer fore">
-              <span class="hero-mot" style="top:18%; left:12%; width:6px; height:6px;"></span>
-              <span class="hero-mot" style="top:34%; left:78%; width:4px; height:4px; animation-delay:-3s;"></span>
-              <span class="hero-mot" style="top:62%; left:24%; width:5px; height:5px; animation-delay:-6s;"></span>
-              <span class="hero-mot" style="top:71%; left:88%; width:7px; height:7px; animation-delay:-9s;"></span>
-              <span class="hero-mot" style="top:45%; left:48%; width:3px; height:3px; animation-delay:-11s;"></span>
+              <span class="hero-mot" style="top:16%; left:10%; width:11px; height:11px;"></span>
+                            <span class="hero-mot" style="top:32%; left:72%; width:8px; height:8px; animation-delay:-3s;"></span>
+                            <span class="hero-mot" style="top:60%; left:22%; width:9px; height:9px; animation-delay:-6s;"></span>
+                            <span class="hero-mot" style="top:70%; left:82%; width:12px; height:12px; animation-delay:-9s;"></span>
+                            <span class="hero-mot" style="top:44%; left:46%; width:6px; height:6px; animation-delay:-11s;"></span>
+                            <span class="hero-mot" style="top:24%; left:58%; width:5px; height:5px; animation-delay:-5s;"></span>
+                            <span class="hero-mot" style="top:80%; left:36%; width:7px; height:7px; animation-delay:-8s;"></span>
             </div>
       
             <div class="hero-content">
