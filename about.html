@@ -1577,7 +1577,19 @@ h1 {
   border: 1px solid rgba(255,255,255,0.18) !important;
   padding: 0.75rem 2rem !important;
   border-radius: 4px !important;
-}</style></style></style></style></style></style>
+}</style></style></style></style></style>
+.glass-button {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.glass-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}</style>
 </head>
 <body>
     <div class="page-background"></div>
@@ -1627,7 +1639,7 @@ h1 {
                 </div>
                 
                 <div class="grid grid-2">
-                    <div class="card">
+                    <div class="card glass-button">
                         <div class="card-image">
                             <img src="https://images.unsplash.com/photo-1503342133008-c916a46f6d5f?w=800&h=400&fit=crop" alt="Cindy hosting a podcast">
                         </div>
@@ -1636,7 +1648,7 @@ h1 {
                             <p>To empower individuals with knowledge and inspiration to take charge of their health and wellbeing.</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card glass-button">
                         <div class="card-image">
                             <img src="https://images.unsplash.com/photo-1503342133008-c916a46f6d5f?w=800&h=400&fit=crop" alt="Cindy in nature">
                         </div>
