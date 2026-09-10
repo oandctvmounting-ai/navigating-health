@@ -161,13 +161,14 @@
         }
     
     .nav-logo {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          font-weight: 700;
-          font-size: 1.5rem;
-          white-space: nowrap;
-        }
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  min-height: 7rem;
+}
 
     .nav-logo span {
           color: var(--hero-text);
@@ -1033,13 +1034,14 @@ nav.solid .hamburger span {
           }
           /* Fix: keep brand logo/text inside the nav bar on mobile (single line, fits 3.5rem) */
           .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            white-space: nowrap;
-            line-height: 1;
-            max-height: 3.5rem;
-          }
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  min-height: 7rem;
+}
           .nav-logo span {
             font-size: clamp(1.8rem, 6vw, 2.8rem);
             line-height: 1;
@@ -1421,14 +1423,14 @@ nav.solid .hamburger span {
         /* ===== FINAL MOBILE LOGO FIX (highest priority) ===== */
     @media (max-width: 768px) {
       .nav-logo {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.5rem !important;
-        white-space: nowrap !important;
-        line-height: 1 !important;
-        max-height: 3.5rem !important;
-        height: auto !important;
-      }
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  min-height: 7rem;
+}
       .nav-logo span {
         font-size: clamp(1.8rem, 6vw, 2.8rem);
         line-height: 1 !important;
