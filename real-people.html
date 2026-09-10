@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navigating Health - Cindy's Podcast</title>
-  <meta name="description" content="Cindy's Navigating Health Podcast - exploring health journeys through real stories, expert conversations, and wellness insights" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
+<style>
     :root {
   --bg: #F5F0E3; /* Warm Cream as main light background */
   --fg: #12345B; /* Deep Navy for main text */
@@ -48,13 +38,7 @@
       scroll-behavior: smooth;
     }
     
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { background: transparent; }
     
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Playfair Display', serif;
@@ -104,10 +88,12 @@
     .section {
       padding: 6rem 0;
       position: relative;
-    }
     
-    .section-light { background: var(--bg); }
-    .section-white { background: var(--cream); }
+  background: transparent;
+}
+    
+    .section-light { background: transparent; }
+    .section-white { background: transparent; }
     
     /* ===== NAVIGATION ===== */
     nav {
@@ -412,19 +398,11 @@ nav.solid .hamburger span {
       font-size: 1rem;
     }
     
-    .btn-primary {
-      background: var(--primary);
-      color: var(--cream);
-      border: 2px solid var(--primary);
-    }
+    
     
     .btn-primary:hover { box-shadow: 0 4px 12px rgba(11,93,80,0.2); }
     
-    .btn-secondary {
-      background: transparent;
-      color: var(--hero-text);
-      border: 2px solid var(--hero-text);
-    }
+    
     
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.1);
@@ -477,14 +455,7 @@ nav.solid .hamburger span {
     .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
     
     /* ===== CARDS ===== */
-    .card {
-      background: var(--cream);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: all 0.4s ease;
-      border: 1px solid rgba(216, 207, 198, 0.3);
-    }
+    
     
     .card:hover {
       transform: translateY(-8px);
@@ -575,15 +546,7 @@ nav.solid .hamburger span {
     }
     
     /* ===== STORY CARDS ===== */
-    .story-card {
-      background: var(--cream);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: all 0.4s ease;
-      border: 1px solid rgba(216, 207, 198, 0.3);
-      position: relative;
-    }
+    
     
     .story-card:hover {
       transform: translateY(-8px);
@@ -638,15 +601,7 @@ nav.solid .hamburger span {
       gap: 2rem;
     }
     
-    .resource-item {
-      background: var(--cream);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(216, 207, 198, 0.2);
-    }
+    
     
     .resource-item:hover {
       transform: translateY(-4px);
@@ -681,13 +636,7 @@ nav.solid .hamburger span {
     }
     
     /* ===== BLOG & NEWS ===== */
-    .blog-post {
-      background: var(--cream);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-    }
+    
     
     .blog-post:hover {
       transform: translateY(-4px);
@@ -755,15 +704,7 @@ nav.solid .hamburger span {
       gap: 2rem;
     }
     
-    .shop-item {
-      background: var(--cream);
-      border-radius: 12px;
-      text-align: center;
-      padding: 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(216, 207, 198, 0.2);
-    }
+    
     
     .shop-item:hover {
       transform: translateY(-4px);
@@ -972,7 +913,9 @@ nav.solid .hamburger span {
       
       .section {
         padding: 4rem 0;
-      }
+      
+  background: transparent;
+}
       
       .content-section {
         padding: 4rem 0;
@@ -1147,18 +1090,7 @@ nav.solid .hamburger span {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
-    .nav-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
+    
     .nav-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
@@ -1459,256 +1391,40 @@ nav.solid .hamburger span {
     .container {
       position: relative;
       z-index: 1;
-    }</style>
-
-<style>
-    .page-background {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      z-index: -2 !important;
-      overflow: hidden !important;
-      background-image: url('src/assets/background.jpg') !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
     }
-    /* Ensure container is above background */
-    .container {
-      position: relative !important;
-      z-index: 1 !important;
-    }
-</style></head>
-
-<body>
-    <div class="page-background"></div>
-    <!-- Navigation -->
-    <nav id="main-nav">
-    <div class="container nav-container">
-      <div class="nav-logo">
-        <img src="./logo.jpg" alt="Navigating Health logo" class="logo-img">
-        <span>Navigating Health</span>
-      </div>
-      <div class="hamburger md:hidden" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="podcast.html" class="nav-link">Podcast</a>
-        <a href="real-people.html" class="nav-link">Real People</a>
-        <a href="resources.html" class="nav-link">Resources</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="shop.html" class="nav-link">Shop</a>
-        <a href="about.html" class="nav-link">About</a>
-      </div>
-      <div class="nav-cta">
-        <a href="podcast.html" class="btn btn-primary">Listen Now</a>
-      </div>
-    </div>
-  </nav>
-    
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Real People & Real Journeys</h1>
-        </div>
-    </section>
-    
-    <!-- Section Content -->
-    <section class="content-section section-white" id="real-people">
-      <div class="container">
-        <div class="section-title">
-          <h2>Real People. Real Journeys.</h2>
-          <p>Because every health journey is different.</p>
-        </div>
-        
-        <div class="grid grid-3">
-          <!-- Maria's Story -->
-          <div class="story-card">
-            <div class="story-image">
-              <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=400&fit=crop" alt="Maria walking confidently along forest trail, managing her diabetes journey">
-            </div>
-            <div class="story-content">
-              <h3>Maria's Diabetes Journey</h3>
-              <p>After her diagnosis, Maria discovered that small, consistent changes in diet and movement transformed her health more than any medication could.</p>
-              <div class="story-quote">
-                "I didn't need to be perfect. I just needed to start."
-              </div>
-            </div>
-          </div>
-          
-          <!-- James's Story -->
-          <div class="story-card">
-            <div class="story-image">
-              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop" alt="James meditating peacefully by tranquil lake at sunrise">
-            </div>
-            <div class="story-content">
-              <h3>James' Anxiety Recovery</h3>
-              <p>Through mindfulness practices and understanding his triggers, James learned to navigate anxiety without letting it control his life.</p>
-              <div class="story-quote">
-                "My mind is not my enemy—it's trying to protect me."
-              </div>
-            </div>
-          </div>
-          
-          <!-- Aisha's Story -->
-          <div class="story-card">
-            <div class="story-image">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=400&fit=crop" alt="Aisha preparing colorful nutritious meal in her kitchen">
-            </div>
-            <div class="story-content">
-              <h3>Aisha's Heart Health Transformation</h3>
-              <p>After a scare at 42, Aisha rebuilt her relationship with food and movement, finding joy in nourishing her body.</p>
-              <div class="story-quote">
-                "Health isn't a destination—it's how you choose to live each day."
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Navigating Health</h3>
-          <p>A podcast about exploring health through real stories, expert conversations, and discovering different ways to live well.</p>
-          <div class="social-links" style="margin-top: 1.5rem;">
-            <a href="#" style="margin-right: 1rem; opacity: 0.7;">Instagram</a>
-            <a href="#" style="margin-right: 1rem; opacity: 0.7;">Spotify</a>
-            <a href="#" style="opacity: 0.7;">Apple Podcasts</a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Explore</h3>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#podcast">Podcast</a></li>
-            <li><a href="#real-people">Real People</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#about">About</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Connect</h3>
-          <ul>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Accessibility</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Support</h3>
-          <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Submit a Story</a></li>
-            <li><a href="#">Advertise</a></li>
-            <li><a href="#">Newsletter</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2026 Navigating Health. All rights reserved.</p>
-        <p>Disclaimer: This podcast is for informational purposes only and does not constitute medical advice.</p>
-      </div>
-    </div>
-  </footer>
-
-    </script>
-
-    <!-- Bottom Navigation Bar (Mobile) -->
-    <div class="bottom-nav">
-        <a href="index.html" class="nav-item">Home</a>
-        <a href="podcast.html" class="nav-item">Podcast</a>
-        <a href="real-people.html" class="nav-item">Real People</a>
-        <a href="resources.html" class="nav-item">Resources</a>
-        <a href="blog.html" class="nav-item">Blog</a>
-        <a href="shop.html" class="nav-item">Shop</a>
-        <a href="about.html" class="nav-item">About</a>
-        <a href="podcast.html" class="nav-item active">Listen Now</a>
-    </div>
-
-<script>
-// Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileClose = document.getElementById('mobile-close');
-
-    // Hamburger click - toggles menu and animates icon
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
-      // Toggle body overflow when menu is open/closed
-      document.body.style.overflow = mobileMenu.classList.contains('flex') ? 'hidden' : '';
-      // Animate hamburger icon
-      hamburger.classList.toggle('active');
-    });
-
-    // Mobile close button click
-    mobileClose.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-      document.body.style.overflow = '';
-      hamburger.classList.remove('active');
-    });
-
-    // Mobile nav links click
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
-        document.body.style.overflow = '';
-        hamburger.classList.remove('active');
-      });
-    });
-
-    // Scroll-based animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
-    // Navbar scroll effect
-    const nav = document.getElementById('main-nav');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll > lastScroll && currentScroll > 100) {
-        // Scrolling down
-        nav.classList.add('solid');
-      } else {
-        // Scrolling up
-        nav.classList.remove('solid');
-      }
-      lastScroll = currentScroll;
-    });
-</script>
-<div id="mobile-menu"></div>
-</body>
-</html>
+.card,
+.story-card,
+.resource-item,
+.blog-post,
+.shop-item,
+.nav-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+.btn-primary,
+.btn-secondary {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--fg);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255,255,255,0.3);
+  color: var(--fg);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255,255,255,0.3);
+  color: var(--fg);
+}</style>
