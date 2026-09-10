@@ -126,7 +126,7 @@
   background: transparent;
 }
     
-    .section-light { background: #ebe4d9; }
+    .section-light { background: transparent; }
     .section-white { background: transparent; }
     
     /* ===== NAVIGATION ===== */
@@ -1454,7 +1454,69 @@ nav.solid .hamburger span {
       display: flex;
     }
 }
-    }</style>
+    }
+
+/* Glass effect for cards */
+.card,
+.story-card,
+.resource-item,
+.blog-post,
+.shop-item,
+.nav-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+
+/* Glass effect for buttons */
+.btn-primary,
+.btn-secondary {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--fg);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255,255,255,0.3);
+  color: var(--fg);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255,255,255,0.3);
+  color: var(--fg);
+}
+
+/* Fixed background image */
+.page-background {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -2 !important;
+  overflow: hidden !important;
+  background-image: url('src/assets/background.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Ensure content is above background */
+.container {
+  position: relative !important;
+  z-index: 1 !important;
+}
+</style>
 </head>
 <body>
     <div class="page-background"></div>
