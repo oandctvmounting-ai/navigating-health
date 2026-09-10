@@ -1619,67 +1619,9 @@ h1 {
         </div>
         
         <div class="grid grid-2">
-          <!-- Featured Episode Card -->
-          <div class="card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1503342133008-c916a46f6d5f?w=800&h=400&fit=crop" alt="Podcast episode artwork showing warm mountain landscape">
-              <div class="play-overlay">
-                <div class="play-button">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="10 8 14 12 10 16"/>
-                  </svg>
+                  <!-- Episodes are rendered here dynamically from Cindy's editor -->
+                  <div id="podcast-episodes"></div>
                 </div>
-              </div>
-            </div>
-            <div class="card-content">
-              <h3>The Science of Letting Go</h3>
-              <p>Exploring how releasing control can actually improve your health outcomes and reduce stress in daily life.</p>
-              <a href="podcast.html" class="btn btn-primary">Listen to the Podcast</a>
-            </div>
-          </div>
-          
-          <!-- Latest Episodes -->
-          <div class="grid grid-2">
-            <div class="card">
-              <div class="card-image">
-                <img src="https://images.unsplash.com/photo-1551434678-e0b6c614958f?w=800&h=400&fit=crop" alt="Two people having a wellness conversation in nature">
-                <div class="play-overlay">
-                  <div class="play-button">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="10 8 14 12 10 16"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="card-content">
-                <h3>Mindful Eating for Better Health</h3>
-                <p>How slowing down and paying attention to your food can transform your relationship with eating.</p>
-                <a href="podcast.html" class="btn btn-primary">Listen to the Podcast</a>
-              </div>
-            </div>
-            
-            <div class="card">
-              <div class="card-image">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=400&fit=crop" alt="Person practicing forest bathing in a lush green forest">
-                <div class="play-overlay">
-                  <div class="play-button">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="10 8 14 12 10 16"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="card-content">
-                <h3>Forest Bathing: Nature's Medicine</h3>
-                <p>The scientific benefits of spending time in forests and how it affects your wellbeing.</p>
-                <a href="podcast.html" class="btn btn-primary">Listen to the Podcast</a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     
@@ -1839,10 +1781,99 @@ h1 {
         nav.classList.remove('solid');
       }
       lastScroll = currentScroll;
-    });
-</script>
-<div id="mobile-menu"></div>
-</body>
+          });
+      </script>
+
+      <!-- ===== Podcast embed (reads from Cindy's editor backend) ===== -->
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+      <script src="https://oandctvmounting-ai.github.io/navigating-health/podcast-admin/config.js"></script>
+      <script src="https://oandctvmounting-ai.github.io/navigating-health/podcast-admin/embed.js"></script>
+      <script>
+        // Preview fallback: until Supabase is connected, show demo episodes so the
+        // layout is visible. Remove this whole <script> block once the backend is live.
+        (function () {
+          var demo = [
+            {
+              id: "demo-1",
+              title: "The Science of Letting Go",
+              caption: "Exploring how releasing control can actually improve your health outcomes and reduce stress in daily life.",
+              video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              embed_src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+              thumbnail: "https://images.unsplash.com/photo-1503342133008-c916a46f6d5f?w=800&h=400&fit=crop"
+            },
+            {
+              id: "demo-2",
+              title: "Mindful Eating for Better Health",
+              caption: "How slowing down and paying attention to your food can transform your relationship with eating.",
+              video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              embed_src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+              thumbnail: "https://images.unsplash.com/photo-1551434678-e0b6c614958f?w=800&h=400&fit=crop"
+            },
+            {
+              id: "demo-3",
+              title: "Forest Bathing: Nature's Medicine",
+              caption: "The scientific benefits of spending time in forests and how it affects your wellbeing.",
+              video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              embed_src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+              thumbnail: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=400&fit=crop"
+            }
+          ];
+
+          // Wait a moment for embed.js to attempt loading; if it shows nothing,
+          // render the demo cards using the same .card markup.
+          window.addEventListener("load", function () {
+            setTimeout(function () {
+              var root = document.getElementById("podcast-episodes");
+              if (!root) return;
+              // If embed.js already populated the container, leave it alone.
+              if (root.children.length && root.textContent.indexOf("episode") === -1) return;
+
+              root.innerHTML = "";
+              var isDemo = root.querySelector(".empty, .episode-row");
+              // Build demo cards only if the container is still empty / error state
+              if (isDemo) return;
+
+              // Render demo (featured first, then grid)
+              var wrap = document.createElement("div");
+              wrap.style.display = "contents";
+
+              demo.forEach(function (ep, i) {
+                var card = document.createElement("div");
+                card.className = "card";
+
+                var imgWrap = document.createElement("div");
+                imgWrap.className = "card-image";
+                var img = document.createElement("img");
+                img.src = ep.thumbnail;
+                img.alt = ep.title;
+                imgWrap.appendChild(img);
+
+                var content = document.createElement("div");
+                content.className = "card-content";
+                var h3 = document.createElement("h3");
+                h3.textContent = ep.title;
+                var p = document.createElement("p");
+                p.textContent = ep.caption;
+                var a = document.createElement("a");
+                a.className = "btn btn-primary";
+                a.textContent = "Listen to the Podcast";
+                a.href = ep.video;
+                a.target = "_blank";
+                content.appendChild(h3);
+                content.appendChild(p);
+                content.appendChild(a);
+
+                card.appendChild(imgWrap);
+                card.appendChild(content);
+                wrap.appendChild(card);
+              });
+              root.appendChild(wrap);
+            }, 1500);
+          });
+        })();
+      </script>
+      <div id="mobile-menu"></div>
+      </body>
 </html>
 .card,
 .story-card,
