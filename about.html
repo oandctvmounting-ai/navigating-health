@@ -1579,23 +1579,32 @@ h1 {
 }
 <style>
 /* Footer links as buttons */
-.footer-links a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin: 0.25rem;
-  background: var(--hero-text);
-  color: var(--primary);
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 1px solid var(--primary);
-}
+
 .footer-links a:hover {
   background: var(--primary);
   color: var(--hero-text);
 }
-</style></style></style></style></style></style></style></style>
+
+<style>
+/* Footer links as buttons - v2 */
+.footer-content .footer-links a {
+  display: inline-block !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0.25rem !important;
+  background: var(--hero-text) !important;
+  color: var(--primary) !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid var(--primary) !important;
+  /* dummy property to bust cache */ /* cache-buster: 2026-09-09-2 */ 
+}
+.footer-content .footer-links a:hover {
+  background: var(--primary) !important;
+  color: var(--hero-text) !important;
+}
+</style></style></style></style></style></style></style></style></style>
 </head>
 <body>
     <div class="page-background"></div>
