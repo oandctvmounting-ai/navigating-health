@@ -1139,6 +1139,46 @@ nav.solid .hamburger span {
     }
 }
 
+/* ===== LAYERED PARALLAX HERO ===== */
+.hero-parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Mid layer: warm light drift (sits above the base image, below content) */
+.hero-parallax-layer.mid {
+  z-index: -1;
+  background:
+    radial-gradient(120% 80% at 20% 10%, rgba(201,168,93,0.16) 0%, transparent 60%),
+    radial-gradient(100% 90% at 85% 85%, rgba(93,145,165,0.14) 0%, transparent 55%);
+  filter: blur(2px);
+  opacity: 0.85;
+  mix-blend-mode: screen;
+}
+
+/* Foreground: floating dust motes */
+.hero-parallax-layer.fore {
+  z-index: 1;
+  opacity: 0.5;
+}
+.hero-mot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,248,235,0.7);
+  box-shadow: 0 0 6px rgba(255,248,235,0.5);
+  animation: floatMote 14s ease-in-out infinite;
+}
+@keyframes floatMote {
+  0%   { transform: translateY(0) translateX(0); opacity: 0.2; }
+  50%  { transform: translateY(-26px) translateX(12px); opacity: 0.7; }
+  100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+}
+
 
     /* Section Navigation */
     
@@ -1576,8 +1616,16 @@ nav.solid .hamburger span {
         <img src="hero-featured.jpg" alt="Cinematic mountain landscape with warm sunlight">
       </div>
       <div class="hero-overlay"></div>
+            <div class="hero-parallax-layer mid"></div>
+            <div class="hero-parallax-layer fore">
+              <span class="hero-mot" style="top:18%; left:12%; width:6px; height:6px;"></span>
+              <span class="hero-mot" style="top:34%; left:78%; width:4px; height:4px; animation-delay:-3s;"></span>
+              <span class="hero-mot" style="top:62%; left:24%; width:5px; height:5px; animation-delay:-6s;"></span>
+              <span class="hero-mot" style="top:71%; left:88%; width:7px; height:7px; animation-delay:-9s;"></span>
+              <span class="hero-mot" style="top:45%; left:48%; width:3px; height:3px; animation-delay:-11s;"></span>
+            </div>
       
-      <div class="hero-content">
+            <div class="hero-content">
         <div class="hero-text">
           <h1>Your Health Journey Matters.</h1>
           <p class="lead">Real conversations. Informed insights. Inspiring stories. A different way to navigate your health.</p>
@@ -1725,12 +1773,14 @@ nav.solid .hamburger span {
     });
 
     // Mobile close button click
-    mobileClose.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-      document.body.style.overflow = '';
-      hamburger.classList.remove('active');
-    });
+        if (mobileClose) {
+          mobileClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = '';
+            hamburger.classList.remove('active');
+          });
+        }
 
     // Mobile nav links click
     document.querySelectorAll('#mobile-menu a').forEach(link => {
@@ -1760,22 +1810,78 @@ nav.solid .hamburger span {
       observer.observe(el);
     });
     // Navbar scroll effect
-    const nav = document.getElementById('main-nav');
-    let lastScroll = 0;
+        const nav = document.getElementById('main-nav');
+        let lastScroll = 0;
     
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+          const currentScroll = window.pageYOffset;
       
-      if (currentScroll > lastScroll && currentScroll > 100) {
-        // Scrolling down
-        nav.classList.add('solid');
-      } else {
-        // Scrolling up
-        nav.classList.remove('solid');
-      }
-      lastScroll = currentScroll;
-    });
-</script>
+          if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scrolling down
+            nav.classList.add('solid');
+          } else {
+            // Scrolling up
+            nav.classList.remove('solid');
+          }
+          lastScroll = currentScroll;
+        });
+
+        // ===== Layered parallax hero =====
+        const parallaxLayers = document.querySelectorAll('.hero-parallax-layer');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (parallaxLayers.length && !prefersReducedMotion) {
+          let mouseX = 0, mouseY = 0;
+          let targetX = 0, targetY = 0;
+          let rafId = null;
+
+          // Gentle mouse drift on desktop (emphasizes depth without lag)
+          window.addEventListener('mousemove', (e) => {
+            targetX = (e.clientX / window.innerWidth - 0.5) * 2;  // -1..1
+            targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+          });
+
+          const animate = () => {
+            // Smooth easing toward mouse position
+            mouseX += (targetX - mouseX) * 0.05;
+            mouseY += (targetY - mouseY) * 0.05;
+
+            // Mid layer moves subtly; fore layer moves more (parallax depth)
+            const mid = parallaxLayers[0];
+            const fore = parallaxLayers[1];
+
+            const scrollY = window.pageYOffset;
+            const scrollFactor = Math.min(scrollY / window.innerHeight, 1);
+
+            if (mid) {
+              mid.style.transform =
+                'translate3d(' + (mouseX * -14) + 'px, ' + (mouseY * -14 + scrollFactor * 40) + 'px, 0)';
+            }
+            if (fore) {
+              fore.style.transform =
+                'translate3d(' + (mouseX * -26) + 'px, ' + (mouseY * -26 + scrollFactor * 80) + 'px, 0)';
+            }
+            rafId = requestAnimationFrame(animate);
+          };
+          rafId = requestAnimationFrame(animate);
+
+          // Stop the loop if the hero scrolls out of view (perf)
+          const heroSection = document.querySelector('.hero');
+          if (heroSection) {
+            const heroObserver = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (!entry.isIntersecting && rafId) {
+                  cancelAnimationFrame(rafId);
+                  rafId = null;
+                } else if (entry.isIntersecting && !rafId) {
+                  rafId = requestAnimationFrame(animate);
+                }
+              });
+            }, { threshold: 0 });
+            heroObserver.observe(heroSection);
+          }
+        }
+    </script>
 <div id="mobile-menu"></div>
 </body>
 </html>
