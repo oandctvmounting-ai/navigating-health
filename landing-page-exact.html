@@ -1,0 +1,615 @@
+/*
+ * ============================================================
+ *  RENEWED LANDING PAGE — matches Cindy's reference exactly
+ *  Color Palette: Deep Forest Teal #0B3738, Forest Green #2F534D,
+ *   Muted Sage #427073, Warm Tan/Gold #866743, Earth Brown #563A1F,
+ *   Soft Cream #FBFBF7, White #FFFFFF, Soft Sky Blue #87B5D8, Charcoal #282E23
+ *  Overall: predominantly WHITE/CREAM with DEEP FOREST TEAL typography/accents
+ * ============================================================
+ */
+
+/* --- FONT IMPORTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
+
+/* --- ROOT COLORS & TYPOGRAPHY --- */
+:root{
+  --dt:#0B3738; /* Deep Forest Teal */
+  --fg:#2F534D; /* Forest Green */
+  --ms:#427073; /* Muted Sage */
+  --wt:#866743; /* Warm Tan/Gold */
+  --eb:#563A1F; /* Earth Brown */
+  --cream:#FBFBF7; /* Soft Cream */
+  --white:#FFFFFF;
+  --sb:#87B5D8; /* Soft Sky Blue */
+  --ch:#282E23; /* Charcoal */
+  --transition: all 0.3s ease;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:antialiased;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#FBFBF7;
+  color:#111;
+  line-height:1.6;
+}
+
+/* --- SERIF FONTS FOR EDITORIAL --- */
+h1,h2,h3,h4,h5,h6{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  line-height:1.3;
+}
+
+/* --- NAVIGATION ---*/
+.navbar{
+  background:#FBFBF7;
+  padding:0.8rem 1.5rem;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.navbar .logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.8rem;
+  color:#0B3738;
+  text-decoration:none;
+  letter-spacing:1px;
+}
+.navbar .nav-links a{
+  margin-left:2rem;
+  color:#0B3738;
+  text-decoration:none;
+  font-family:'Inter',sans-serif;
+  font-size:0.85rem;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  transition:0.3s;
+}
+.navbar .nav-links a:hover{
+  color:#2F534D;
+}
+.navbar .search-icon{
+  margin-left:1.5rem;
+  font-size:1.2rem;
+  color:#563A1F;
+  cursor:pointer;
+}
+.donate-btn{
+  background:#0B3738;
+  color:#FFFFFF;
+  border:none;
+  padding:0.6rem 1.2rem;
+  border-radius:2rem;
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:0.85rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.donate-btn:hover{
+  background:#2F534D;
+  transform:translateY(-2px);
+}
+
+/* --- HERO SECTION ---*/
+.hero{
+  min-height:70vh;
+  background:url('HERO_IMAGE_URL') center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  padding:0 1.5rem 4rem;
+  max-height:800px;
+}
+.hero .container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0;
+  position:relative;
+  z-index:2;
+}
+.hero .logo-brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;
+  color:#0B3738;
+  margin-bottom:1rem;
+  display:block;
+}
+.hero .headline{
+  font-size:4rem;
+  font-weight:900;
+  color:#FFFFFF;
+  line-height:1.2;
+  letter-spacing:-1px;
+  margin-bottom:1.5rem;
+}
+.hero .subhead{
+  color:#E8E4DC;
+  font-size:1.2rem;
+  line-height:1.8;
+  max-width:600px;
+}
+.hero .pill-buttons{
+  margin-top:2rem;
+  display:flex;
+  gap:1rem;
+}
+.hero .pill-btn{
+  background:#FFFFFF;
+  color:#0B3738;
+  border:2px solid #0B3738;
+  padding:0.6rem 1.2rem;
+  border-radius:2rem;
+  font-family:'Inter',sans-serif;
+  font-size:0.85rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.hero .pill-btn:hover{
+  background:#0B3738;
+  color:#FFFFFF;
+}
+
+/* --- CATEGORY ICON BAR ---*/
+.category-bar{
+  background:#FFFFFF;
+  padding:1.5rem 1.5rem 2rem;
+  margin:0 -1.5rem 2rem;
+  border-top:1px solid rgba(0,0,0,0.05);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+}
+.category-bar .row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:2rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+.category-item{
+  flex:1;
+  min-width:180px;
+  text-align:center;
+}
+.category-item .icon{
+  width:48px;
+  height:48px;
+  margin:0 auto 0.8rem;
+  background:rgba(11,55,56,0.1);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#0B3738;
+  font-size:1.5rem;
+  transition:0.3s;
+}
+.category-item .icon:hover{
+  background:#0B3738;
+  color:#FFFFFF;
+}
+.category-item h4{
+  font-family:'Inter',sans-serif;
+  font-size:0.85rem;
+  color:#0B3738;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-top:0.5rem;
+}
+.category-item p{
+  font-size:0.75rem;
+  color:#6B7A88;
+  margin-top:0.2rem;
+  line-height:1.4;
+}
+
+/* --- PODCAST SECTION ---*/
+.podcast-section{
+  padding:3rem 1.5rem;
+  background:#FBFBF7;
+}
+.podcast-section .section-head{
+  max-width:1200px;
+  margin:0 auto 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.podcast-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;
+  color:#0B3738;
+  margin:0;
+}
+.podcast-section .divider{
+  width:60px;
+  height:3px;
+  background:#0B3738;
+  margin-left:1rem;
+}
+.podcast-section .view-all{
+  font-family:'Inter',sans-serif;
+  font-size:0.8rem;
+  color:#0B3738;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  padding:0.5rem 0.8rem;
+  background:transparent;
+  border:2px solid #0B3738;
+  border-radius:2rem;
+  cursor:pointer;
+  transition:0.3s;
+}
+.podcast-section .view-all:hover{
+  background:#0B3738;
+  color:#FFFFFF;
+}
+
+.podcast-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:1.2rem;
+}
+.podcast-card{
+  background:#FFFFFF;
+  border-radius:8px;
+  overflow:hidden;
+  transition:transform 0.3s,box-shadow 0.3s;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.podcast-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+.podcast-card .img-wrapper{
+  height:220px;
+  background:#F0F0F0;
+  overflow:hidden;
+  position:relative;
+}
+.podcast-card .img-wrapper img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.4s;
+}
+.podcast-card:hover .img-wrapper img{
+  transform:scale(1.08);
+}
+.podcast-card .play-btn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:40px;
+  height:40px;
+  background:rgba(11,55,56,0.6);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.podcast-card:hover .play-btn{
+  opacity:1;
+}
+.podcast-card .content{
+  padding:1rem;
+  flex-grow:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.podcast-card .title{
+  font-family:'Playfair Display',serif;
+  font-size:0.9rem;
+  color:#0B3738;
+  margin-bottom:0.2rem;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:100%;
+}
+.podcast-card .category{
+  font-family:'Inter',sans-serif;
+  font-size:0.7rem;
+  color:#563A1F;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin-bottom:0.4rem;
+}
+
+/* Mobile: 2-column, then 1-column */
+@media(max-width:1024px){
+  .podcast-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+@media(max-width:600px){
+  .podcast-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* --- QUOTE + EMAIL SECTION ---*/
+.quote-email-section{
+  padding:3rem 1.5rem;
+  background:#FBFBF7;
+  position:relative;
+}
+.quote-email-section .container{
+  max-width:1200px;
+  margin:0 auto;
+}
+.quote-left{
+  flex:1;
+  padding-right:2rem;
+}
+.quote-left .quote{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
+  font-style:italic;
+  color:#111;
+  line-height:1.6;
+  margin-bottom:1.5rem;
+  position:relative;
+  padding-left:2rem;
+}
+.quote-left .quote::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  width:3px;
+  height:60%;
+  background:#0B3738;
+}
+.quote-right{
+  flex:1;
+}
+.quote-right h3{
+  font-family:'Inter',sans-serif;
+  font-size:1.2rem;
+  color:#0B3738;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:1rem;
+}
+.quote-right .email-field{
+  width:100%;
+  padding:0.8rem 1rem;
+  border:2px solid rgba(0,0,0,0.1);
+  border-radius:2rem;
+  font-family:'Inter',sans-serif;
+  font-size:0.9rem;
+  margin-bottom:1rem;
+  transition:0.3s;
+}
+.quote-right .email-field:focus{
+  border-color:#0B3738;
+  outline:none;
+}
+.quote-right .subscribe-btn{
+  width:100%;
+  background:#0B3738;
+  color:#FFFFFF;
+  border:none;
+  padding:0.8rem;
+  border-radius:2rem;
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:0.9rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.quote-right .subscribe-btn:hover{
+  background:#2F534D;
+}
+
+/* --- LARGE STORY / MISSION SECTION ---*/
+.mission-section{
+  padding:4rem 1.5rem;
+  position:relative;
+}
+.mission-section .bg-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url('MISSION_IMAGE_URL') center/cover no-repeat;
+  opacity:0.6;
+}
+.mission-section .content-wrapper{
+  position:relative;
+  z-index:2;
+  max-width:1200px;
+  margin:0 auto;
+  padding:2rem;
+  background:rgba(251,251,251,0.8);
+  border-radius:8px;
+}
+.mission-section .headline{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  color:#0B3738;
+  line-height:1.2;
+  margin-bottom:1rem;
+}
+.mission-section .subtxt{
+  color:#563A1F;
+  font-size:1.1rem;
+  line-height:1.8;
+  margin-bottom:2rem;
+}
+.mission-section .mission-btn{
+  background:#FFFFFF;
+  color:#0B3738;
+  border:2px solid #0B3738;
+  padding:0.6rem 1.2rem;
+  border-radius:2rem;
+  font-family:'Inter',sans-serif;
+  font-size:0.85rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.mission-section .mission-btn:hover{
+  background:#0B3738;
+  color:#FFFFFF;
+}
+.mission-section .script-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.5rem;
+  color:#0B3738;
+  line-height:1.3;
+  display:block;
+}
+
+/* ============================================================
+ *  LANDING PAGE HTML
+ * ============================================================
+ */
+ landing-page>
+<DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigating Health — Podcast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* all CSS from above */
+  </style>
+</head>
+<body>
+
+  <!-- ===== TOP NAVIGATION ===== -->
+  <nav class="navbar">
+    <a class="logo" href="#">Navigating Health</a>
+    <div class="nav-links">
+      <a href="#">Latest</a>
+      <a href="#">Health</a>
+      <a href="#">Travel</a>
+      <a href="#">Education</a>
+    </div>
+    <div>
+      <span class="search-icon">🔍</span>
+      <button class="donate-btn">Donate</button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" style="background-image: url('HERO_IMAGE_URL');">
+    <div class="container">
+      <div class="logo-brand">Navigating Health</div>
+      <h1 class="headline">Your Health Journey Matters.</h1>
+      <p class="subhead">Cinematic conversations that help people make more informed decisions about their health. With mountain photography and thoughtful storytelling.</p>
+      <div class="pill-buttons">
+        <button class="pill-btn">Listen Now</button>
+        <button class="pill-btn">Explore Episodes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORY ICON BAR ===== -->
+  <div class="category-bar">
+    <div class="row">
+      <div class="category-item"><div class="icon">🌲</div><h4>Health</h4><p>Wellness and mindful living</p></div>
+      <div class="category-item"><div class="icon">🏔️</div><h4>Travel</h4><p>Adventures and nature</p></div>
+      <div class="category-item"><div class="icon">📖</div><h4>Education</h4><p>Learning for life</p></div>
+      <div class="category-item"><div class="icon">💚</div><h4>Community</h4><p>Connecting together</p></div>
+    </div>
+  </div>
+
+  <!-- ===== PODCAST SECTION ===== -->
+  <section class="podcast-section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Explore the Latest</h2>
+        <div class="divider"></div>
+        <button class="view-all">View All Episodes</button>
+      </div>
+      <div class="podcast-grid">
+        <div class="podcast-card"><div class="img-wrapper"><img src="podcast1.jpg" alt="Episode 1"></div><div class="content"><h3 class="title">The Science of Letting Go</h3><p class="category">Health</p><div class="play-btn"></div></div></div>
+        <div class="podcast-card"><div class="img-wrapper"><img src="podcast2.jpg" alt="Episode 2"></div><div class="content"><h3 class="title">Mindful Eating</h3><p class="category">Health</p><div class="play-btn"></div></div></div>
+        <div class="podcast-card"><div class="img-wrapper"><img src="podcast3.jpg" alt="Episode 3"></div><div class="content"><h3 class="title">Forest Bathing</h3><p class="category">Travel</p><div class="play-btn"></div></div></div>
+        <div class="podcast-card"><div class="img-wrapper"><img src="podcast4.jpg" alt="Episode 4"></div><div class="content"><h3 class="title">Connection Point</h3><p class="category">Health</p><div class="play-btn"></div></div></div>
+        <div class="podcast-card"><div class="img-wrapper"><img src="podcast5.jpg" alt="Episode 5"></div><div class="content"><h3 class="title">Sleep Well</h3><p class="category">Health</p><div class="play-btn"></div></div></div>
+        <div class="podcast-card"><div class="img-wrapper"><img src="podcast6.jpg" alt="Episode 6"></div><div class="content"><h3 class="title">Walking Free</h3><p class="category">Travel</p><div class="play-btn"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUOTE + EMAIL SECTION ----->
+  <section class="quote-email-section">
+    <div class="container">
+      <div class="quote-left">
+        <p class="quote">“The greatest wealth is health.” — Virgil</p>
+      </div>
+      <div class="quote-right">
+        <h3>Get New Episodes & Updates</h3>
+        <p>Sign up to receive episode releases, show notes, and inspiration straight to your inbox.</p>
+        <form class="email-field">
+          <input type="email" placeholder="your@email.com" required>
+          <button class="subscribe-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LARGE STORY / MISSION SECTION ----->
+  <section class="mission-section">
+    <div class="bg-overlay"></div>
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="headline">More Than a Podcast.<br>A Healthier, More Informed You.</div>
+        <p class="subtxt">We combine health, nature, and travel storytelling to inspire a more informed, more peaceful way of living.</p>
+        <button class="mission-btn">Explore The Show</button>
+        <p class="script-text">Let's Navigate This Together.</p>
+        <div style="margin-top:2rem;">
+          <a href="#" style="color:#0B3738; text-decoration:none; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Health</a>
+          <span>·</span>
+          <a href="#" style="color:#0B3738; text-decoration:none; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Travel</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Swiper init for podcast cards on mobile would go here
+    // (using CDN as in the script block from earlier)
+  </script>
+</body>
+</html>
