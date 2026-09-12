@@ -26,12 +26,18 @@
                         .green-strip p{max-width:540px;margin:0 auto;color:#FBFBF7;font-size:0.75rem;line-height:1.4;}
     
     /* CATEGORY BAR */
-    .cat-bar{background:#fff;padding:1rem 0;border-top:1px solid #eee;border-bottom:1px solid #eee;}
-    .cat-wrapper{display:flex;flex-wrap:wrap;gap:1rem;max-width:800px;margin:0 auto;padding:0 2rem;}
-    .cat-item{flex:1;min-width:120px;text-align:center;padding:0.5rem 0;}
-    .cat-item .icon{width:32px;height:32px;background:#0B3738;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;}
-    .cat-item h4{font-size:0.8rem;color:#0B3738;text-transform:uppercase;letter-spacing:1px;}
-    .cat-item p{font-size:0.7rem;color:#666;margin-top:0.2rem;}
+    .cat-bar{background:#fff;padding:2.5rem 0;border-top:1px solid #eee;border-bottom:1px solid #eee;}
+        .cat-wrapper{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;max-width:1200px;margin:0 auto;padding:0 2rem;}
+        .cat-item{text-align:center;padding:0.5rem 0;}
+        .cat-item svg{display:block;margin:0 auto 0.75rem;}
+        .cat-item h4{font-size:0.8rem;color:#0B3738;text-transform:uppercase;letter-spacing:1px;font-weight:600;line-height:1.35;}
+        .cat-item p{font-size:0.72rem;color:#666;margin-top:0.25rem;line-height:1.4;}
+        @media(max-width:768px){
+          .cat-wrapper{grid-template-columns:repeat(2,1fr);gap:1.5rem 1rem;}
+        }
+        @media(max-width:400px){
+          .cat-wrapper{grid-template-columns:repeat(1,1fr);}
+        }
     
     /* PODCAST SECTION */
     .podcast{padding:2rem 0;background:#FBFBF7;}
@@ -104,13 +110,34 @@
     </div>
 
   <!-- CATEGORY BAR -->
-  <div class="cat-bar">
-    <div class="cat-wrapper">
-      <div class="cat-item"><div class="icon">🌲</div><h4>Health</h4><p>Wellness</p></div>
-      <div class="cat-item"><div class="icon">🏔️</div><h4>Travel</h4><p>Adventures</p></div>
-      <div class="cat-item"><div class="icon">📖</div><h4>Education</h4><p>Learning</p></div>
+    <div class="cat-bar">
+      <div class="cat-wrapper">
+        <div class="cat-item">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#0B3738" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3.5h15v13h-15z"/><path d="M9 20h6M12 16.5V20"/><path d="M8 7.5h8M8 11h5"/></svg>
+          <h4>Expert Interviews</h4><p>Doctors, Nurses<br>&amp; More</p>
+        </div>
+        <div class="cat-item">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#0B3738" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.5-9C1 8 2.5 4.5 6 4.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 15.5 12 20 12 20z"/></svg>
+          <h4>Beyond Healthcare</h4><p>Wellness, Lifestyle<br>&amp; More</p>
+        </div>
+        <div class="cat-item">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#0B3738" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4 20c0-3.5 3.5-5.5 8-5.5s8 2 8 5.5"/></svg>
+          <h4>Real People,<br>Real Journeys</h4><p>Inspiring Stories</p>
+        </div>
+        <div class="cat-item">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#0B3738" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-4.5-1.5-7-4.5-7-9 1 1 2 1.5 3.5 1.5C8.5 7 10 5 12 3c2 2 3.5 4 3.5 9.5 1.5 0 2.5-.5 3.5-1.5 0 4.5-2.5 7.5-7 9z"/></svg>
+          <h4>Healthy Living</h4><p>Tips, Topics<br>&amp; DIY</p>
+        </div>
+        <div class="cat-item">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#0B3738" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="3"/></svg>
+          <h4>Tools and Resources</h4><p>Be an informed<br>decision maker</p>
+        </div>
+        <div class="cat-item">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#0B3738" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><path d="M6 6c3-3 9-3 12 0M6 18c3 3 9 3 12 0"/></svg>
+          <h4>Alternative &amp;<br>Integrative Health</h4><p>Explore New<br>Possibilities</p>
+        </div>
+      </div>
     </div>
-  </div>
 
   <!-- PODCAST SECTION -->
   <section class="podcast">
