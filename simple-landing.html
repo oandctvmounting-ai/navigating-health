@@ -113,11 +113,11 @@
   <!-- NAVIGATION -->
   <nav>
     <div class="nav-wrapper container">
-      <a class="logo" href="#">Navigating Health</a>
-      <div class="nav-links">
-        <a href="#">Latest</a><a href="#">Health</a><a href="#">Travel</a>
-      </div>
-      <button class="donate-btn">Donate</button>
+      <a class="logo" href="simple-landing.html">Navigating Health</a>
+            <div class="nav-links">
+              <a href="latest-conversations.html">Latest</a><a href="blog.html">Health</a><a href="real-journeys.html">Travel</a>
+            </div>
+            <button class="donate-btn" onclick="window.location.href='blog.html'">Donate</button>
     </div>
   </nav>
 
@@ -170,7 +170,7 @@
     <div class="container">
       <h2>Explore the Latest</h2>
       <div class="divider"></div>
-      <span class="view-all">View All Episodes</span>
+      <a class="view-all" href="latest-conversations.html">View All Episodes</a>
             <div class="podcast-grid">
               <a href="latest-conversations.html" class="podcast-card"><img src="https://via.placeholder.com/400x250/0B3738/0B3738" alt="Latest Conversations"><div class="card-label">Latest<br>Conversations</div><div class="title">Podcast Episodes</div></a>
                             <a href="personal-care-recipes.html" class="podcast-card"><img src="https://via.placeholder.com/400x250/2F534D/2F534D" alt="Personal Care Recipes"><div class="card-label">Homemade<br>Personal Care Recipes</div><div class="title">Simple. Natural. Effective.</div></a>
@@ -192,9 +192,11 @@
           <p class="quote-sub">More Than a Podcast.<br>A Healthier, More Informed You.</p>
                     <img src="quote-photo.jpg" alt="Navigating Health" class="quote-photo">
                     <div class="email-box">
-                      <input type="email" placeholder="your@email.com" required>
-                      <button>Subscribe</button>
-      </div>
+                                          <form onsubmit="alert('Thanks for subscribing!'); return false;">
+                                            <input type="email" placeholder="your@email.com" required>
+                                            <button type="submit">Subscribe</button>
+                                          </form>
+                                        </div>
     </div>
   </section>
 
@@ -202,8 +204,8 @@
   <section class="mission" style="background:#0B3738;color:#fff;">
     <div class="container">
       <h2>More Than a Podcast.</h2>
-      <p>A Healthier, More Informed You.</p>
-      <button class="btn">Explore The Show</button>
+            <p>A Healthier, More Informed You.</p>
+            <button class="btn" onclick="window.location.href='latest-conversations.html'">Explore The Show</button>
       <p style="margin-top:1.5rem;font-family:'Playfair Display',serif;">Let's Navigate This Together.</p>
     </div>
   </section>
@@ -214,10 +216,10 @@
       <svg class="leaf sm" style="top:10px;right:8%;"><use href="#leaf"/></svg>
       <div class="footer-wrapper container">
       <p>© 2026 Navigating Health</p>
-      <div style="margin:1rem 0;">
-        <a href="#">Health</a><span>·</span><a href="#">Travel</a>
-      </div>
-      <p>Subscribe for new episodes</p>
+            <div style="margin:1rem 0;">
+              <a href="blog.html">Health</a><span>·</span><a href="real-journeys.html">Travel</a>
+            </div>
+            <p>Subscribe for new episodes</p>
     </div>
   </footer>
 
