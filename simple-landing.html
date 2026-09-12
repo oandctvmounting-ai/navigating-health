@@ -7,10 +7,15 @@
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
     body{background:#FBFBF7;font-family:Arial,sans-serif;color:#111;line-height:1.6;}
+    .leaf{position:absolute;pointer-events:none;opacity:0.12;width:90px;height:90px;z-index:0;}
+    .leaf.lg{width:150px;height:150px;}
+    .leaf.sm{width:55px;height:55px;}
+    .leaf svg{width:100%;height:100%;fill:#0B3738;}
+    .has-leaf{position:relative;}
     .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
     
     /* NAVIGATION */
-    nav{background:#fff;padding:1rem 0;border-bottom:2px solid #0B3738;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(251,251,247,0.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:1rem 0;border-bottom:1px solid rgba(11,55,56,0.12);}
     .navbar-inner{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;}
         .nav-wrapper{display:flex;justify-content:space-between;align-items:center;}
         .logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:#0B3738;text-decoration:none;}
@@ -33,7 +38,7 @@
                         .green-strip p{max-width:540px;margin:0 auto;color:#FBFBF7;font-size:0.75rem;line-height:1.4;}
     
     /* CATEGORY BAR */
-    .cat-bar{background:#fff;padding:2.5rem 0;border-top:1px solid #eee;border-bottom:1px solid #eee;}
+    .cat-bar{background:#fff;padding:2.5rem 0;border-top:1px solid #eee;border-bottom:1px solid #eee;position:relative;overflow:hidden;}
         .cat-wrapper{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;max-width:1200px;margin:0 auto;padding:0 2rem;}
         .cat-item{text-align:center;padding:0.5rem 0;}
         .cat-item svg{display:block;margin:0 auto 0.75rem;}
@@ -63,7 +68,7 @@
             .podcast-card .title{padding:0.9rem;font-family:'Playfair Display',serif;font-size:0.95rem;color:#0B3738;font-style:italic;}
     
     /* QUOTE + EMAIL */
-    .quote-section{padding:2rem 0;background:#FBFBF7;}
+    .quote-section{padding:2rem 0;background:#FBFBF7;position:relative;overflow:hidden;}
     .quote-wrapper{max-width:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;}
         .quote{font-style:italic;font-size:1.3rem;color:#0B3738;margin:0 0 1.25rem;text-align:center;width:100%;font-family:'Playfair Display',serif;line-height:1.45;padding:0 2rem;}
         .quote-sub{font-size:1.6rem;color:#0B3738;margin:0;text-align:center;width:100%;font-family:'Playfair Display',serif;font-weight:700;line-height:1.3;padding:0 2rem;}
@@ -79,7 +84,9 @@
     .mission .btn{background:#fff;border:2px solid #0B3738;color:#0B3738;padding:0.6rem 1.2rem;border-radius:4;margin-top:1rem;cursor:pointer;}
     
     /* FOOTER */
-    footer{background:#0B3738;color:#fff;padding:2rem 0;}
+    footer{background:#0B3738;color:#fff;padding:2rem 0;position:relative;overflow:hidden;}
+    footer .leaf svg{fill:#FBFBF7;}
+    footer .leaf{opacity:0.08;}
     .footer-wrapper{max-width:800px;margin:0 auto;padding:0 2rem;text-align:center;}
     footer a{color:#ddd;margin:0 1rem;text-decoration:none;}
 
@@ -95,6 +102,13 @@
       </style>
 </head>
 <body>
+
+  <svg style="display:none;" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="leaf" viewBox="0 0 64 64">
+      <path d="M32 4C14 14 8 30 12 46c2-10 10-16 20-16-2 12-10 20-20 24 14 6 26-4 26-18V4z"/>
+      <path d="M40 8c14 6 20 20 18 34-2-10-9-16-18-16v-18z"/>
+    </symbol>
+  </svg>
 
   <!-- NAVIGATION -->
   <nav>
@@ -120,8 +134,10 @@
     </div>
 
   <!-- CATEGORY BAR -->
-    <div class="cat-bar">
-      <div class="cat-wrapper">
+      <div class="cat-bar has-leaf">
+        <svg class="leaf sm" style="top:-10px;right:6%;"><use href="#leaf"/></svg>
+        <svg class="leaf" style="bottom:-15px;left:4%;"><use href="#leaf"/></svg>
+        <div class="cat-wrapper">
         <div class="cat-item">
           <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#0B3738" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3.5h15v13h-15z"/><path d="M9 20h6M12 16.5V20"/><path d="M8 7.5h8M8 11h5"/></svg>
           <h4>Expert Interviews</h4><p>Doctors, Nurses<br>&amp; More</p>
@@ -167,8 +183,11 @@
   </section>
 
   <!-- QUOTE + EMAIL -->
-  <section class="quote-section">
-    <div class="quote-wrapper">
+    <section class="quote-section has-leaf">
+      <svg class="leaf lg" style="top:-20px;left:-40px;"><use href="#leaf"/></svg>
+      <svg class="leaf sm" style="top:30%;right:-20px;"><use href="#leaf"/></svg>
+      <svg class="leaf" style="bottom:20px;left:8%;"><use href="#leaf"/></svg>
+      <div class="quote-wrapper">
           <p class="quote">Knowledge doesn't just change your health — it changes your life.</p>
           <p class="quote-sub">More Than a Podcast.<br>A Healthier, More Informed You.</p>
                     <img src="quote-photo.jpg" alt="Navigating Health" class="quote-photo">
@@ -190,8 +209,10 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-wrapper container">
+    <footer class="has-leaf">
+      <svg class="leaf lg" style="bottom:-30px;left:-30px;"><use href="#leaf"/></svg>
+      <svg class="leaf sm" style="top:10px;right:8%;"><use href="#leaf"/></svg>
+      <div class="footer-wrapper container">
       <p>© 2026 Navigating Health</p>
       <div style="margin:1rem 0;">
         <a href="#">Health</a><span>·</span><a href="#">Travel</a>
