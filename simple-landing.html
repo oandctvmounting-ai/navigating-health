@@ -17,8 +17,9 @@
     .donate-btn{background:#0B3738;color:#fff;border:none;padding:0.6rem 1.2rem;border-radius:2rem;font-weight:600;cursor:pointer;}
     
     /* HERO */
-    .hero{height:400px;background:#0B3738;position:relative;color:#fff;margin:2rem 0;}
-    .hero .container{padding:3rem 2rem;max-width:800px;margin:0 auto;}
+    .hero{height:400px;background:url('hero-header.jpg') center/cover no-repeat;position:relative;color:#fff;margin:2rem 0;}
+    .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(11,55,56,0.45);}
+    .hero .container{padding:3rem 2rem;max-width:800px;margin:0 auto;position:relative;z-index:2;}
     .hero h1{font-size:3rem;margin-bottom:1rem;}
     .hero p{font-size:1.2rem;opacity:0.9;}
     
