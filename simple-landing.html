@@ -56,14 +56,11 @@
     .podcast-grid{display:flex;gap:1.25rem;margin-top:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:0.5rem 0.25rem 1rem;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#0B3738 transparent;}
         .podcast-grid::-webkit-scrollbar{height:6px;}
         .podcast-grid::-webkit-scrollbar-thumb{background:#0B3738;border-radius:6px;}
-        .podcast-card{background:#fff;border-radius:12px;position:relative;transition:transform 0.3s ease,box-shadow 0.3s ease;flex:0 0 220px;scroll-snap-align:start;overflow:hidden;}
-        .podcast-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(11,55,56,0.18);}
-        .podcast-card img{width:100%;height:260px;object-fit:cover;display:block;}
-        .play-overlay{position:absolute;top:0;left:0;width:100%;height:260px;background:rgba(11,55,56,0.6);opacity:0;transition:opacity 0.3s;display:flex;align-items:center;justify-content:center;}
-        .play-overlay svg{opacity:0;transform:scale(0.7);transition:all 0.3s ease;}
-        .podcast-card:hover .play-overlay{opacity:1;}
-        .podcast-card:hover .play-overlay svg{opacity:1;transform:scale(1);}
-        .podcast-card .title{padding:0.9rem;font-family:'Playfair Display',serif;font-size:0.95rem;color:#0B3738;}
+        .podcast-card{background:#fff;border-radius:12px;position:relative;transition:transform 0.3s ease,box-shadow 0.3s ease;flex:0 0 220px;scroll-snap-align:start;overflow:hidden;text-decoration:none;display:block;}
+            .podcast-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(11,55,56,0.18);}
+            .podcast-card img{width:100%;height:260px;object-fit:cover;display:block;}
+            .card-label{position:absolute;top:0;left:0;right:0;padding:0.9rem 0.85rem;background:linear-gradient(rgba(11,55,56,0.75),rgba(11,55,56,0));color:#fff;font-family:'Playfair Display',serif;font-size:1.05rem;line-height:1.25;font-weight:700;text-align:left;}
+            .podcast-card .title{padding:0.9rem;font-family:'Playfair Display',serif;font-size:0.95rem;color:#0B3738;font-style:italic;}
     
     /* QUOTE + EMAIL */
     .quote-section{padding:2rem 0;background:#FBFBF7;}
@@ -157,14 +154,14 @@
       <h2>Explore the Latest</h2>
       <div class="divider"></div>
       <span class="view-all">View All Episodes</span>
-      <div class="podcast-grid">
-        <div class="podcast-card"><img src="https://via.placeholder.com/400x250/0B3738/FFFFFF/true?text=Ep+1" alt="Ep 1"><div class="play-overlay"><svg viewBox="0 0 24 24" width="44" height="44" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg></div><div class="title">The Science of Letting Go</div></div>
-                <div class="podcast-card"><img src="https://via.placeholder.com/400x250/2F534D/FFFFFF/true?text=Ep+2" alt="Ep 2"><div class="play-overlay"><svg viewBox="0 0 24 24" width="44" height="44" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg></div><div class="title">Mindful Eating</div></div>
-                <div class="podcast-card"><img src="https://via.placeholder.com/400x250/427073/FFFFFF/true?text=Ep+3" alt="Ep 3"><div class="play-overlay"><svg viewBox="0 0 24 24" width="44" height="44" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg></div><div class="title">Forest Bathing</div></div>
-                <div class="podcast-card"><img src="https://via.placeholder.com/400x250/866743/FFFFFF/true?text=Ep+4" alt="Ep 4"><div class="play-overlay"><svg viewBox="0 0 24 24" width="44" height="44" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg></div><div class="title">Connection Point</div></div>
-                <div class="podcast-card"><img src="https://via.placeholder.com/400x250/563A1F/FFFFFF/true?text=Ep+5" alt="Ep 5"><div class="play-overlay"><svg viewBox="0 0 24 24" width="44" height="44" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg></div><div class="title">Sleep Well</div></div>
-                <div class="podcast-card"><img src="https://via.placeholder.com/400x250/87B5D8/FFFFFF/true?text=Ep+6" alt="Ep 6"><div class="play-overlay"><svg viewBox="0 0 24 24" width="44" height="44" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg></div><div class="title">Walking Free</div></div>
-      </div>
+            <div class="podcast-grid">
+              <a href="latest-conversations.html" class="podcast-card"><img src="https://via.placeholder.com/400x250/0B3738/FFFFFF/true?text=Latest+Conversations" alt="Latest Conversations"><div class="card-label">Latest<br>Conversations</div><div class="title">Podcast Episodes</div></a>
+              <a href="personal-care-recipes.html" class="podcast-card"><img src="https://via.placeholder.com/400x250/2F534D/FFFFFF/true?text=Personal+Care" alt="Personal Care Recipes"><div class="card-label">Homemade<br>Personal Care Recipes</div><div class="title">Simple. Natural. Effective.</div></a>
+              <a href="real-journeys.html" class="podcast-card"><img src="https://via.placeholder.com/400x250/427073/FFFFFF/true?text=Real+Journeys" alt="Real Journeys"><div class="card-label">Real People<br>Real Journeys</div><div class="title">Inspiring Stories</div></a>
+              <a href="alternative-approaches.html" class="podcast-card"><img src="https://via.placeholder.com/400x250/866743/FFFFFF/true?text=Alternative" alt="Alternative Approaches"><div class="card-label">Alternative<br>Approaches</div><div class="title">Explore New Possibilities</div></a>
+              <a href="tools-resources.html" class="podcast-card"><img src="https://via.placeholder.com/400x250/563A1F/FFFFFF/true?text=Tools" alt="Tools and Resources"><div class="card-label">Tools &amp;<br>Resources</div><div class="title">Be an Informed Decision Maker</div></a>
+              <a href="blog.html" class="podcast-card"><img src="https://via.placeholder.com/400x250/87B5D8/FFFFFF/true?text=Blog" alt="Blog"><div class="card-label">Blog</div><div class="title">Insights &amp; Inspiration</div></a>
+            </div>
     </div>
   </section>
 
